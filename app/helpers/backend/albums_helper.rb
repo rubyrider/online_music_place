@@ -1,0 +1,2 @@
+module Backend::AlbumsHelper
+end
