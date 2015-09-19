@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919075240) do
+ActiveRecord::Schema.define(version: 20150919115113) do
 
   create_table "album_artists", force: :cascade do |t|
     t.integer  "album_id",   limit: 4
@@ -115,6 +115,28 @@ ActiveRecord::Schema.define(version: 20150919075240) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.text     "details",    limit: 65535
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "active"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.integer  "song_id",      limit: 4
+    t.string   "name",         limit: 255
+    t.string   "duration",     limit: 255
+    t.integer  "demo_song_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "tracks", ["demo_song_id"], name: "index_tracks_on_demo_song_id", using: :btree
+  add_index "tracks", ["song_id"], name: "index_tracks_on_song_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -129,10 +151,12 @@ ActiveRecord::Schema.define(version: 20150919075240) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.integer  "role",                   limit: 4,   default: 0
+    t.integer  "subscription_id",        limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["subscription_id"], name: "index_users_on_subscription_id", using: :btree
 
   add_foreign_key "album_artists", "albums"
   add_foreign_key "album_artists", "artists"
@@ -142,4 +166,6 @@ ActiveRecord::Schema.define(version: 20150919075240) do
   add_foreign_key "song_artists", "songs"
   add_foreign_key "song_categories", "categories"
   add_foreign_key "song_categories", "songs"
+  add_foreign_key "tracks", "songs"
+  add_foreign_key "users", "subscriptions"
 end

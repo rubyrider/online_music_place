@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :subscription
+
   ROLES = {
       :user => 0,
       :admin => 1,
@@ -11,5 +13,4 @@ class User < ActiveRecord::Base
       :reporter => 3,
       :collection_manager => 4
   }
-
 end
