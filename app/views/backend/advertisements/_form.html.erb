@@ -1,0 +1,94 @@
+<%= form_for @advertisement, :html => { :class => "form-horizontal advertisement" } do |f| %>
+
+    <% if @advertisement.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@advertisement.errors.count, "error") %> prohibited this advertisement from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @advertisement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :content, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:content]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :from_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :from_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:from_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :end_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:end_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :featured, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :featured, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:featured]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ad_position_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ad_position_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:ad_position_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :height, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :height, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:height]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :width, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :width, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:width]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :modal, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :modal, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:modal]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :custom_css, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :custom_css, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:custom_css]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            advertisements_path, :class => 'btn btn-default' %>
+
+<% end %>

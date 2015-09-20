@@ -1,0 +1,24 @@
+.side-nav {
+  background-color: #981313;
+  padding: 20px;
+  h2 {
+    color: #fff !important;
+  }
+
+  li {
+    border-bottom: 1px solid rgba(221, 221, 221, 0.43);
+  }
+
+  a {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  li:last-child {
+    border-bottom: none !important;
+  }
+
+  a:hover {
+    background-color: #981313 !important;
+  }
+}

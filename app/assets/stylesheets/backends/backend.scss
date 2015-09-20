@@ -1,0 +1,34 @@
+// Place all the styles related to the backend/backend controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.navbar-default {
+  background-color: #981313 !important;
+  color: #fff !important;
+  a {
+    color: #fff !important;
+  }
+}
+
+thead th {
+  background: #fff !important;
+  th {
+    color: #981313 !important;
+  }
+}
+
+a.btn-primary {
+  background-color: #981313 !important;
+  color: #fff !important;
+}
+
+.page-header {
+  h1, h2, h3, h4, h5, h6 {
+    color: #981313;
+  }
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+}

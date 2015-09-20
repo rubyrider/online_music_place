@@ -1,0 +1,2 @@
+module Backend::LanguagesHelper
+end

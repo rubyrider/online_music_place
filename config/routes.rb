@@ -59,6 +59,10 @@ Rails.application.routes.draw do
       resources :artiss
       resources :categories
       resources :subscriptions
+      resources :languages
+      resources :analytics
+      resources :ad_positions
+      resources :advertisements
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
     end

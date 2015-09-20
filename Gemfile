@@ -59,3 +59,6 @@ gem "twitter-bootstrap-rails"
 
 # json parser
 gem 'oj'
+
+# followship
+gem "acts_as_follower", '0.2.0'
