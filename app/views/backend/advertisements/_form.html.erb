@@ -1,4 +1,4 @@
-<%= form_for @advertisement, :html => { :class => "form-horizontal advertisement" } do |f| %>
+<%= form_for @advertisement, url: backend_advertisements_path, :html => { :class => "form-horizontal advertisement" } do |f| %>
 
     <% if @advertisement.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -81,14 +81,14 @@
   <div class="control-group">
     <%= f.label :custom_css, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :custom_css, :class => 'form-control' %>
+      <%= f.text_area :custom_css, :class => 'form-control' %>
     </div>
     <%= error_span(@advertisement[:custom_css]) %>
   </div>
 
-
+    <div class="clearfix" style="clear: both; height: 40px !important;"></div>
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            advertisements_path, :class => 'btn btn-default' %>
+            backend_advertisements_path, :class => 'btn btn-default' %>
 
 <% end %>

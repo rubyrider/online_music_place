@@ -23,7 +23,7 @@
   <tbody>
     <% @advertisements.each do |advertisement| %>
       <tr>
-        <td><%= link_to advertisement.id, advertisement_path(advertisement) %></td>
+        <td><%= link_to advertisement.id, backend_advertisement_path(advertisement) %></td>
         <td><%= advertisement.title %></td>
         <td><%= advertisement.content %></td>
         <td><%= advertisement.from_date %></td>
@@ -37,9 +37,9 @@
         <td><%=l advertisement.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_advertisement_path(advertisement), :class => 'btn btn-default btn-xs' %>
+                      edit_backend_advertisement_path(advertisement), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      advertisement_path(advertisement),
+                      backend_advertisement_path(advertisement),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -50,5 +50,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_advertisement_path,
+            new_backend_advertisement_path,
             :class => 'btn btn-primary' %>

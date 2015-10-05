@@ -2,10 +2,14 @@ module Backend
   class AlbumsController < BackendController
     before_action :set_backend_album, only: [:show, :edit, :update, :destroy]
 
+    add_breadcrumb "Album".freeze, :backend_albums_path
+
     # GET /backend/albums
     # GET /backend/albums.json
     def index
-      @albums = Album.all
+      add_breadcrumb "List".freeze, :backend_albums_path
+
+      @albums = AlbumPresenter.collect(Album.all)
     end
 
     # GET /backend/albums/1
@@ -15,11 +19,15 @@ module Backend
 
     # GET /backend/albums/new
     def new
+      add_breadcrumb "Create New".freeze, :new_backend_album_path
+
       @album = Album.new
     end
 
     # GET /backend/albums/1/edit
     def edit
+      add_breadcrumb "#{@album.name}", backend_album_path(@album.to_param)
+      add_breadcrumb "Edit".freeze, :edit_backend_albums_path
     end
 
     # POST /backend/albums
@@ -43,7 +51,7 @@ module Backend
     def update
       respond_to do |format|
         if @album.update(backend_album_params)
-          format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+          format.html { redirect_to [:backend, @album], notice: 'Album was successfully updated.' }
           format.json { render :show, status: :ok, location: @album }
         else
           format.html { render :edit }
@@ -65,12 +73,12 @@ module Backend
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_backend_album
-      @album = Album.find(params[:id])
+      @album = AlbumPresenter.new(Album.find(params[:id]))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backend_album_params
-      params[:album]
+      params.require(:album).permit!
     end
   end
 end

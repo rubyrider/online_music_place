@@ -13,5 +13,6 @@
  *= require_tree .
  *= require_tree ./backends
  *= require_tree ./frontends
+ *= stub active_admin
  *= require_self
  */

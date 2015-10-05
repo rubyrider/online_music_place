@@ -1,24 +1,32 @@
-class AdvertisementsController < ApplicationController
+class Backend::AdvertisementsController < BackendController
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
+
+  add_breadcrumb "Advertisement Management".freeze, :backend_advertisements_path
+
 
   # GET /backend/advertisements
   # GET /backend/advertisements.json
   def index
+    add_breadcrumb "List".freeze, :backend_advertisements_path
     @advertisements = Advertisement.all
   end
 
   # GET /backend/advertisements/1
   # GET /backend/advertisements/1.json
   def show
+    add_breadcrumb "#{@advertisement.title}".freeze, backend_advertisement_path(@advertisement)
   end
 
   # GET /backend/advertisements/new
   def new
+    add_breadcrumb "Create".freeze, :new_backend_advertisement_path
     @advertisement = Advertisement.new
   end
 
   # GET /backend/advertisements/1/edit
   def edit
+    add_breadcrumb "#{@advertisement.title}".freeze, backend_advertisement_path(@advertisement)
+    add_breadcrumb "Edit".freeze, edit_backend_advertisement_path(@advertisement)
   end
 
   # POST /backend/advertisements
@@ -62,13 +70,28 @@ class AdvertisementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_advertisement
-      @advertisement = Advertisement.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_advertisement
+    @advertisement = Advertisement.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def backend_advertisement_params
-      params[:advertisement]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def backend_advertisement_params
+    params.require(:advertisement).permit([
+                                              :id,
+                                              :title,
+                                              :content,
+                                              :from_date,
+                                              :end_date,
+                                              :featured,
+                                              :ad_position_id,
+                                              :height,
+                                              :width,
+                                              :modal,
+                                              :custom_css,
+                                              :created_at,
+                                              :updated_at
+                                          ]
+    )
+  end
 end

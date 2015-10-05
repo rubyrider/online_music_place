@@ -1,19 +1,27 @@
-class LanguagesController < ApplicationController
+class Backend::LanguagesController < BackendController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
+
+  add_breadcrumb "Language Management".freeze, :backend_languages_path
+
 
   # GET /backend/languages
   # GET /backend/languages.json
   def index
+    add_breadcrumb "List".freeze, :backend_languages_path
+
     @languages = Language.all
   end
 
   # GET /backend/languages/1
   # GET /backend/languages/1.json
   def show
+    add_breadcrumb "#{@language.name}".freeze, backend_language_path(@language)
   end
 
   # GET /backend/languages/new
   def new
+    add_breadcrumb "Create New Language".freeze, new_backend_language_path
+
     @language = Language.new
   end
 

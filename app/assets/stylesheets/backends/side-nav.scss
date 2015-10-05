@@ -1,8 +1,8 @@
 .side-nav {
-  background-color: #981313;
   padding: 20px;
+  box-shadow: 1px 1px 1px #888888;
+  margin-right: 5px !important;
   h2 {
-    color: #fff !important;
   }
 
   li {
@@ -10,7 +10,6 @@
   }
 
   a {
-    color: #fff !important;
     text-decoration: none !important;
   }
 
@@ -19,6 +18,15 @@
   }
 
   a:hover {
-    background-color: #981313 !important;
+  }
+
+  h5.menu_title {
+    border-bottom: 1px solid #292929;
+    padding-bottom: 10px !important;
+    line-height: 30px;
+  }
+
+  h4.dashboard-title {
+    color: #fff !important;
   }
 }

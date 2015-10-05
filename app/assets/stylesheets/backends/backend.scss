@@ -1,26 +1,35 @@
 // Place all the styles related to the backend/backend controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+//= require bootstrap-datepicker3
 
 .navbar-default {
   background-color: #981313 !important;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 0.71) !important;
   a {
-    color: #fff !important;
+    color: rgba(255, 255, 255, 0.82) !important;
   }
 }
 
 thead th {
-  background: #fff !important;
+  background: none !important;
   th {
     color: #981313 !important;
   }
 }
 
+td, tr  {
+  background: none !important;
+  color: rgba(0, 0, 0, 0.67) !important;
+}
+
 a.btn-primary {
   background-color: #981313 !important;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+a.btn-danger {
+  background-color: #981313 !important;
+  color: rgba(255, 255, 255, 0.78) !important;
 }
 
 .page-header {
@@ -31,4 +40,5 @@ a.btn-primary {
 
 .navbar {
   margin-bottom: 0 !important;
+  box-shadow: 1px 1px 1px #888888;
 }

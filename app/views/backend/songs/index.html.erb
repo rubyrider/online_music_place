@@ -17,17 +17,17 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
-        <td><%= link_to song.id, song_path(song) %></td>
+        <td><%= link_to song.id, backend_song_path(song) %></td>
         <td><%= song.name %></td>
-        <td><%= song.album_id %></td>
+        <td><%= song.album_title %></td>
         <td><%= song.filename %></td>
         <td><%= song.asset %></td>
-        <td><%=l song.created_at %></td>
+        <td><%= song.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_song_path(song), :class => 'btn btn-default btn-xs' %>
+                      edit_backend_song_path(song), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      song_path(song),
+                      backend_song_path(song),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -38,5 +38,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_song_path,
+            new_backend_song_path,
             :class => 'btn btn-primary' %>

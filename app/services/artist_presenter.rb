@@ -1,0 +1,3 @@
+class ArtistPresenter < BasePresenter
+
+end

@@ -15,15 +15,15 @@
   <tbody>
     <% @languages.each do |language| %>
       <tr>
-        <td><%= link_to language.id, language_path(language) %></td>
+        <td><%= link_to language.id, backend_language_path(language) %></td>
         <td><%= language.name %></td>
         <td><%= language.key %></td>
         <td><%=l language.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_language_path(language), :class => 'btn btn-default btn-xs' %>
+                      edit_backend_language_path(language), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      language_path(language),
+                      backend_language_path(language),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -34,5 +34,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_language_path,
+            new_backend_language_path,
             :class => 'btn btn-primary' %>

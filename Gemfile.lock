@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
+  revision: 486f26e0c4cbbc6e55a1d8a477a550f5a6594a8d
+  specs:
+    bootstrap-datepicker-rails (1.4.0)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/activeadmin/activeadmin.git
   revision: 893b46c6530cae30e30a5dd07b94f8a212a9804a
   specs:
@@ -15,6 +22,14 @@ GIT
       rails (>= 3.2, < 5.0)
       ransack (~> 1.3)
       sass-rails
+
+GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: d878a5b784ee0f703e9ee677bc0231dc24159512
+  specs:
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
 
 GEM
   remote: https://rubygems.org/
@@ -61,12 +76,28 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bourbon (4.2.5)
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
     byebug (6.0.2)
     cancancan (1.12.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+    chronic (0.10.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -109,6 +140,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    jquery.fileupload-rails (1.11.0)
+      jquery-ui-rails (~> 5.0)
+      railties (>= 3.1)
     json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -126,6 +160,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.6.2)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
@@ -134,6 +169,14 @@ GEM
       mini_portile (~> 0.6.0)
     oj (2.12.14)
     orm_adapter (0.5.0)
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
+    paperclip-wav-mp3 (0.0.4)
+      paperclip (>= 2.7.0)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     rack (1.6.4)
@@ -223,16 +266,26 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts_as_follower (= 0.2.0)
+  annotate!
+  bootstrap-datepicker-rails!
+  bootstrap-glyphicons
+  bootstrap-kaminari-views
   byebug
   cancancan
+  carrierwave
+  chronic
   coffee-rails (~> 4.1.0)
   concernize
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  jquery.fileupload-rails
+  kaminari
   less-rails
   mysql2 (~> 0.3.18)
   oj
+  paperclip
+  paperclip-wav-mp3 (~> 0.0)
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

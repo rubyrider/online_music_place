@@ -45,6 +45,8 @@ group :development do
   gem 'spring'
 
   gem 'concernize'
+
+  gem 'annotate', github: 'ctran/annotate_models'
 end
 
 gem 'devise'
@@ -62,3 +64,16 @@ gem 'oj'
 
 # followship
 gem "acts_as_follower", '0.2.0'
+
+gem 'bootstrap-glyphicons'
+gem 'carrierwave'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+    :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+gem 'jquery.fileupload-rails'
+gem 'paperclip-wav-mp3', '~> 0.0'
+gem 'paperclip'
+gem 'chronic'

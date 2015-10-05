@@ -1,38 +1,50 @@
 <%- model_class = Album -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+<legend>Filters</legend>
+<form class="form form-inline" role="form">
+  <label for="InputFieldA" class="col-xs-4">Album Name</label>
+  <div class="form-group col-xs-12 col-sm-6 col-lg-4">
+    <div class="col-xs-2">
+      <input type="text" class="form-control" id="InputFieldA" placeholder="Search by Album Name">
+    </div>
+  </div>
+
+  <div class="form-group col-xs-12 col-sm-6 col-lg-3">
+    <button type="submit" class="btn btn-primary col-xs-8 col-xs-offset-4 pull-right">Search</button>
+  </div>
+</form>
+<div class="" style="clear: both; height: 30px !important;"></div>
+<legend>Total: <%= pluralize(@albums.size, 'Album') %></legend>
+<div class="col-xs-12 action-groups">
+  <%= link_to 'Add Album', new_backend_album_path, class: 'btn btn-primary pull-right' %>
 </div>
-<table class="table table-striped">
-  <thead>
+<div class="">
+  <table class="table table-striped">
+    <div class="page-header">
+      <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    </div>
+    <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:release_date) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @albums.each do |album| %>
-      <tr>
-        <td><%= link_to album.id, album_path(album) %></td>
-        <td><%= album.name %></td>
-        <td><%= album.release_date %></td>
-        <td><%=l album.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_backend_album_path(album), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      backend_album_path(album),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tr>
+          <td><%= link_to album.id, backend_album_path(album) %></td>
+          <td><%= album.name %></td>
+          <td><%= album.release_date %></td>
+          <td><%= album.created_date %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_backend_album_path(album), :class => 'btn btn-default btn-xs' %>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_backend_album_path,
-            :class => 'btn btn-primary' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

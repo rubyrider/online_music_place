@@ -46,127 +46,27 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="#">Music</a>
-
     <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Subscribers", "/backend/users" %></li>
-        <li><%= link_to "Albums", "/backend/albums" %></li>
-        <li><%= link_to "Songs", "/backend/songs" %></li>
-        <li><%= link_to "Play Manages", "/backend/play_Manages" %></li>
-        <li><%= link_to "Genre", "/backend/categories" %></li>
-        <li><%= link_to "Muscial Bands", "/backend/musical_bands" %></li>
-        <li><%= link_to "Languages", "/backend/languages" %></li>
-        <li><%= link_to "Advertisements", "/backend/advertisements" %></li>
-        <li><%= link_to "Ad Position", "/backend/ad_positions" %></li>
-        <li><%= link_to "Reports", "/backend/analytics" %></li>
-      </ul>
     </div>
   </div>
 </div>
-
-<div class="container-fluid">
+<div class="container-fluid body">
   <div class="row">
     <div class="col-lg-2 side-nav">
-      <h2>Dashboard</h2>
-      <ul class="nav">
-
-        <li>
-          <h4>
-            <%= link_to "Reports", "/backend/analytics" %>
-          </h4>
-        </li>
-        <li>
-          <h4><%= link_to "User Management", "/backend/users" %></h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-            <%= link_to "Albums", "/backend/albums" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-            <%= link_to "Songs", "/backend/songs" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li><h4>
-          <%= link_to "Play Manages", "/backend/play_Manages" %>
-        </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-            <%= link_to "Genre", "/backend/categories" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-            <%= link_to "Muscial Bands", "/backend/musical_bands" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-          <%= link_to "Languages", "/backend/languages" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-          <%= link_to "Advertisements", "/backend/advertisements" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h4>
-          <%= link_to "Ad Position", "/backend/ad_positions" %>
-          </h4>
-          <ul class="nav">
-            <li>
-              <a href="#">Manage</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <%= render 'layouts/admin_sidebar' %>
     </div>
-    <div class="col-lg-10 body">
+    <div class="col-lg-9">
       <%= bootstrap_flash %>
-      <%= yield %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="col-ls-6">
+            <%= render_breadcrumbs('') %>
+          </div>
+        </div>
+        <div class="panel-body" style="padding: 20px !important;">
+        <%= yield %>
+          </div>
+      </div>
     </div>
   </div>
   <!--/row-->

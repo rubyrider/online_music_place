@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920085722) do
+ActiveRecord::Schema.define(version: 20150928104658) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(version: 20150920085722) do
   create_table "albums", force: :cascade do |t|
     t.string   "name",         limit: 255
     t.datetime "release_date"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "anonymous",                default: false
   end
 
   create_table "analytics", force: :cascade do |t|
@@ -108,16 +109,6 @@ ActiveRecord::Schema.define(version: 20150920085722) do
 
   add_index "analytics", ["content_id"], name: "index_analytics_on_content_id", using: :btree
 
-  create_table "artist_songs", force: :cascade do |t|
-    t.integer  "artist_id",  limit: 4
-    t.integer  "song_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "artist_songs", ["artist_id"], name: "index_artist_songs_on_artist_id", using: :btree
-  add_index "artist_songs", ["song_id"], name: "index_artist_songs_on_song_id", using: :btree
-
   create_table "artists", force: :cascade do |t|
     t.string   "name",            limit: 255
     t.string   "age",             limit: 255
@@ -126,6 +117,8 @@ ActiveRecord::Schema.define(version: 20150920085722) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "musical_band_id", limit: 4
+    t.boolean  "anonymous"
+    t.integer  "gender",          limit: 4
   end
 
   add_index "artists", ["musical_band_id"], name: "index_artists_on_musical_band_id", using: :btree
@@ -226,12 +219,14 @@ ActiveRecord::Schema.define(version: 20150920085722) do
   add_index "song_languages", ["song_id"], name: "index_song_languages_on_song_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "album_id",   limit: 255
-    t.string   "filename",   limit: 255
-    t.string   "asset",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",          limit: 255
+    t.string   "album_id",      limit: 255
+    t.string   "filename",      limit: 255
+    t.string   "asset",         limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "track_id",      limit: 4
+    t.integer  "demo_track_id", limit: 4
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -245,12 +240,17 @@ ActiveRecord::Schema.define(version: 20150920085722) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.integer  "song_id",      limit: 4
-    t.string   "name",         limit: 255
-    t.string   "duration",     limit: 255
-    t.integer  "demo_song_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "song_id",            limit: 4
+    t.string   "name",               limit: 255
+    t.string   "duration",           limit: 255
+    t.integer  "demo_song_id",       limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "attachment",         limit: 255
+    t.string   "audio_file_name",    limit: 255
+    t.string   "audio_content_type", limit: 255
+    t.integer  "audio_file_size",    limit: 4
+    t.datetime "audio_updated_at"
   end
 
   add_index "tracks", ["demo_song_id"], name: "index_tracks_on_demo_song_id", using: :btree

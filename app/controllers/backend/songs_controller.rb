@@ -5,7 +5,7 @@ module Backend
     # GET /backend/songs
     # GET /backend/songs.json
     def index
-      @songs = Song.all
+      @songs = SongPresenter.collect Song.all
     end
 
     # GET /backend/songs/1
@@ -15,7 +15,7 @@ module Backend
 
     # GET /backend/songs/new
     def new
-      @song = Song.new
+      @song = build_song_track
     end
 
     # GET /backend/songs/1/edit
@@ -29,7 +29,7 @@ module Backend
 
       respond_to do |format|
         if @song.save
-          format.html { redirect_to @song, notice: 'Song was successfully created.' }
+          format.html { redirect_to [:backend, @song], notice: 'Song was successfully created.' }
           format.json { render :show, status: :created, location: @song }
         else
           format.html { render :new }
@@ -63,14 +63,26 @@ module Backend
     end
 
     private
+
+    # create song instances
+    #
+    # @returns song instances with track and demo track build
+    def build_song_track
+      @song = Song.new
+      @song.build_track
+      @song.build_demo_track
+
+      @song
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_backend_song
-      @song = Song.find(params[:id])
+      @song = SongPresenter.new Song.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backend_song_params
-      params[:song]
+      params.require(:song).permit!
     end
   end
 end

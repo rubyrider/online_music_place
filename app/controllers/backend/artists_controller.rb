@@ -5,7 +5,7 @@ module Backend
     # GET /backend/artists
     # GET /backend/artists.json
     def index
-      @artists = Artist.all
+      @artists = ArtistPresenter.collect Artist.all
     end
 
     # GET /backend/artists/1
@@ -29,7 +29,7 @@ module Backend
 
       respond_to do |format|
         if @artist.save
-          format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
+          format.html { redirect_to [:backend, @artist], notice: 'Artist was successfully created.' }
           format.json { render :show, status: :created, location: @artist }
         else
           format.html { render :new }
@@ -65,12 +65,12 @@ module Backend
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_backend_artist
-      @artist = Artist.find(params[:id])
+      @artist = ArtistPresenter.new Artist.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backend_artist_params
-      params[:artist]
+      params.require(:artist).permit [:id, :name, :age, :dob, :details, :created_at, :updated_at, :musical_band_id, :anonymous, :gender]
     end
   end
 end
