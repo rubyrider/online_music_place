@@ -16,6 +16,8 @@
 class Song < ActiveRecord::Base
 
   belongs_to :album
+  has_many :song_languages
+  has_many :languages, through: :song_languages
   has_many :song_artists
   has_many :artists, through: :song_artists
   has_many :song_categories
