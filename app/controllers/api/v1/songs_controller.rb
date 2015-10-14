@@ -7,11 +7,14 @@ module Api
       # GET /songs.json
       def index
         @songs = Song.all
+        render :json => @songs
       end
 
       # GET /songs/1
       # GET /songs/1.json
       def show
+        @song = Song.find(params[:id]).includes(:album)
+        render :json => @song
       end
 
       # GET /songs/new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928104658) do
+ActiveRecord::Schema.define(version: 20151014070043) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -156,6 +156,27 @@ ActiveRecord::Schema.define(version: 20150928104658) do
     t.string   "key",        limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "liked_albums", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "album_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "liked_play_lists", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "play_list_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "liked_songs", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "song_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "musical_bands", force: :cascade do |t|

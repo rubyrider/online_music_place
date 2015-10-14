@@ -63,6 +63,27 @@ module Api
         end
       end
 
+      def favorite_songs
+        @user = User.find(params[:user_id])
+        @songs = @user.songs
+
+        render :json => @songs
+      end
+
+      def favorite_albums
+        @user = User.find(params[:user_id])
+        @albums = @user.albums
+
+        render :json => @albums
+      end
+
+      def favorite_play_lists
+        @user = User.find(params[:user_id])
+        @play_lists = @user.play_lists
+
+        render :json => @play_lists
+      end
+
       private
       # Use callbacks to share common setup or constraints between actions.
       def set_user

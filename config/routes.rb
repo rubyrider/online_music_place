@@ -305,7 +305,11 @@ Rails.application.routes.draw do
   # Example resource route within a namespace:
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :users do
+        get :favorite_songs
+        get :favorite_albums
+        get :favorite_play_lists
+      end
       resources :songs
       resources :albums
       resources :artists
@@ -324,6 +328,7 @@ Rails.application.routes.draw do
     resources :analytics
     resources :ad_positions
     resources :advertisements
+    resources :play_lists
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
   end

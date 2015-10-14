@@ -21,6 +21,8 @@ class Album < ActiveRecord::Base
   has_many :artists, through: :album_artists
   has_many :album_categories
   has_many :categories, through: :album_categories
+  has_many :liked_albums
+  has_many :users, through: :liked_albums
 
   before_validation :set_default_title
 

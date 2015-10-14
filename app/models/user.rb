@@ -29,6 +29,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  has_many :liked_songs
+  has_many :songs, through: :liked_songs
+  has_many :liked_albums
+  has_many :albums, through: :liked_albums
+  has_many :liked_play_lists
+  has_many :play_lists, through: :liked_play_lists
+
   include UserRole
 
   devise :database_authenticatable, :registerable,
