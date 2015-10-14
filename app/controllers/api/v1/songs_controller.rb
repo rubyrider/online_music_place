@@ -1,7 +1,7 @@
 module Api
   module V1
     class SongsController < ApiController
-      before_action :set_song, only: [:show, :edit, :update, :destroy]
+      before_action :set_song, only: [:show, :edit, :update, :destroy, :toggle_like]
 
       # GET /songs
       # GET /songs.json

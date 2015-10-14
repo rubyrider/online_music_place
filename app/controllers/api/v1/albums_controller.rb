@@ -1,7 +1,7 @@
 module Api
   module V1
     class AlbumsController < ApiController
-      before_action :set_album, only: [:show, :edit, :update, :destroy]
+      before_action :set_album, only: [:show, :edit, :update, :destroy, :toggle_like]
 
       # GET /albums
       # GET /albums.json

@@ -1,7 +1,7 @@
 module Api
   module V1
     class ArtistsController < ApiController
-      before_action :set_artist, only: [:show, :edit, :update, :destroy]
+      before_action :set_artist, only: [:show, :edit, :update, :destroy, :toggle_like]
 
       # GET /artists
       # GET /artists.json
