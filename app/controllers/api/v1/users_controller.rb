@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApiController
-      before_action :set_user, only: [:show, :edit, :update, :destroy]
+      before_action :set_user, only: [:show, :edit, :update, :destroy, :favorite_albums, :favorite_play_lists, :favorite_songs]
 
       # GET /users
       # GET /users.json
@@ -64,24 +64,25 @@ module Api
       end
 
       def favorite_songs
-        @user = User.find(params[:user_id])
         @songs = @user.songs
 
         render :json => @songs
       end
 
       def favorite_albums
-        @user = User.find(params[:user_id])
         @albums = @user.albums
 
         render :json => @albums
       end
 
       def favorite_play_lists
-        @user = User.find(params[:user_id])
         @play_lists = @user.play_lists
 
         render :json => @play_lists
+      end
+
+      def like_a_song
+
       end
 
       private

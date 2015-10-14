@@ -306,9 +306,29 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users do
-        get :favorite_songs
-        get :favorite_albums
-        get :favorite_play_lists
+        member do
+          get :favorite_songs
+          get :favorite_albums
+          get :favorite_play_lists
+        end
+
+        resources :songs, only: [:index] do
+          member do
+            post :toggle_like
+          end
+        end
+
+        resources :albums, only: [:index] do
+          member do
+            post :toggle_like
+          end
+        end
+
+        resources :artists, only: [:index] do
+          member do
+            post :toggle_like
+          end
+        end
       end
       resources :songs
       resources :albums

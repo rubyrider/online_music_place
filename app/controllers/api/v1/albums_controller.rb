@@ -63,7 +63,26 @@ module Api
         end
       end
 
+      def toggle_like
+        if user.albums.include? @album
+          if LikedAlbum.where(user_id: user.id, album_id: @album.id).destroy_all
+            render :json => {success: true, message: 'Successfully removed from favorite.'}
+          else
+            render :json => {success: false, message: "Can't remove!"}
+          end
+        else
+          if LikedAlbum.create(user_id: user.id, album_id: @album.id)
+            render :json => {success: true, message: 'Successfully added to favorite.'}
+          else
+            render :json => {success: false, message: "Can't be added to favorite!"}
+          end
+        end
+      end
+
       private
+      def user
+        User.find(params[:user_id])
+      end
       # Use callbacks to share common setup or constraints between actions.
       def set_album
         @album = AlbumPresent.new(Album.find(params[:id]))
