@@ -37,6 +37,8 @@ class Artist < ActiveRecord::Base
   has_many :songs
   has_many :album_artists
   has_many :albums
+  has_many :liked_artists
+  has_many :users, through: :liked_artists
 
   def default_name
     DEFAULT_NAME

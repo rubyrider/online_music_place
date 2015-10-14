@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
   has_many :albums, through: :liked_albums
   has_many :liked_play_lists
   has_many :play_lists, through: :liked_play_lists
+  has_many :liked_artists
+  has_many :artists, through: :liked_artists
 
   include UserRole
 
