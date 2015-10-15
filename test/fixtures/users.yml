@@ -17,9 +17,11 @@
 #  updated_at             :datetime         not null
 #  role                   :integer          default(0)
 #  subscription_id        :integer
+#  authentication_token   :string(255)
 #
 # Indexes
 #
+#  index_users_on_authentication_token  (authentication_token)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_subscription_id       (subscription_id)
