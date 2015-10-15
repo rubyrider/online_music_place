@@ -12,6 +12,8 @@
 #  musical_band_id :integer
 #  anonymous       :boolean
 #  gender          :integer
+#  cover           :string(255)
+#  photo           :string(255)
 #
 # Indexes
 #
@@ -19,6 +21,9 @@
 #
 
 class Artist < ActiveRecord::Base
+
+  mount_uploader :cover, ArtistCoverUploader
+  mount_uploader :photo, ArtistPhotoUploader
 
   DEFAULT_NAME = 'Anonymous Singer'.freeze
 
@@ -84,9 +89,12 @@ class Artist < ActiveRecord::Base
   def calculate_age
     return nil if dob.nil?
 
-    birthday = Chronic.parse(self.dob)
-    age = ((Time.now - birthday.to_time)/(60*60*24*365)).floor
-    return nil if age < 0
+    birthday = Chronic.parse(self.try(:dob))
+    if birthday
+      age = ((Time.now - birthday.to_time)/(60*60*24*365)).floor
+      return nil if age < 0
+    end
+
 
     age
   end

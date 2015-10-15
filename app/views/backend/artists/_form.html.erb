@@ -43,6 +43,20 @@
     </div>
     <%= error_span(@artist[:musical_band_id]) %>
   </div>
+  <div class="control-group">
+    <%= f.label 'Photo', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :photo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@artist[:photo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Cover', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :cover, :class => 'form-control' %>
+    </div>
+    <%= error_span(@artist[:cover]) %>
+  </div>
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>

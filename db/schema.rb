@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014094311) do
+ActiveRecord::Schema.define(version: 20151015105942) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151014094311) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.boolean  "anonymous",                default: false
+    t.string   "cover",        limit: 255
   end
 
   create_table "analytics", force: :cascade do |t|
@@ -119,6 +120,8 @@ ActiveRecord::Schema.define(version: 20151014094311) do
     t.integer  "musical_band_id", limit: 4
     t.boolean  "anonymous"
     t.integer  "gender",          limit: 4
+    t.string   "cover",           limit: 255
+    t.string   "photo",           limit: 255
   end
 
   add_index "artists", ["musical_band_id"], name: "index_artists_on_musical_band_id", using: :btree

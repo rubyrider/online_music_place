@@ -8,6 +8,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  anonymous    :boolean          default(FALSE)
+#  cover        :string(255)
 #
 
 class Album < ActiveRecord::Base
@@ -15,6 +16,7 @@ class Album < ActiveRecord::Base
   DEFAULT_TITLE = 'Untitled Album'.freeze
 
   include Anonymity
+  mount_uploader :cover, AlbumCoverUploader
 
   has_many :songs
   has_many :album_artists

@@ -37,8 +37,8 @@ module Backend
 
       respond_to do |format|
         if @album.save
-          format.html { redirect_to @album, notice: 'Album was successfully created.' }
-          format.json { render :show, status: :created, location: @album }
+          format.html { redirect_to backend_album_path(@album), notice: 'Album was successfully created.' }
+          format.json { render :show, status: :created, location: backend_album_path(@album) }
         else
           format.html { render :new }
           format.json { render json: @album.errors, status: :unprocessable_entity }
