@@ -4,6 +4,7 @@ class SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   # Resets the authentication token each time! Won't allow you to login on two devices
   # at the same time (so does logout).
+  before_filter :require_no_authentication, only: [:create]
   def create
     self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
