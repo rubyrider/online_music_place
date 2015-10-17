@@ -1,7 +1,7 @@
 module Api
   module V1
     class AlbumsController < ApiController
-      before_action :set_album, only: [:show, :edit, :update, :destroy, :toggle_like]
+      before_action :set_album, only: [:show, :edit, :update, :destroy, :toggle_like, :songs]
 
       # GET /albums
       # GET /albums.json
@@ -79,13 +79,18 @@ module Api
         end
       end
 
+      def songs
+        @songs = @album.songs
+        render :json => @songs
+      end
+
       private
       def user
         User.find(params[:user_id])
       end
       # Use callbacks to share common setup or constraints between actions.
       def set_album
-        @album = AlbumPresent.new(Album.find(params[:id]))
+        @album = Album.find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.

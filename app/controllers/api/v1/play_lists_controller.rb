@@ -1,7 +1,7 @@
 module Api
   module V1
     class PlayListsController < ApiController
-      before_action :set_play_list, only: [:show, :edit, :update, :destroy]
+      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs]
 
       # GET /play_lists
       # GET /play_lists.json
@@ -61,6 +61,16 @@ module Api
           format.html { redirect_to play_lists_url, notice: 'Play list was successfully destroyed.' }
           format.json { head :no_content }
         end
+      end
+
+      def featured
+        @play_lists = PlayList.where(:featured => true)
+        render json: @play_lists
+      end
+
+      def songs
+        @songs = @play_list.songs
+        render :json => @songs
       end
 
       private

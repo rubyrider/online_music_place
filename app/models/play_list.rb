@@ -17,6 +17,8 @@ class PlayList < ActiveRecord::Base
   belongs_to :user
   has_many :liked_play_lists
   has_many :users, through: :liked_play_lists
+  has_many :play_list_songs
+  has_many :songs, through: :play_list_songs
 
   def creator
     self.user

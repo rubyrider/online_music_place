@@ -331,9 +331,20 @@ Rails.application.routes.draw do
         end
       end
       resources :songs
-      resources :albums
+      resources :albums do
+        member do
+          get :songs
+        end
+      end
       resources :artists
-      resources :play_lists
+      resources :play_lists do
+        member do
+          get :songs
+        end
+        collection do
+          get :featured
+        end
+      end
     end
   end
   namespace :backend do

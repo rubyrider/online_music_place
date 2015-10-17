@@ -26,6 +26,8 @@ class Song < ActiveRecord::Base
   has_many :users, through: :liked_songs
   belongs_to :track
   belongs_to :demo_track, class_name: 'Track', foreign_key: :demo_track_id
+  has_many :play_list_songs
+  has_many :play_lists, through: :play_list_songs
 
   accepts_nested_attributes_for :track
   accepts_nested_attributes_for :demo_track
