@@ -311,13 +311,16 @@ Rails.application.routes.draw do
           get :favorite_albums
           get :favorite_play_lists
         end
-
         resources :songs, only: [:index] do
           member do
             post :toggle_like
           end
+          resources :play_lists do
+            member do
+              post :toggle_presence_in_play_list
+            end
+          end
         end
-
         resources :albums, only: [:index] do
           member do
             post :toggle_like

@@ -1,7 +1,7 @@
 module Api
   module V1
     class PlayListsController < ApiController
-      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs]
+      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs, :toggle_presence_in_play_lists]
 
       # GET /play_lists
       # GET /play_lists.json
@@ -71,6 +71,37 @@ module Api
       def songs
         @songs = @play_list.songs
         render :json => @songs
+      end
+
+      def toggle_presence_in_play_list
+        user = User.find(params[:user_id]) rescue nil
+        song = Song.find(params[:song_id]) rescue nil
+        if user
+          if song
+            if @play_list
+              if @play_list.include? song
+                if PlayListSong.create(song_id: song.id, play_list_id: @play_list.id)
+                  render json: { success: true, message: 'Successfully added to playlist.' }
+                else
+                  render json: { success: false, message: 'Can not be added to playlist.' }
+                end
+              else
+                if PlayListSong.where(song_id: song.id, play_list_id: @play_list.id).first.destroy!
+                  render json: { success: true, message: 'Successfully removed from playlist.' }
+                else
+                  render json: { success: false, message: 'Can not be removed from playlist.' }
+                end
+              end
+            else
+              render json: { success: false, status: :not_found, message: 'Play list not found!' }
+            end
+          else
+            render json: { success: false, status: :not_found, message: 'Song not found!' }
+          end
+        else
+          render json: { success: false, status: :not_found, message: 'User not found!' }
+        end
+
       end
 
       private
