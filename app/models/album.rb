@@ -13,6 +13,8 @@
 
 class Album < ActiveRecord::Base
 
+  searchkick
+  
   DEFAULT_TITLE = 'Untitled Album'.freeze
 
   include Anonymity

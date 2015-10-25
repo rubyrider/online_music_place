@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApiController
-      before_action :set_user, only: [:show, :edit, :update, :destroy, :favorite_albums, :favorite_play_lists, :favorite_songs]
+      before_action :set_user, only: [:show, :edit, :update, :destroy, :favorite_albums, :favorite_play_lists, :favorite_songs, :favorite_artists]
 
       # GET /users
       # GET /users.json
@@ -81,9 +81,11 @@ module Api
         render :json => @play_lists
       end
 
-      def like_a_song
-
+      def favorite_artists
+        @artists = @user.artists
+        render json: @artists
       end
+
 
       private
       # Use callbacks to share common setup or constraints between actions.

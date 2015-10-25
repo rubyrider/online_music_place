@@ -15,6 +15,8 @@
 
 class Song < ActiveRecord::Base
 
+  searchkick
+
   belongs_to :album
   has_many :song_languages
   has_many :languages, through: :song_languages

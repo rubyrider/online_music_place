@@ -56,7 +56,7 @@ gem 'cancancan'
 
 # theme
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails"
 gem "twitter-bootstrap-rails"
 
 # json parser
@@ -81,3 +81,4 @@ gem 'pry'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'thin'
+gem 'searchkick'
