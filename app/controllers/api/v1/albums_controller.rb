@@ -12,6 +12,7 @@ module Api
       # GET /albums/1
       # GET /albums/1.json
       def show
+        render json: @album
       end
 
       # GET /albums/new

@@ -12,6 +12,7 @@ module Api
       # GET /artists/1
       # GET /artists/1.json
       def show
+        render json: @artist
       end
 
       # GET /artists/new

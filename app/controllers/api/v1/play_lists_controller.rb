@@ -12,6 +12,7 @@ module Api
       # GET /play_lists/1
       # GET /play_lists/1.json
       def show
+        render json: @play_list
       end
 
       # GET /play_lists/new
