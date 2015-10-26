@@ -355,9 +355,6 @@ Rails.application.routes.draw do
           member do
             post :toggle_like
           end
-          collection do
-            get :new_releases
-          end
         end
 
         resources :artists, only: [:index] do
@@ -368,6 +365,9 @@ Rails.application.routes.draw do
       end
       resources :songs
       resources :albums do
+        collection do
+          get :new_releases
+        end
         member do
           get :songs
         end

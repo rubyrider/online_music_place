@@ -85,6 +85,11 @@ module Api
         render :json => @songs
       end
 
+      def new_releases
+        @album = Album.where(new_release: true)
+        render json: @album
+      end
+
       private
       def user
         User.find(params[:user_id])
