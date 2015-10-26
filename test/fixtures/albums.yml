@@ -9,6 +9,7 @@
 #  updated_at   :datetime         not null
 #  anonymous    :boolean          default(FALSE)
 #  cover        :string(255)
+#  new_release  :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
