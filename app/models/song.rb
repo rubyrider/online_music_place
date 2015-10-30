@@ -36,6 +36,21 @@ class Song < ActiveRecord::Base
 
   before_validation :assign_default_album
 
+  def self.filter_by_params(params)
+    results = Song.all
+    if params[:name].present?
+      results = results.where('name LIKE ?', "%#{params[:name]}%")
+    end
+    if params[:album_id].present?
+      results = results.where(album_id: params[:album_id])
+    end
+    if params[:file_name].present?
+      results = results.where('filename LIKE ?', params[:file_name])
+    end
+
+    results
+  end
+
   private
 
   # assign default album if no album provided

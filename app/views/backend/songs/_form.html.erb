@@ -23,6 +23,13 @@
       </div>
       <%= error_span(@song[:name]) %>
     </div>
+    <div class="control-group">
+      <%= f.label :album, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :album_id, Album.all.collect { |a| [a.name, a.id] }, {include_blank: 'Default'}, :class => 'form-control' %>
+      </div>
+      <%= error_span(@song[:album_id]) %>
+    </div>
    <div class="control-group">
       <%= f.label :filename, :class => 'control-label' %>
       <div class="controls">

@@ -1,21 +1,39 @@
 <%- model_class = Song -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <%= form_tag backend_songs_path, method: :get do %>
+      <div class="col-md-6 col-lg-6">
+        <%= label_tag :name %>
+        <%= text_field_tag :name, params[:name], class: 'form-control' %>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <%= label_tag :filename %>
+        <%= text_field_tag :filename, params[:filename], class: 'form-control' %>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <%= label_tag :album %>
+        <%= select_tag :album_id, options_from_collection_for_select(@albums, 'id', 'name', params[:album_id]), include_blank: 'Select Album', class: 'form-control' %>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <br>
+        <%= submit_tag 'Filter', class: 'form-control btn btn-success' %>
+      </div>
+  <% end %>
 </div>
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:album_id) %></th>
-      <th><%= model_class.human_attribute_name(:filename) %></th>
-      <th><%= model_class.human_attribute_name(:asset) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
+  <tr>
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%= model_class.human_attribute_name(:album_id) %></th>
+    <th><%= model_class.human_attribute_name(:filename) %></th>
+    <th><%= model_class.human_attribute_name(:asset) %></th>
+    <th><%= model_class.human_attribute_name(:created_at) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  </tr>
   </thead>
   <tbody>
-    <% @songs.each do |song| %>
+  <% @songs.each do |song| %>
       <tr>
         <td><%= link_to song.id, backend_song_path(song) %></td>
         <td><%= song.name %></td>
@@ -33,7 +51,7 @@
                       :class => 'btn btn-xs btn-danger' %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
