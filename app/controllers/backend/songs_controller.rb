@@ -7,6 +7,8 @@ module Backend
     def index
       @songs = SongPresenter.collect Song.filter_by_params(params)
       @albums = Album.all.order(:name)
+      @artists = Artist.all.order(:name)
+      @categories = Category.all
     end
 
     # GET /backend/songs/1
