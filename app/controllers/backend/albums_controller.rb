@@ -9,7 +9,9 @@ module Backend
     def index
       add_breadcrumb "List".freeze, :backend_albums_path
 
-      @albums = AlbumPresenter.collect(Album.all)
+      @albums = AlbumPresenter.collect(Album.filter_by_params(params))
+      @artists = Artist.all.order(:name)
+      @categories = Category.all
     end
 
     # GET /backend/albums/1

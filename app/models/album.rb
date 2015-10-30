@@ -35,6 +35,24 @@ class Album < ActiveRecord::Base
     "#{DEFAULT_TITLE}-#{Date.today.strftime('%F')}"
   end
 
+  def self.filter_by_params(params)
+    results = Album.all
+    if params[:name].present?
+      results = results.where('name LIKE ?', "%#{params[:name]}%")
+    end
+    if params[:year].present?
+      results = results.where(release_date: Date.parse("01-01-#{params[:year]}")..Date.parse("31-12-#{params[:year]}"))
+    end
+    if params[:artist_id].present?
+      results = results.joins(:artists).where('artists.id = ?', params[:artist_id])
+    end
+    if params[:category_id].present?
+      results = results.joins(:categories).where('categories.id = ?', params[:category_id])
+    end
+
+    results
+  end
+
   private
 
   # set album title for untitled album
