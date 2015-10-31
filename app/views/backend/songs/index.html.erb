@@ -36,7 +36,6 @@
     <th><%= model_class.human_attribute_name(:album_id) %></th>
     <th><%= model_class.human_attribute_name(:filename) %></th>
     <th><%= model_class.human_attribute_name(:asset) %></th>
-    <th><%= model_class.human_attribute_name(:created_at) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -48,7 +47,6 @@
         <td><%= song.album_title %></td>
         <td><%= song.filename %></td>
         <td><%= song.asset %></td>
-        <td><%= song.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_backend_song_path(song), :class => 'btn btn-default btn-xs' %>
