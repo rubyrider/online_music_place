@@ -5,7 +5,7 @@ module Backend
     # GET /backend/categories
     # GET /backend/categories.json
     def index
-      @categories = Category.all
+      @categories = Category.filter_by_params(params)
     end
 
     # GET /backend/categories/1
@@ -29,7 +29,7 @@ module Backend
 
       respond_to do |format|
         if @category.save
-          format.html { redirect_to @category, notice: 'Category was successfully created.' }
+          format.html { redirect_to backend_category_path(@category), notice: 'Category was successfully created.' }
           format.json { render :show, status: :created, location: @category }
         else
           format.html { render :new }
@@ -43,7 +43,7 @@ module Backend
     def update
       respond_to do |format|
         if @category.update(backend_category_params)
-          format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+          format.html { redirect_to backend_category_path(@category), notice: 'Category was successfully updated.' }
           format.json { render :show, status: :ok, location: @category }
         else
           format.html { render :edit }
@@ -70,7 +70,7 @@ module Backend
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backend_category_params
-      params[:category]
+      params[:category].permit!
     end
   end
 end

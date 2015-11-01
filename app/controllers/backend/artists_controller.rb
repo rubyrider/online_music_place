@@ -5,7 +5,8 @@ module Backend
     # GET /backend/artists
     # GET /backend/artists.json
     def index
-      @artists = ArtistPresenter.collect Artist.all
+      @artists = ArtistPresenter.collect Artist.filter_by_params(params)
+      @musical_bands = MusicalBand.all.order(:name)
     end
 
     # GET /backend/artists/1

@@ -44,6 +44,7 @@ class Artist < ActiveRecord::Base
   has_many :albums
   has_many :liked_artists
   has_many :users, through: :liked_artists
+  belongs_to :musical_band
 
   def default_name
     DEFAULT_NAME
@@ -62,6 +63,18 @@ class Artist < ActiveRecord::Base
     calculate_age
   end
   alias_method :age, :__age
+
+  def self.filter_by_params(params)
+    results = Artist.all
+    if params[:name].present?
+      results = results.where('name LIKE ?', "%#{params[:name]}%")
+    end
+    if params[:band_id].present?
+      results = results.joins(:musical_band).where('musical_bands.id = ?', params[:band_id])
+    end
+
+    results
+  end
 
   private
 
