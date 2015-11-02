@@ -11,11 +11,11 @@
     </div>
     <div class="col-lg-6 col-md-6">
       <%= label_tag 'Artist' %>
-      <%= select_tag :artist_id, options_from_collection_for_select(@artists, 'id', 'name', params[:artist_id]), include_blank: 'select artist', class: 'form-control' %>
+      <%= autocomplete_field_tag 'artist', params[:artist], autocomplete_artist_name_backend_albums_path, :size => 75, class: 'form-control' %>
     </div>
     <div class="col-lg-6 col-md-6">
       <%= label_tag 'Category' %>
-      <%= select_tag :category_id, options_from_collection_for_select(@categories, 'id', 'name', params[:category_id]), include_blank: 'select category', class: 'form-control' %>
+      <%= autocomplete_field_tag 'category', params[:category], autocomplete_category_name_backend_albums_path, :size => 75, class: 'form-control' %>
     </div>
     <div class="col-lg-6 col-md-6">
       <br>

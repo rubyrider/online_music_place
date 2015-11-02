@@ -1,6 +1,7 @@
 module Backend
   class ArtistsController < BackendController
     before_action :set_backend_artist, only: [:show, :edit, :update, :destroy]
+    autocomplete :musical_band, :name, :full => true
 
     # GET /backend/artists
     # GET /backend/artists.json

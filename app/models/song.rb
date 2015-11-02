@@ -42,16 +42,16 @@ class Song < ActiveRecord::Base
       results = results.where('name LIKE ?', "%#{params[:name]}%")
     end
     if params[:album].present?
-      results = results.joins(:album).where('albums.name LIKE ?', "#{params[:album]}")
+      results = results.joins(:album).where('albums.name LIKE ?', "%#{params[:album]}%")
     end
     if params[:file_name].present?
       results = results.where('filename LIKE ?', params[:file_name])
     end
     if params[:artist].present?
-      results = results.joins(:artists).where('artists.name LIKE ?', "#{params[:artist]}")
+      results = results.joins(:artists).where('artists.name LIKE ?', "%#{params[:artist]}%")
     end
     if params[:category].present?
-      results = results.joins(:categories).where('categories.name LIKE ?', "#{params[:category]}")
+      results = results.joins(:categories).where('categories.name LIKE ?', "%#{params[:category]}%")
     end
 
     results

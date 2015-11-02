@@ -8,7 +8,7 @@
       </div>
       <div class="col-lg-6 col-md-6">
         <%= label_tag 'Band' %>
-        <%= select_tag :band_id, options_from_collection_for_select(@musical_bands, 'id', 'name', params[:band_id]), include_blank: 'select band', class: 'form-control' %>
+        <%= autocomplete_field_tag 'band', params[:band], autocomplete_musical_band_name_backend_artists_path, :size => 75, class: 'form-control' %>
       </div>
       <div class="col-md-6 col-lg-6">
         <br>

@@ -195,6 +195,8 @@
 #                                                         PUT        /backend/users/:id(.:format)                                                                backend/users#update
 #                                                         DELETE     /backend/users/:id(.:format)                                                                backend/users#destroy
 #                autocomplete_category_name_backend_songs GET        /backend/songs/autocomplete_category_name(.:format)                                         backend/songs#autocomplete_category_name
+#                  autocomplete_artist_name_backend_songs GET        /backend/songs/autocomplete_artist_name(.:format)                                           backend/songs#autocomplete_artist_name
+#                   autocomplete_album_name_backend_songs GET        /backend/songs/autocomplete_album_name(.:format)                                            backend/songs#autocomplete_album_name
 #                                           backend_songs GET        /backend/songs(.:format)                                                                    backend/songs#index
 #                                                         POST       /backend/songs(.:format)                                                                    backend/songs#create
 #                                        new_backend_song GET        /backend/songs/new(.:format)                                                                backend/songs#new
@@ -219,6 +221,7 @@
 #                                                         PATCH      /backend/albums/:id(.:format)                                                               backend/albums#update
 #                                                         PUT        /backend/albums/:id(.:format)                                                               backend/albums#update
 #                                                         DELETE     /backend/albums/:id(.:format)                                                               backend/albums#destroy
+#          autocomplete_musical_band_name_backend_artists GET        /backend/artists/autocomplete_musical_band_name(.:format)                                   backend/artists#autocomplete_musical_band_name
 #                                         backend_artists GET        /backend/artists(.:format)                                                                  backend/artists#index
 #                                                         POST       /backend/artists(.:format)                                                                  backend/artists#create
 #                                      new_backend_artist GET        /backend/artists/new(.:format)                                                              backend/artists#new
@@ -411,8 +414,13 @@ Rails.application.routes.draw do
       get :autocomplete_album_name, :on => :collection
     end
     resources :tracks
-    resources :albums
-    resources :artists
+    resources :albums do
+      get :autocomplete_category_name, :on => :collection
+      get :autocomplete_artist_name, :on => :collection
+    end
+    resources :artists do
+      get :autocomplete_musical_band_name, :on => :collection
+    end
     resources :categories
     resources :subscriptions
     resources :languages

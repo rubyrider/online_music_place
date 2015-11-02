@@ -43,11 +43,11 @@ class Album < ActiveRecord::Base
     if params[:year].present?
       results = results.where(release_date: Date.parse("01-01-#{params[:year]}")..Date.parse("31-12-#{params[:year]}"))
     end
-    if params[:artist_id].present?
-      results = results.joins(:artists).where('artists.id = ?', params[:artist_id])
+    if params[:artist].present?
+      results = results.joins(:artists).where('artists.name LIKE ?', "%#{params[:artist]}%")
     end
-    if params[:category_id].present?
-      results = results.joins(:categories).where('categories.id = ?', params[:category_id])
+    if params[:category].present?
+      results = results.joins(:categories).where('categories.name LIKE ?', "%#{params[:category]}%")
     end
 
     results
