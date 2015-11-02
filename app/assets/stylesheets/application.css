@@ -15,3 +15,21 @@
  *= stub active_admin
  *= require_self
  */
+.ui-autocomplete {
+    padding-left: 0;
+    list-style: none;
+    background: white;
+    width: auto !important;
+    display: inline-block;
+}
+.ui-menu-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.ui-menu-item:hover {
+    background: rgb(61, 197, 255);
+    cursor: pointer;
+    color: white;
+}

@@ -2,6 +2,10 @@ module Backend
   class SongsController < BackendController
     before_action :set_backend_song, only: [:show, :edit, :update, :destroy]
 
+    autocomplete :category, :name, :full => true
+    autocomplete :artist, :name, :full => true
+    autocomplete :album, :name, :full => true
+
     # GET /backend/songs
     # GET /backend/songs.json
     def index
