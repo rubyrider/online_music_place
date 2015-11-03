@@ -297,6 +297,12 @@
 #
 
 Rails.application.routes.draw do
+  namespace :api do
+  namespace :v1 do
+    get 'home/index'
+    get 'home/search'
+    end
+  end
   namespace :backend do
   get 'home/index'
   get 'home/search'
