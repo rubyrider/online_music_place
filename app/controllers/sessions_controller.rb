@@ -12,6 +12,9 @@ class SessionsController < Devise::SessionsController
     # current_user.update authentication_token: nil
 
     respond_to do |format|
+      format.html {
+        redirect_to 'backend/index'
+      }
       format.json {
         render :json => {
                    :user => current_user,
