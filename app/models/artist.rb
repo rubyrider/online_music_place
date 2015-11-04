@@ -69,8 +69,8 @@ class Artist < ActiveRecord::Base
     if params[:name].present?
       results = results.where('name LIKE ?', "%#{params[:name]}%")
     end
-    if params[:band_id].present?
-      results = results.joins(:musical_band).where('musical_bands.id = ?', params[:band_id])
+    if params[:band].present?
+      results = results.joins(:musical_band).where('musical_bands.name LIKE ?', "%#{params[:band_id]}%")
     end
 
     results

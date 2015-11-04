@@ -1,6 +1,8 @@
 module Backend
   class AlbumsController < BackendController
     before_action :set_backend_album, only: [:show, :edit, :update, :destroy]
+    autocomplete :category, :name, :full => true
+    autocomplete :artist, :name, :full => true
 
     add_breadcrumb "Album".freeze, :backend_albums_path
 

@@ -12,15 +12,15 @@
       </div>
       <div class="col-md-6 col-lg-6">
         <%= label_tag :album %>
-        <%= select_tag :album_id, options_from_collection_for_select(@albums, 'id', 'name', params[:album_id]), include_blank: 'Select Album', class: 'form-control' %>
+        <%= autocomplete_field_tag 'album', params[:album], autocomplete_album_name_backend_songs_path, :size => 75, class: 'form-control' %>
       </div>
       <div class="col-lg-6 col-md-6">
         <%= label_tag 'Artist' %>
-        <%= select_tag :artist_id, options_from_collection_for_select(@artists, 'id', 'name', params[:artist_id]), include_blank: 'select artist', class: 'form-control' %>
+        <%= autocomplete_field_tag 'artist', params[:artist], autocomplete_artist_name_backend_songs_path, :size => 75, class: 'form-control' %>
       </div>
       <div class="col-lg-6 col-md-6">
         <%= label_tag 'Category' %>
-        <%= select_tag :category_id, options_from_collection_for_select(@categories, 'id', 'name', params[:category_id]), include_blank: 'select category', class: 'form-control' %>
+        <%= autocomplete_field_tag 'category', params[:category], autocomplete_category_name_backend_songs_path, :size => 75, class: 'form-control' %>
       </div>
       <div class="col-md-6 col-lg-6">
         <br>
@@ -28,6 +28,7 @@
       </div>
   <% end %>
 </div>
+<%= paginate @songs %>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -44,7 +45,7 @@
       <tr>
         <td><%= link_to song.id, backend_song_path(song) %></td>
         <td><%= song.name %></td>
-        <td><%= song.album_title %></td>
+        <td><%= song.try(:album).try(:name) %></td>
         <td><%= song.filename %></td>
         <td><%= song.asset %></td>
         <td>

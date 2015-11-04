@@ -15,6 +15,8 @@
 //= require twitter/bootstrap
 //= require dropdown-filter
 //= require turbolinks
+//= require jquery-ui
+//= require autocomplete-rails
 //= require_tree ./backend
 //= require_tree .
 

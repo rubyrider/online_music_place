@@ -1,6 +1,9 @@
 # == Route Map
 #
 #                                                  Prefix Verb       URI Pattern                                                                                 Controller#Action
+#                                      backend_home_index GET        /backend/home/index(.:format)                                                               backend/home#index
+#                                     backend_home_search GET        /backend/home/search(.:format)                                                              backend/home#search
+#                               backend_home_autocomplete GET        /backend/home/autocomplete(.:format)                                                        backend/home#autocomplete
 #                                  new_admin_user_session GET        /admin/login(.:format)                                                                      active_admin/devise/sessions#new
 #                                      admin_user_session POST       /admin/login(.:format)                                                                      active_admin/devise/sessions#create
 #                              destroy_admin_user_session DELETE|GET /admin/logout(.:format)                                                                     active_admin/devise/sessions#destroy
@@ -10,43 +13,6 @@
 #                                                         PATCH      /admin/password(.:format)                                                                   active_admin/devise/passwords#update
 #                                                         PUT        /admin/password(.:format)                                                                   active_admin/devise/passwords#update
 #                                              admin_root GET        /admin(.:format)                                                                            admin/dashboard#index
-#                                         admin_dashboard GET        /admin/dashboard(.:format)                                                                  admin/dashboard#index
-#                              batch_action_admin_artists POST       /admin/artists/batch_action(.:format)                                                       admin/artists#batch_action
-#                                           admin_artists GET        /admin/artists(.:format)                                                                    admin/artists#index
-#                                                         POST       /admin/artists(.:format)                                                                    admin/artists#create
-#                                        new_admin_artist GET        /admin/artists/new(.:format)                                                                admin/artists#new
-#                                       edit_admin_artist GET        /admin/artists/:id/edit(.:format)                                                           admin/artists#edit
-#                                            admin_artist GET        /admin/artists/:id(.:format)                                                                admin/artists#show
-#                                                         PATCH      /admin/artists/:id(.:format)                                                                admin/artists#update
-#                                                         PUT        /admin/artists/:id(.:format)                                                                admin/artists#update
-#                                                         DELETE     /admin/artists/:id(.:format)                                                                admin/artists#destroy
-#                                batch_action_admin_songs POST       /admin/songs/batch_action(.:format)                                                         admin/songs#batch_action
-#                                             admin_songs GET        /admin/songs(.:format)                                                                      admin/songs#index
-#                                                         POST       /admin/songs(.:format)                                                                      admin/songs#create
-#                                          new_admin_song GET        /admin/songs/new(.:format)                                                                  admin/songs#new
-#                                         edit_admin_song GET        /admin/songs/:id/edit(.:format)                                                             admin/songs#edit
-#                                              admin_song GET        /admin/songs/:id(.:format)                                                                  admin/songs#show
-#                                                         PATCH      /admin/songs/:id(.:format)                                                                  admin/songs#update
-#                                                         PUT        /admin/songs/:id(.:format)                                                                  admin/songs#update
-#                                                         DELETE     /admin/songs/:id(.:format)                                                                  admin/songs#destroy
-#                               batch_action_admin_tracks POST       /admin/tracks/batch_action(.:format)                                                        admin/tracks#batch_action
-#                                            admin_tracks GET        /admin/tracks(.:format)                                                                     admin/tracks#index
-#                                                         POST       /admin/tracks(.:format)                                                                     admin/tracks#create
-#                                         new_admin_track GET        /admin/tracks/new(.:format)                                                                 admin/tracks#new
-#                                        edit_admin_track GET        /admin/tracks/:id/edit(.:format)                                                            admin/tracks#edit
-#                                             admin_track GET        /admin/tracks/:id(.:format)                                                                 admin/tracks#show
-#                                                         PATCH      /admin/tracks/:id(.:format)                                                                 admin/tracks#update
-#                                                         PUT        /admin/tracks/:id(.:format)                                                                 admin/tracks#update
-#                                                         DELETE     /admin/tracks/:id(.:format)                                                                 admin/tracks#destroy
-#                        batch_action_admin_subscriptions POST       /admin/subscriptions/batch_action(.:format)                                                 admin/subscriptions#batch_action
-#                                     admin_subscriptions GET        /admin/subscriptions(.:format)                                                              admin/subscriptions#index
-#                                                         POST       /admin/subscriptions(.:format)                                                              admin/subscriptions#create
-#                                  new_admin_subscription GET        /admin/subscriptions/new(.:format)                                                          admin/subscriptions#new
-#                                 edit_admin_subscription GET        /admin/subscriptions/:id/edit(.:format)                                                     admin/subscriptions#edit
-#                                      admin_subscription GET        /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#show
-#                                                         PATCH      /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#update
-#                                                         PUT        /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#update
-#                                                         DELETE     /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#destroy
 #                          batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                                                   admin/admin_users#batch_action
 #                                       admin_admin_users GET        /admin/admin_users(.:format)                                                                admin/admin_users#index
 #                                                         POST       /admin/admin_users(.:format)                                                                admin/admin_users#create
@@ -56,15 +22,7 @@
 #                                                         PATCH      /admin/admin_users/:id(.:format)                                                            admin/admin_users#update
 #                                                         PUT        /admin/admin_users/:id(.:format)                                                            admin/admin_users#update
 #                                                         DELETE     /admin/admin_users/:id(.:format)                                                            admin/admin_users#destroy
-#                               batch_action_admin_albums POST       /admin/albums/batch_action(.:format)                                                        admin/albums#batch_action
-#                                            admin_albums GET        /admin/albums(.:format)                                                                     admin/albums#index
-#                                                         POST       /admin/albums(.:format)                                                                     admin/albums#create
-#                                         new_admin_album GET        /admin/albums/new(.:format)                                                                 admin/albums#new
-#                                        edit_admin_album GET        /admin/albums/:id/edit(.:format)                                                            admin/albums#edit
-#                                             admin_album GET        /admin/albums/:id(.:format)                                                                 admin/albums#show
-#                                                         PATCH      /admin/albums/:id(.:format)                                                                 admin/albums#update
-#                                                         PUT        /admin/albums/:id(.:format)                                                                 admin/albums#update
-#                                                         DELETE     /admin/albums/:id(.:format)                                                                 admin/albums#destroy
+#                                         admin_dashboard GET        /admin/dashboard(.:format)                                                                  admin/dashboard#index
 #                                batch_action_admin_users POST       /admin/users/batch_action(.:format)                                                         admin/users#batch_action
 #                                             admin_users GET        /admin/users(.:format)                                                                      admin/users#index
 #                                                         POST       /admin/users(.:format)                                                                      admin/users#create
@@ -74,24 +32,6 @@
 #                                                         PATCH      /admin/users/:id(.:format)                                                                  admin/users#update
 #                                                         PUT        /admin/users/:id(.:format)                                                                  admin/users#update
 #                                                         DELETE     /admin/users/:id(.:format)                                                                  admin/users#destroy
-#                            batch_action_admin_companies POST       /admin/companies/batch_action(.:format)                                                     admin/companies#batch_action
-#                                         admin_companies GET        /admin/companies(.:format)                                                                  admin/companies#index
-#                                                         POST       /admin/companies(.:format)                                                                  admin/companies#create
-#                                       new_admin_company GET        /admin/companies/new(.:format)                                                              admin/companies#new
-#                                      edit_admin_company GET        /admin/companies/:id/edit(.:format)                                                         admin/companies#edit
-#                                           admin_company GET        /admin/companies/:id(.:format)                                                              admin/companies#show
-#                                                         PATCH      /admin/companies/:id(.:format)                                                              admin/companies#update
-#                                                         PUT        /admin/companies/:id(.:format)                                                              admin/companies#update
-#                                                         DELETE     /admin/companies/:id(.:format)                                                              admin/companies#destroy
-#                           batch_action_admin_categories POST       /admin/categories/batch_action(.:format)                                                    admin/categories#batch_action
-#                                        admin_categories GET        /admin/categories(.:format)                                                                 admin/categories#index
-#                                                         POST       /admin/categories(.:format)                                                                 admin/categories#create
-#                                      new_admin_category GET        /admin/categories/new(.:format)                                                             admin/categories#new
-#                                     edit_admin_category GET        /admin/categories/:id/edit(.:format)                                                        admin/categories#edit
-#                                          admin_category GET        /admin/categories/:id(.:format)                                                             admin/categories#show
-#                                                         PATCH      /admin/categories/:id(.:format)                                                             admin/categories#update
-#                                                         PUT        /admin/categories/:id(.:format)                                                             admin/categories#update
-#                                                         DELETE     /admin/categories/:id(.:format)                                                             admin/categories#destroy
 #                        batch_action_admin_musical_bands POST       /admin/musical_bands/batch_action(.:format)                                                 admin/musical_bands#batch_action
 #                                     admin_musical_bands GET        /admin/musical_bands(.:format)                                                              admin/musical_bands#index
 #                                                         POST       /admin/musical_bands(.:format)                                                              admin/musical_bands#create
@@ -101,6 +41,69 @@
 #                                                         PATCH      /admin/musical_bands/:id(.:format)                                                          admin/musical_bands#update
 #                                                         PUT        /admin/musical_bands/:id(.:format)                                                          admin/musical_bands#update
 #                                                         DELETE     /admin/musical_bands/:id(.:format)                                                          admin/musical_bands#destroy
+#                              batch_action_admin_artists POST       /admin/artists/batch_action(.:format)                                                       admin/artists#batch_action
+#                                           admin_artists GET        /admin/artists(.:format)                                                                    admin/artists#index
+#                                                         POST       /admin/artists(.:format)                                                                    admin/artists#create
+#                                        new_admin_artist GET        /admin/artists/new(.:format)                                                                admin/artists#new
+#                                       edit_admin_artist GET        /admin/artists/:id/edit(.:format)                                                           admin/artists#edit
+#                                            admin_artist GET        /admin/artists/:id(.:format)                                                                admin/artists#show
+#                                                         PATCH      /admin/artists/:id(.:format)                                                                admin/artists#update
+#                                                         PUT        /admin/artists/:id(.:format)                                                                admin/artists#update
+#                                                         DELETE     /admin/artists/:id(.:format)                                                                admin/artists#destroy
+#                            batch_action_admin_companies POST       /admin/companies/batch_action(.:format)                                                     admin/companies#batch_action
+#                                         admin_companies GET        /admin/companies(.:format)                                                                  admin/companies#index
+#                                                         POST       /admin/companies(.:format)                                                                  admin/companies#create
+#                                       new_admin_company GET        /admin/companies/new(.:format)                                                              admin/companies#new
+#                                      edit_admin_company GET        /admin/companies/:id/edit(.:format)                                                         admin/companies#edit
+#                                           admin_company GET        /admin/companies/:id(.:format)                                                              admin/companies#show
+#                                                         PATCH      /admin/companies/:id(.:format)                                                              admin/companies#update
+#                                                         PUT        /admin/companies/:id(.:format)                                                              admin/companies#update
+#                                                         DELETE     /admin/companies/:id(.:format)                                                              admin/companies#destroy
+#                               batch_action_admin_albums POST       /admin/albums/batch_action(.:format)                                                        admin/albums#batch_action
+#                                            admin_albums GET        /admin/albums(.:format)                                                                     admin/albums#index
+#                                                         POST       /admin/albums(.:format)                                                                     admin/albums#create
+#                                         new_admin_album GET        /admin/albums/new(.:format)                                                                 admin/albums#new
+#                                        edit_admin_album GET        /admin/albums/:id/edit(.:format)                                                            admin/albums#edit
+#                                             admin_album GET        /admin/albums/:id(.:format)                                                                 admin/albums#show
+#                                                         PATCH      /admin/albums/:id(.:format)                                                                 admin/albums#update
+#                                                         PUT        /admin/albums/:id(.:format)                                                                 admin/albums#update
+#                                                         DELETE     /admin/albums/:id(.:format)                                                                 admin/albums#destroy
+#                                batch_action_admin_songs POST       /admin/songs/batch_action(.:format)                                                         admin/songs#batch_action
+#                                             admin_songs GET        /admin/songs(.:format)                                                                      admin/songs#index
+#                                                         POST       /admin/songs(.:format)                                                                      admin/songs#create
+#                                          new_admin_song GET        /admin/songs/new(.:format)                                                                  admin/songs#new
+#                                         edit_admin_song GET        /admin/songs/:id/edit(.:format)                                                             admin/songs#edit
+#                                              admin_song GET        /admin/songs/:id(.:format)                                                                  admin/songs#show
+#                                                         PATCH      /admin/songs/:id(.:format)                                                                  admin/songs#update
+#                                                         PUT        /admin/songs/:id(.:format)                                                                  admin/songs#update
+#                                                         DELETE     /admin/songs/:id(.:format)                                                                  admin/songs#destroy
+#                        batch_action_admin_subscriptions POST       /admin/subscriptions/batch_action(.:format)                                                 admin/subscriptions#batch_action
+#                                     admin_subscriptions GET        /admin/subscriptions(.:format)                                                              admin/subscriptions#index
+#                                                         POST       /admin/subscriptions(.:format)                                                              admin/subscriptions#create
+#                                  new_admin_subscription GET        /admin/subscriptions/new(.:format)                                                          admin/subscriptions#new
+#                                 edit_admin_subscription GET        /admin/subscriptions/:id/edit(.:format)                                                     admin/subscriptions#edit
+#                                      admin_subscription GET        /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#show
+#                                                         PATCH      /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#update
+#                                                         PUT        /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#update
+#                                                         DELETE     /admin/subscriptions/:id(.:format)                                                          admin/subscriptions#destroy
+#                               batch_action_admin_tracks POST       /admin/tracks/batch_action(.:format)                                                        admin/tracks#batch_action
+#                                            admin_tracks GET        /admin/tracks(.:format)                                                                     admin/tracks#index
+#                                                         POST       /admin/tracks(.:format)                                                                     admin/tracks#create
+#                                         new_admin_track GET        /admin/tracks/new(.:format)                                                                 admin/tracks#new
+#                                        edit_admin_track GET        /admin/tracks/:id/edit(.:format)                                                            admin/tracks#edit
+#                                             admin_track GET        /admin/tracks/:id(.:format)                                                                 admin/tracks#show
+#                                                         PATCH      /admin/tracks/:id(.:format)                                                                 admin/tracks#update
+#                                                         PUT        /admin/tracks/:id(.:format)                                                                 admin/tracks#update
+#                                                         DELETE     /admin/tracks/:id(.:format)                                                                 admin/tracks#destroy
+#                           batch_action_admin_categories POST       /admin/categories/batch_action(.:format)                                                    admin/categories#batch_action
+#                                        admin_categories GET        /admin/categories(.:format)                                                                 admin/categories#index
+#                                                         POST       /admin/categories(.:format)                                                                 admin/categories#create
+#                                      new_admin_category GET        /admin/categories/new(.:format)                                                             admin/categories#new
+#                                     edit_admin_category GET        /admin/categories/:id/edit(.:format)                                                        admin/categories#edit
+#                                          admin_category GET        /admin/categories/:id(.:format)                                                             admin/categories#show
+#                                                         PATCH      /admin/categories/:id(.:format)                                                             admin/categories#update
+#                                                         PUT        /admin/categories/:id(.:format)                                                             admin/categories#update
+#                                                         DELETE     /admin/categories/:id(.:format)                                                             admin/categories#destroy
 #                                          admin_comments GET        /admin/comments(.:format)                                                                   admin/comments#index
 #                                                         POST       /admin/comments(.:format)                                                                   admin/comments#create
 #                                           admin_comment GET        /admin/comments/:id(.:format)                                                               admin/comments#show
@@ -191,6 +194,9 @@
 #                                                         PATCH      /backend/users/:id(.:format)                                                                backend/users#update
 #                                                         PUT        /backend/users/:id(.:format)                                                                backend/users#update
 #                                                         DELETE     /backend/users/:id(.:format)                                                                backend/users#destroy
+#                autocomplete_category_name_backend_songs GET        /backend/songs/autocomplete_category_name(.:format)                                         backend/songs#autocomplete_category_name
+#                  autocomplete_artist_name_backend_songs GET        /backend/songs/autocomplete_artist_name(.:format)                                           backend/songs#autocomplete_artist_name
+#                   autocomplete_album_name_backend_songs GET        /backend/songs/autocomplete_album_name(.:format)                                            backend/songs#autocomplete_album_name
 #                                           backend_songs GET        /backend/songs(.:format)                                                                    backend/songs#index
 #                                                         POST       /backend/songs(.:format)                                                                    backend/songs#create
 #                                        new_backend_song GET        /backend/songs/new(.:format)                                                                backend/songs#new
@@ -215,6 +221,7 @@
 #                                                         PATCH      /backend/albums/:id(.:format)                                                               backend/albums#update
 #                                                         PUT        /backend/albums/:id(.:format)                                                               backend/albums#update
 #                                                         DELETE     /backend/albums/:id(.:format)                                                               backend/albums#destroy
+#          autocomplete_musical_band_name_backend_artists GET        /backend/artists/autocomplete_musical_band_name(.:format)                                   backend/artists#autocomplete_musical_band_name
 #                                         backend_artists GET        /backend/artists(.:format)                                                                  backend/artists#index
 #                                                         POST       /backend/artists(.:format)                                                                  backend/artists#create
 #                                      new_backend_artist GET        /backend/artists/new(.:format)                                                              backend/artists#new
@@ -290,6 +297,18 @@
 #
 
 Rails.application.routes.draw do
+  namespace :api do
+  namespace :v1 do
+    get 'home/index'
+    get 'home/search'
+    end
+  end
+  namespace :backend do
+  get 'home/index'
+  get 'home/search'
+  get 'home/autocomplete'
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
@@ -395,10 +414,19 @@ Rails.application.routes.draw do
   end
   namespace :backend do
     resources :users
-    resources :songs
+    resources :songs do
+      get :autocomplete_category_name, :on => :collection
+      get :autocomplete_artist_name, :on => :collection
+      get :autocomplete_album_name, :on => :collection
+    end
     resources :tracks
-    resources :albums
-    resources :artists
+    resources :albums do
+      get :autocomplete_category_name, :on => :collection
+      get :autocomplete_artist_name, :on => :collection
+    end
+    resources :artists do
+      get :autocomplete_musical_band_name, :on => :collection
+    end
     resources :categories
     resources :subscriptions
     resources :languages
