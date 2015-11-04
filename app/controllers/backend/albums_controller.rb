@@ -19,6 +19,7 @@ module Backend
     # GET /backend/albums/1
     # GET /backend/albums/1.json
     def show
+      render json: @album.includes(:songs)
     end
 
     # GET /backend/albums/new
