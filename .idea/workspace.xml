@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4bae6fd-340c-4d28-b373-250fa747cef7" name="Default" comment="">
-<<<<<<< HEAD
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/music.iml" afterPath="$PROJECT_DIR$/.idea/music.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-=======
-<<<<<<< HEAD
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/backend/songs/index.html.erb" afterPath="$PROJECT_DIR$/app/views/backend/songs/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/backend/songs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/backend/songs_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-=======
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
     </list>
     <ignored path="music.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,12 +20,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-<<<<<<< HEAD
-    <SUITE FILE_PATH="coverage/music@db_migrate__music.coverage" NAME="db:migrate: music Coverage Results" MODIFIED="1445859253116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="music" />
-    <SUITE FILE_PATH="coverage/music@Development__music.coverage" NAME="Development: music Coverage Results" MODIFIED="1446359589847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="music" />
-=======
     <SUITE FILE_PATH="coverage/music@routes__music.coverage" NAME="routes: music Coverage Results" MODIFIED="1443257159240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="music" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
     <SUITE FILE_PATH="coverage/music@db_drop__music.coverage" NAME="db:drop: music Coverage Results" MODIFIED="1443416262247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="music" />
     <SUITE FILE_PATH="coverage/music@db_create__music.coverage" NAME="db:create: music Coverage Results" MODIFIED="1444736495675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="music" />
     <SUITE FILE_PATH="coverage/music@db_migrate__music.coverage" NAME="db:migrate: music Coverage Results" MODIFIED="1446274881270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="music" />
@@ -57,11 +42,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/backend/songs_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-<<<<<<< HEAD
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-=======
-              <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
+              <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -70,12 +51,7 @@
       <file leaf-file-name="musical_bands_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/backend/musical_bands_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state vertical-scroll-proportion="0.5159705">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-=======
             <state vertical-scroll-proportion="0.0">
-<<<<<<< HEAD
               <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
               <folding />
             </state>
@@ -85,12 +61,8 @@
       <file leaf-file-name="albums_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19936709">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-=======
-              <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
+            <state vertical-scroll-proportion="0.25632912">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -99,17 +71,8 @@
       <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/backend/musical_bands/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-            <state vertical-scroll-proportion="0.0">
-              <caret line="191" column="57" selection-start-line="191" selection-start-column="44" selection-end-line="191" selection-end-column="57" />
-=======
-            <state vertical-scroll-proportion="-1.3333334">
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
               <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
               <folding />
             </state>
           </provider>
@@ -128,37 +91,8 @@
       <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/backend/musical_bands/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="play_list.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/play_list.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="play_lists_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/backend/play_lists_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-=======
-            <state vertical-scroll-proportion="0.7140496">
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
               <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
               <folding />
             </state>
           </provider>
@@ -167,23 +101,9 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/backend/musical_bands/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding />
-=======
-<<<<<<< HEAD
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-              <folding />
-=======
-            <state vertical-scroll-proportion="-4.0">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-              <folding>
-                <element signature="e#77#414#0#ruby" expanded="false" />
-              </folding>
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
             </state>
           </provider>
         </entry>
@@ -192,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="281" column="57" selection-start-line="281" selection-start-column="36" selection-end-line="281" selection-end-column="57" />
+              <caret line="288" column="57" selection-start-line="288" selection-start-column="57" selection-end-line="288" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -214,12 +134,9 @@
         <option value="$PROJECT_DIR$/app/services/base_presenter.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-<<<<<<< HEAD
-=======
         <option value="$PROJECT_DIR$/app/controllers/backend/play_lists_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/song.rb" />
         <option value="$PROJECT_DIR$/app/models/play_list.rb" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
         <option value="$PROJECT_DIR$/app/models/liked_album.rb" />
         <option value="$PROJECT_DIR$/app/models/liked_play_list.rb" />
         <option value="$PROJECT_DIR$/app/models/liked_song.rb" />
@@ -240,7 +157,6 @@
         <option value="$PROJECT_DIR$/app/views/backend/artists/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/backend/artists/show.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/simple_token_authentication.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/devise/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
@@ -248,32 +164,6 @@
         <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-        <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/app/models/play_list.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/backend.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/artists_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/play_lists_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/songs_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/backend/songs/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/track.rb" />
-        <option value="$PROJECT_DIR$/app/views/backend/songs/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/dropdown-filter.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/models/album.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/backend/albums_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/backend/albums/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/song.rb" />
-        <option value="$PROJECT_DIR$/app/views/backend/songs/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/backend/songs_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/backend/play_lists_controller.rb" />
-=======
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/models/musical_band.rb" />
         <option value="$PROJECT_DIR$/app/controllers/backend/artists_controller.rb" />
@@ -291,7 +181,7 @@
         <option value="$PROJECT_DIR$/app/views/backend/musical_bands/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/backend/musical_bands/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/backend/musical_bands_controller.rb" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb" />
       </list>
     </option>
   </component>
@@ -338,16 +228,7 @@
       <sortByType />
     </navigator>
     <panes>
-<<<<<<< HEAD
       <pane id="Scope" />
-=======
-<<<<<<< HEAD
-      <pane id="Scope" />
-=======
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
-      <pane id="Scratches" />
-      <pane id="RailsProjectView" />
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -379,36 +260,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-<<<<<<< HEAD
-=======
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="music" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="music_cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-<<<<<<< HEAD
-=======
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -424,51 +275,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="musical_bands" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="music" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="music_cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="music" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="music_cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
           </PATH>
         </subPane>
       </pane>
@@ -499,34 +308,8 @@
       <recent name="$PROJECT_DIR$/app/controllers" />
     </key>
   </component>
-<<<<<<< HEAD
-  <component name="RunManager" selected="Rails.Development: music">
-    <configuration default="false" name="Rails console: music" type="IrbRunConfigurationType" factoryName="IRB console" temporary="true">
-      <module name="music" />
-      <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
-      <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
-      <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/bin/rails" />
-      <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="console" />
-      <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="true" />
-      <method />
-    </configuration>
-    <configuration default="false" name="routes: music" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
-=======
   <component name="RunManager" selected="Rake.annotate_routes: music">
     <configuration default="false" name="annotate_routes: music" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
       <module name="music" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
@@ -856,30 +639,12 @@
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22775264" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-=======
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32928064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33624455" sideWeight="0.49095023" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32751092" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-=======
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19292426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-=======
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18850194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624114" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32970297" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -911,13 +676,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/backend/artists/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20150928104658_add_gender_to_artist.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1052,9 +810,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/backend.html.erb">
-=======
     <entry file="file://$PROJECT_DIR$/app/models/subscription.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22222222">
@@ -1070,7 +825,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/song_artist.rb">
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48188975">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
@@ -1084,8 +838,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1094,7 +846,6 @@
         </state>
       </provider>
     </entry>
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42519686">
@@ -1154,17 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/backend/artists/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
-=======
         <state vertical-scroll-proportion="0.44407895">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-<<<<<<< HEAD
-=======
-          <folding />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
@@ -1184,73 +926,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/song.rb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.23433875">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-=======
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
-<<<<<<< HEAD
-=======
-          <folding />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/album.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-<<<<<<< HEAD
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-=======
           <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-<<<<<<< HEAD
-=======
-          <folding />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/backend/categories/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="98" selection-start-line="28" selection-start-column="98" selection-end-line="28" selection-end-column="98" />
-=======
         <state vertical-scroll-proportion="-8.666667">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-<<<<<<< HEAD
-=======
-          <folding />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/backend/categories_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-=======
         <state vertical-scroll-proportion="1.2755905">
           <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
-<<<<<<< HEAD
-=======
-          <folding />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/backend/categories/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.52204174">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-=======
         <state vertical-scroll-proportion="0.53289473">
           <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
         </state>
@@ -1259,9 +962,8 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/backend/songs_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
         </state>
       </provider>
     </entry>
@@ -1275,22 +977,14 @@
     <entry file="file://$PROJECT_DIR$/app/models/liked_artist.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-<<<<<<< HEAD
-          <caret line="191" column="57" selection-start-line="191" selection-start-column="44" selection-end-line="191" selection-end-column="57" />
-=======
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-<<<<<<< HEAD
-=======
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
-          <folding />
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="281" column="57" selection-start-line="281" selection-start-column="36" selection-end-line="281" selection-end-column="57" />
+          <caret line="288" column="57" selection-start-line="288" selection-start-column="57" selection-end-line="288" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1303,116 +997,50 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/backend/albums/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9489559">
-          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/song_presenter.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
-=======
     <entry file="file://$PROJECT_DIR$/app/views/backend/musical_bands/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-<<<<<<< HEAD
           <folding />
-=======
-          <folding>
-            <element signature="e#77#414#0#ruby" expanded="false" />
-          </folding>
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/backend/musical_bands/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-=======
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/backend/musical_bands/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
-=======
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/controllers/backend/albums_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/controllers/backend/musical_bands_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/models/play_list.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/backend/play_lists_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/services/album_presenter.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/controllers/backend/musical_bands_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/albums_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.19936709">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-=======
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.5159705">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-=======
-        <state vertical-scroll-proportion="0.7140496">
-          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
->>>>>>> f507260a0c2db38baf19a5c8a824b017b0a85306
->>>>>>> 64bd6e2bd195c8e98cd5f9e5d7a85465bbe7acf4
+        <state vertical-scroll-proportion="0.25632912">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
           <folding />
         </state>
       </provider>

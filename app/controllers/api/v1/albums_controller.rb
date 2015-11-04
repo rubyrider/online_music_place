@@ -7,6 +7,7 @@ module Api
       # GET /albums.json
       def index
         @albums = Album.all
+        render json: @albums
         # @albums = AlbumPresent.collect(Album.all)
       end
 
