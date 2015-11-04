@@ -6,7 +6,8 @@ module Api
       # GET /albums
       # GET /albums.json
       def index
-        @albums = AlbumPresent.collect(Album.all)
+        @albums = Album.all
+        # @albums = AlbumPresent.collect(Album.all)
       end
 
       # GET /albums/1
