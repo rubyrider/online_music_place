@@ -14,7 +14,7 @@ module Api
       # GET /albums/1
       # GET /albums/1.json
       def show
-        render json: @album
+        render json: @album.includes(:songs)
       end
 
       # GET /albums/new
