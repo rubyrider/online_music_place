@@ -83,3 +83,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'thin'
 gem 'searchkick'
 gem 'rails4-autocomplete'
+gem 'mini_magick'
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
