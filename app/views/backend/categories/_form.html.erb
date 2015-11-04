@@ -1,4 +1,4 @@
-<%= form_for @category, url: backend_categories_path, :html => { :class => "form-horizontal category" } do |f| %>
+<%= form_for @category, url: "/backend/categories/#{@category.id}", :html => { :class => "form-horizontal category" } do |f| %>
 
     <% if @category.errors.any? %>
     <div id="error_expl" class="panel panel-danger">

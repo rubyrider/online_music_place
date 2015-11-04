@@ -1,4 +1,4 @@
-<%= form_for(@musical_band, url: backend_musical_bands_path ) do |f| %>
+<%= form_for(@musical_band, url: "/backend/musical_bands/#{@musical_band.id}" ) do |f| %>
   <% if @musical_band.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@musical_band.errors.count, "error") %> prohibited this musical_band from being saved:</h2>

@@ -10,6 +10,7 @@
 #  anonymous    :boolean          default(FALSE)
 #  cover        :string(255)
 #  new_release  :boolean
+#  banner       :string(255)
 #
 
 class Album < ActiveRecord::Base
@@ -20,6 +21,7 @@ class Album < ActiveRecord::Base
 
   include Anonymity
   mount_uploader :cover, AlbumCoverUploader
+  mount_uploader :banner, BannerUploader
 
   has_many :songs
   has_many :album_artists

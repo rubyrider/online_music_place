@@ -19,7 +19,7 @@ module Backend
     # GET /backend/albums/1
     # GET /backend/albums/1.json
     def show
-      render json: @album.includes(:songs)
+
     end
 
     # GET /backend/albums/new
@@ -31,6 +31,7 @@ module Backend
 
     # GET /backend/albums/1/edit
     def edit
+      @album = Album.find(params[:id])
       add_breadcrumb "#{@album.name}", backend_album_path(@album.to_param)
       add_breadcrumb "Edit".freeze
     end

@@ -1,6 +1,8 @@
 # == Route Map
 #
 #                                                  Prefix Verb       URI Pattern                                                                                 Controller#Action
+#                                       api_v1_home_index GET        /api/v1/home/index(.:format)                                                                api/v1/home#index
+#                                      api_v1_home_search GET        /api/v1/home/search(.:format)                                                               api/v1/home#search
 #                                      backend_home_index GET        /backend/home/index(.:format)                                                               backend/home#index
 #                                     backend_home_search GET        /backend/home/search(.:format)                                                              backend/home#search
 #                               backend_home_autocomplete GET        /backend/home/autocomplete(.:format)                                                        backend/home#autocomplete
@@ -213,6 +215,8 @@
 #                                                         PATCH      /backend/tracks/:id(.:format)                                                               backend/tracks#update
 #                                                         PUT        /backend/tracks/:id(.:format)                                                               backend/tracks#update
 #                                                         DELETE     /backend/tracks/:id(.:format)                                                               backend/tracks#destroy
+#               autocomplete_category_name_backend_albums GET        /backend/albums/autocomplete_category_name(.:format)                                        backend/albums#autocomplete_category_name
+#                 autocomplete_artist_name_backend_albums GET        /backend/albums/autocomplete_artist_name(.:format)                                          backend/albums#autocomplete_artist_name
 #                                          backend_albums GET        /backend/albums(.:format)                                                                   backend/albums#index
 #                                                         POST       /backend/albums(.:format)                                                                   backend/albums#create
 #                                       new_backend_album GET        /backend/albums/new(.:format)                                                               backend/albums#new
