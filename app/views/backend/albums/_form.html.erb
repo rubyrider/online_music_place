@@ -35,6 +35,13 @@
     <div class="controls">
       <%= f.text_field :release_date, :class => 'form-control' %>
     </div>
+    <%= error_span(@album[:new_release]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :new_release, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :new_release, :class => '' %>
+    </div>
     <%= error_span(@album[:release_date]) %>
   </div>
     <div class="clearfix" style="clear: both; height: 40px !important;"></div>
