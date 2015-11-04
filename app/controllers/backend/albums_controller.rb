@@ -31,7 +31,7 @@ module Backend
     # GET /backend/albums/1/edit
     def edit
       add_breadcrumb "#{@album.name}", backend_album_path(@album.to_param)
-      add_breadcrumb "Edit".freeze, edit_backend_albums_path(@album)
+      add_breadcrumb "Edit".freeze
     end
 
     # POST /backend/albums
