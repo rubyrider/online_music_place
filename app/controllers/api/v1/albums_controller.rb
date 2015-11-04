@@ -7,6 +7,7 @@ module Api
       # GET /albums.json
       def index
         @albums = Album.all
+        @albums = @albums.map{|a| a[:cover][:url] = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=album&w=300&h=300' if !a[:cover][:url].present? }
         render json: @albums
         # @albums = AlbumPresent.collect(Album.all)
       end
