@@ -1,0 +1,49 @@
+<%= form_for @play_list, url: "/backend/play_lists/#{@play_list.id}", :html => { :class => "form-horizontal play_list" } do |f| %>
+
+    <% if @play_list.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@play_list.errors.count, "error") %> prohibited this play_list from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @play_list.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+      <%= error_span(@play_list[:name]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :system, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :system_play_list %>
+      </div>
+      <%= error_span(@play_list[:name]) %>
+    </div>
+    <fieldset id="recipe-ingredients">
+      <ol>
+        <%= f.fields_for :play_list_songs do |song| %>
+            <%= render 'play_list_song_fields', f: song %>
+        <% end %>
+      </ol>
+      <%= link_to_add_association 'add song', f, :play_list_songs,
+                                  'data-association-insertion-node' => "#recipe-ingredients ol",
+                                  'data-association-insertion-method' => "append",
+                                  :wrap_object => Proc.new {|play_list_song| play_list_song.build_song; play_list_song } %>
+    </fieldset>
+
+
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                backend_play_lists_path, :class => 'btn btn-default' %>
+
+<% end %>

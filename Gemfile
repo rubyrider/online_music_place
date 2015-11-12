@@ -87,3 +87,4 @@ gem 'mini_magick'
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
+gem 'cocoon'

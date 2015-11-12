@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require jquery-ui
 //= require autocomplete-rails
+//= require cocoon
 //= require_tree ./backend
 //= require_tree .
 

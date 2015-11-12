@@ -20,6 +20,11 @@ class PlayList < ActiveRecord::Base
   has_many :play_list_songs
   has_many :songs, through: :play_list_songs
 
+  accepts_nested_attributes_for :play_list_songs,
+                                reject_if: :all_blank,
+                                allow_destroy: true
+  accepts_nested_attributes_for :songs
+
   def creator
     self.user
   end

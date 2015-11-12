@@ -64,6 +64,15 @@ module Api
         end
       end
 
+      def surprise_me
+        @play_list = PlayList.where(system_play_list: true).sample
+        if @play_list.present?
+          render json: @play_list.includes(:songs)
+        else
+          render json: {message: 'no playlist found'}
+        end
+      end
+
       def featured
         @play_lists = PlayList.where(:featured => true)
         render json: @play_lists

@@ -1,0 +1,10 @@
+<li class="control-group nested-fields">
+  <div class="controls">
+
+    <%= f.fields_for :song do |s| %>
+        <%= s.autocomplete_field :name, autocomplete_song_name_backend_play_lists_path %>
+    <% end %>
+
+    <%= link_to_remove_association "remove", f %>
+  </div>
+</li>

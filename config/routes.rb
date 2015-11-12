@@ -412,6 +412,7 @@ Rails.application.routes.draw do
         end
         collection do
           get :featured
+          get :surprise_me
         end
       end
     end
@@ -437,7 +438,9 @@ Rails.application.routes.draw do
     resources :analytics
     resources :ad_positions
     resources :advertisements
-    resources :play_lists
+    resources :play_lists do
+    	get :autocomplete_song_name, :on => :collection
+    end
     resources :musical_bands
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)

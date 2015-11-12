@@ -1,17 +1,22 @@
 module Backend
   class PlayListsController < BackendController
     before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs, :toggle_presence_in_play_list]
+    autocomplete :song, :name, full: true
 
     # GET /play_lists
     # GET /play_lists.json
     def index
-      @play_lists = PlayList.all
+      if params[:system].present?
+        @play_lists = PlayList.where(system_play_list: true)
+      else
+        @play_lists = PlayList.all
+      end
     end
 
     # GET /play_lists/1
     # GET /play_lists/1.json
     def show
-      render json: @play_list
+      @play_list = PlayList.find(params[:id])
     end
 
     # GET /play_lists/new
@@ -26,11 +31,22 @@ module Backend
     # POST /play_lists
     # POST /play_lists.json
     def create
-      @play_list = PlayList.new(play_list_params)
-
+      @play_list = PlayList.new()
+      # @play_list.name = params[:play_list][:play_list_songs_attributes].keys.each{|k| puts params[:play_list][:play_list_songs_attributes][k]['song_attributes']["name"]}
+      @play_list.name = params[:play_list][:name]
       respond_to do |format|
         if @play_list.save
-          format.html { redirect_to @play_list, notice: 'Play list was successfully created.' }
+          params[:play_list][:play_list_songs_attributes].keys.each do |k|
+            song = Song.find_by_name(params[:play_list][:play_list_songs_attributes][k]['song_attributes']["name"]) rescue nil
+            if song
+              begin
+                PlayListSong.create(song_id: song.id, play_list_id: @play_list.id)
+              rescue
+
+              end
+            end
+          end
+          format.html { redirect_to backend_play_list_path(@play_list), notice: 'Play list was successfully created.' }
           format.json { render :show, status: :created, location: @play_list }
         else
           format.html { render :new }
@@ -44,7 +60,7 @@ module Backend
     def update
       respond_to do |format|
         if @play_list.update(play_list_params)
-          format.html { redirect_to @play_list, notice: 'Play list was successfully updated.' }
+          format.html { redirect_to backend_play_list_path(@play_list), notice: 'Play list was successfully updated.' }
           format.json { render :show, status: :ok, location: @play_list }
         else
           format.html { render :edit }
@@ -112,7 +128,7 @@ module Backend
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def play_list_params
-      params[:play_list]
+      params.require(:play_list).permit!
     end
   end
 end

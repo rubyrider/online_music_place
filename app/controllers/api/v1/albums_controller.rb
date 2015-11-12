@@ -103,7 +103,7 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def album_params
-        params.require(:album).permit([:id, :name, :release_date, :created_at, :updated_at])
+        params.require(:album).permit!
       end
     end
   end
