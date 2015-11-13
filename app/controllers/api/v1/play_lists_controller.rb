@@ -13,7 +13,7 @@ module Api
       # GET /play_lists/1
       # GET /play_lists/1.json
       def show
-        render json: @play_list
+        render json: @play_list.includes(:songs)
       end
 
       # GET /play_lists/new
