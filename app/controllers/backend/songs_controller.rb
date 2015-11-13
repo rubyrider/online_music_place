@@ -49,6 +49,7 @@ module Backend
     # PATCH/PUT /backend/songs/1
     # PATCH/PUT /backend/songs/1.json
     def update
+      @song = Song.find(params[:id])
       respond_to do |format|
         if @song.update(backend_song_params)
           format.html { redirect_to @song, notice: 'Song was successfully updated.' }

@@ -1,6 +1,4 @@
-<%= form_for @song, url: "/backend/songs/#{@song.id}", :html => {:class => "form-horizontal song", multipart: true} do |f| %>
-
-    <% if @song.errors.any? %>
+ <% if @song.errors.any? %>
         <div id="error_expl" class="panel panel-danger">
           <div class="panel-heading">
             <h3 class="panel-title"><%= pluralize(@song.errors.count, "error") %> prohibited this song from being
@@ -76,5 +74,3 @@
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 backend_songs_path, :class => 'btn btn-default' %>
-
-<% end %>

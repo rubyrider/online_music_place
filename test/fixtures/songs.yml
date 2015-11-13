@@ -11,6 +11,7 @@
 #  updated_at    :datetime         not null
 #  track_id      :integer
 #  demo_track_id :integer
+#  artist_name   :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
