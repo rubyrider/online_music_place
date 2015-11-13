@@ -88,3 +88,4 @@ source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
 gem 'cocoon'
+gem 'apipie-rails'
