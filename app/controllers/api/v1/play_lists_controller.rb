@@ -7,6 +7,7 @@ module Api
       # GET /play_lists.json
       def index
         @play_lists = PlayList.all
+        render json: @play_lists
       end
 
       # GET /play_lists/1
