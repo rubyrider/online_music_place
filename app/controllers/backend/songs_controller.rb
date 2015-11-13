@@ -52,7 +52,7 @@ module Backend
       @song = Song.find(params[:id])
       respond_to do |format|
         if @song.update(backend_song_params)
-          format.html { redirect_to @song, notice: 'Song was successfully updated.' }
+          format.html { redirect_to [:backend, @song], notice: 'Song was successfully updated.' }
           format.json { render :show, status: :ok, location: @song }
         else
           format.html { render :edit }
