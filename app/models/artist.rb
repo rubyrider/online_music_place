@@ -22,6 +22,8 @@
 
 class Artist < ActiveRecord::Base
 
+  searchkick
+
   mount_uploader :cover, ArtistCoverUploader
   mount_uploader :photo, ArtistPhotoUploader
 

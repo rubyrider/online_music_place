@@ -2,6 +2,7 @@ module Api
   module V1
     class PlayListsController < ApiController
       before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs, :toggle_presence_in_play_list]
+      acts_as_token_authentication_handler_for User, only: [:toggle_presence_in_play_list, :edit, :update, :destroy]
 
       # GET /play_lists
       # GET /play_lists.json
