@@ -2,6 +2,7 @@ module Api
   module V1
     class UsersController < ApiController
       before_action :set_user, only: [:show, :edit, :update, :destroy, :favorite_albums, :favorite_play_lists, :favorite_songs, :favorite_artists]
+      acts_as_token_authentication_handler_for User
 
       # GET /users
       # GET /users.json
@@ -16,13 +17,13 @@ module Api
       end
 
       # GET /users/new
-      def new
-        @user = User.new
-      end
+      # def new
+      #   @user = User.new
+      # end
 
       # GET /users/1/edit
-      def edit
-      end
+      # def edit
+      # end
 
       # POST /users
       # POST /users.json
@@ -92,6 +93,8 @@ module Api
       # Use callbacks to share common setup or constraints between actions.
       def set_user
         @user = User.find(params[:id])
+
+        @user if @user == current_user
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.
