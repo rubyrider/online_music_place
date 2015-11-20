@@ -23,7 +23,11 @@
     </div>
     <div class="col-sm-4 col-sm-offset-2 avater">
       <img src="assets/images/anthony.png" alt="Amthony"/>
-      <h4>ANTHONY DELMAS</h4>
+      <% if current_user %>
+          <h4><%= current_user.full_name %></h4>
+      <% else %>
+          <a type="button" data-toggle="modal" data-target="#login-modal" id="open-modal">Login</a>
+      <% end %>
     </div>
   </div>
   <div class="col-md-2 bg_FFC50C playlist textCenterAlign">
@@ -87,12 +91,48 @@
   </div>
 </section>
 
+
+
+
+<!-- Modal -->
+<div id="login-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <img src="assets/images/logo.png" alt="">
+      </div>
+      <div class="modal-body">
+        <%= form_tag user_session_path, role: 'form' do %>
+            <div class="form-group">
+              <%= label_tag 'Email' %>
+              <%= text_field_tag 'user[email]', '', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= label_tag 'Password' %>
+              <%= password_field_tag 'user[password]', '', class: 'form-control' %>
+            </div>
+            <%= submit_tag 'Sign in', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer_area">
     <div class="footer_area-copyright"></div>
     <div class="footer_area-socialmedia"></div>
   </div>
 </footer>
+
+
 
 </body>
 </html>

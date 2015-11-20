@@ -18,6 +18,10 @@
 #  role                   :integer          default(0)
 #  subscription_id        :integer
 #  authentication_token   :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  gender                 :integer
+#  avatar                 :string(255)
 #
 # Indexes
 #

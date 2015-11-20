@@ -33,3 +33,10 @@
     cursor: pointer;
     color: white;
 }
+#login-modal {
+    margin: 0 auto;
+    text-align: center;
+}
+#open-modal {
+    cursor: pointer;
+}

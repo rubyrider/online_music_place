@@ -21,8 +21,6 @@
 //= require underscore
 //= require lodash
 //= require_tree ./backend
-//= require_tree .
-
 /*
 *
 $(function() {
