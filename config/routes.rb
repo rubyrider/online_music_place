@@ -255,9 +255,21 @@ Rails.application.routes.draw do
   root to: 'music#index'
   get '/home', to: 'music#index'
 
+  namespace :api do
+  namespace :v1 do
+    get 'home/index'
+    get 'home/search'
+    end
+  end
+  namespace :backend do
+  get 'home/index'
+  get 'home/search'
+  get 'home/autocomplete'
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -309,25 +321,81 @@ Rails.application.routes.draw do
   # Example resource route within a namespace:
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :users do
+        member do
+          get :favorite_songs
+          get :favorite_albums
+          get :favorite_play_lists
+          get :favorite_artists
+        end
+        resources :songs, only: [:index] do
+          member do
+            post :toggle_like
+          end
+          resources :play_lists do
+            member do
+              post :toggle_presence_in_play_list
+            end
+          end
+        end
+        resources :albums, only: [:index] do
+          member do
+            post :toggle_like
+          end
+        end
+
+        resources :artists, only: [:index] do
+          member do
+            post :toggle_like
+          end
+        end
+      end
       resources :songs
-      resources :albums
+      resources :albums do
+        collection do
+          get :new_releases
+        end
+        member do
+          get :songs
+        end
+      end
       resources :artists
-      resources :play_lists
+      resources :play_lists do
+        member do
+          get :songs
+        end
+        collection do
+          get :featured
+          get :surprise_me
+        end
+      end
     end
   end
   namespace :backend do
     resources :users
-    resources :songs
+    resources :songs do
+      get :autocomplete_category_name, :on => :collection
+      get :autocomplete_artist_name, :on => :collection
+      get :autocomplete_album_name, :on => :collection
+    end
     resources :tracks
-    resources :albums
-    resources :artists
+    resources :albums do
+      get :autocomplete_category_name, :on => :collection
+      get :autocomplete_artist_name, :on => :collection
+    end
+    resources :artists do
+      get :autocomplete_musical_band_name, :on => :collection
+    end
     resources :categories
     resources :subscriptions
     resources :languages
     resources :analytics
     resources :ad_positions
     resources :advertisements
+    resources :play_lists do
+    	get :autocomplete_song_name, :on => :collection
+    end
+    resources :musical_bands
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
   end

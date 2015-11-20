@@ -1,6 +1,8 @@
 module Backend
   class AlbumsController < BackendController
     before_action :set_backend_album, only: [:show, :edit, :update, :destroy]
+    autocomplete :category, :name, :full => true
+    autocomplete :artist, :name, :full => true
 
     add_breadcrumb "Album".freeze, :backend_albums_path
 
@@ -9,12 +11,15 @@ module Backend
     def index
       add_breadcrumb "List".freeze, :backend_albums_path
 
-      @albums = AlbumPresenter.collect(Album.all)
+      @albums = AlbumPresenter.collect(Album.filter_by_params(params))
+      @artists = Artist.all.order(:name)
+      @categories = Category.all
     end
 
     # GET /backend/albums/1
     # GET /backend/albums/1.json
     def show
+
     end
 
     # GET /backend/albums/new
@@ -26,8 +31,9 @@ module Backend
 
     # GET /backend/albums/1/edit
     def edit
+      @album = Album.find(params[:id])
       add_breadcrumb "#{@album.name}", backend_album_path(@album.to_param)
-      add_breadcrumb "Edit".freeze, :edit_backend_albums_path
+      add_breadcrumb "Edit".freeze
     end
 
     # POST /backend/albums
@@ -37,8 +43,8 @@ module Backend
 
       respond_to do |format|
         if @album.save
-          format.html { redirect_to @album, notice: 'Album was successfully created.' }
-          format.json { render :show, status: :created, location: @album }
+          format.html { redirect_to backend_album_path(@album), notice: 'Album was successfully created.' }
+          format.json { render :show, status: :created, location: backend_album_path(@album) }
         else
           format.html { render :new }
           format.json { render json: @album.errors, status: :unprocessable_entity }

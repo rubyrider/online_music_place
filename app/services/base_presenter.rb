@@ -16,7 +16,7 @@ class BasePresenter
   def method_missing(method, *args)
     return nil unless object.respond_to?(method.to_sym)
 
-    object.send method.to_sym, *args
+    object.send method.to_sym, *args rescue nil
   end
 
   def to_param

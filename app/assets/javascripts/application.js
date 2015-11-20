@@ -13,7 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require dropdown-filter
 //= require turbolinks
+//= require jquery-ui
+//= require autocomplete-rails
+//= require cocoon
 //= require underscore
 //= require_tree ./backend
 //= require_tree .
+
+/*
+*
+$(function() {
+ $('#select').filterByText($('#textbox'), true);
+ });
+*
+* */

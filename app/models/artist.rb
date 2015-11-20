@@ -12,6 +12,8 @@
 #  musical_band_id :integer
 #  anonymous       :boolean
 #  gender          :integer
+#  cover           :string(255)
+#  photo           :string(255)
 #
 # Indexes
 #
@@ -19,6 +21,11 @@
 #
 
 class Artist < ActiveRecord::Base
+
+  searchkick
+
+  mount_uploader :cover, ArtistCoverUploader
+  mount_uploader :photo, ArtistPhotoUploader
 
   DEFAULT_NAME = 'Anonymous Singer'.freeze
 
@@ -37,6 +44,9 @@ class Artist < ActiveRecord::Base
   has_many :songs
   has_many :album_artists
   has_many :albums
+  has_many :liked_artists
+  has_many :users, through: :liked_artists
+  belongs_to :musical_band
 
   def default_name
     DEFAULT_NAME
@@ -55,6 +65,18 @@ class Artist < ActiveRecord::Base
     calculate_age
   end
   alias_method :age, :__age
+
+  def self.filter_by_params(params)
+    results = Artist.all
+    if params[:name].present?
+      results = results.where('name LIKE ?', "%#{params[:name]}%")
+    end
+    if params[:band].present?
+      results = results.joins(:musical_band).where('musical_bands.name LIKE ?', "%#{params[:band_id]}%")
+    end
+
+    results
+  end
 
   private
 
@@ -82,9 +104,12 @@ class Artist < ActiveRecord::Base
   def calculate_age
     return nil if dob.nil?
 
-    birthday = Chronic.parse(self.dob)
-    age = ((Time.now - birthday.to_time)/(60*60*24*365)).floor
-    return nil if age < 0
+    birthday = Chronic.parse(self.try(:dob))
+    if birthday
+      age = ((Time.now - birthday.to_time)/(60*60*24*365)).floor
+      return nil if age < 0
+    end
+
 
     age
   end

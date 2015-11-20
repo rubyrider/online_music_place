@@ -1,6 +1,4 @@
-<%= form_for @song, url: backend_songs_path, :html => {:class => "form-horizontal song", multipart: true} do |f| %>
-
-    <% if @song.errors.any? %>
+ <% if @song.errors.any? %>
         <div id="error_expl" class="panel panel-danger">
           <div class="panel-heading">
             <h3 class="panel-title"><%= pluralize(@song.errors.count, "error") %> prohibited this song from being
@@ -22,6 +20,20 @@
         <%= f.text_field :name, :class => 'form-control' %>
       </div>
       <%= error_span(@song[:name]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :artist_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :artist_name, :class => 'form-control' %>
+      </div>
+      <%= error_span(@song[:artist_name]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :album, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :album_id, Album.all.collect { |a| [a.name, a.id] }, {include_blank: 'Default'}, :class => 'form-control' %>
+      </div>
+      <%= error_span(@song[:album_id]) %>
     </div>
    <div class="control-group">
       <%= f.label :filename, :class => 'control-label' %>
@@ -62,5 +74,3 @@
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 backend_songs_path, :class => 'btn btn-default' %>
-
-<% end %>

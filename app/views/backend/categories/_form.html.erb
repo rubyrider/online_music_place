@@ -1,4 +1,4 @@
-<%= form_for @category, :html => { :class => "form-horizontal category" } do |f| %>
+<%= form_for @category, url: "/backend/categories/#{@category.id}", :html => { :class => "form-horizontal category" } do |f| %>
 
     <% if @category.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -26,6 +26,6 @@
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            categories_path, :class => 'btn btn-default' %>
+            backend_categories_path, :class => 'btn btn-default' %>
 
 <% end %>

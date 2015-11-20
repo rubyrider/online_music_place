@@ -56,7 +56,7 @@ gem 'cancancan'
 
 # theme
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails"
 gem "twitter-bootstrap-rails"
 
 # json parser
@@ -97,3 +97,15 @@ end
 gem 'angular-ui-select2-rails'
 gem 'angular-rails-templates', '0.1.4'
 gem 'angularjs-rails'
+gem 'pry'
+gem 'simple_token_authentication', '~> 1.0'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'thin'
+gem 'searchkick'
+gem 'rails4-autocomplete'
+gem 'mini_magick'
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
+gem 'cocoon'
+gem 'apipie-rails'

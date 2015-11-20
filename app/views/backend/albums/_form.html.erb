@@ -1,4 +1,4 @@
-<%= form_for @album, url: backend_albums_path, :html => { :class => "form-horizontal album" } do |f| %>
+<%= form_for @album, url: "/backend/albums/#{@album.id}", :html => { :class => "form-horizontal album" } do |f| %>
 
     <% if @album.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -22,10 +22,32 @@
     </div>
     <%= error_span(@album[:name]) %>
   </div>
+
+  <div class="control-group">
+    <%= f.label 'Cover Image', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :cover, :class => 'form-control' %>
+    </div>
+    <%= error_span(@album[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Banner Image', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :banner, :class => 'form-control' %>
+    </div>
+    <%= error_span(@album[:banner]) %>
+  </div>
   <div class="control-group">
     <%= f.label :release_date, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :release_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@album[:new_release]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :new_release, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :new_release, :class => '' %>
     </div>
     <%= error_span(@album[:release_date]) %>
   </div>

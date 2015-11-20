@@ -1,0 +1,2 @@
+module MusicalBandsHelper
+end

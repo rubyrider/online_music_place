@@ -17,4 +17,7 @@
 class PlayListSong < ActiveRecord::Base
   belongs_to :play_list
   belongs_to :song
+
+  accepts_nested_attributes_for :song,
+                                :reject_if => :all_blank
 end

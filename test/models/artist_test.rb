@@ -12,6 +12,8 @@
 #  musical_band_id :integer
 #  anonymous       :boolean
 #  gender          :integer
+#  cover           :string(255)
+#  photo           :string(255)
 #
 # Indexes
 #

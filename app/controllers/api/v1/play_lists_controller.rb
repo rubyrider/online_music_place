@@ -1,17 +1,20 @@
 module Api
   module V1
     class PlayListsController < ApiController
-      before_action :set_play_list, only: [:show, :edit, :update, :destroy]
+      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs, :toggle_presence_in_play_list]
+      acts_as_token_authentication_handler_for User, only: [:toggle_presence_in_play_list, :edit, :update, :destroy]
 
       # GET /play_lists
       # GET /play_lists.json
       def index
         @play_lists = PlayList.all
+        render json: @play_lists
       end
 
       # GET /play_lists/1
       # GET /play_lists/1.json
       def show
+        render json: {play_list: @play_list, songs: @play_list.songs}
       end
 
       # GET /play_lists/new
@@ -61,6 +64,56 @@ module Api
           format.html { redirect_to play_lists_url, notice: 'Play list was successfully destroyed.' }
           format.json { head :no_content }
         end
+      end
+
+      def surprise_me
+        @play_list = PlayList.where(system_play_list: true).sample
+        if @play_list.present?
+          render json: @play_list.includes(:songs)
+        else
+          render json: {message: 'no playlist found'}
+        end
+      end
+
+      def featured
+        @play_lists = PlayList.where(:featured => true)
+        render json: @play_lists
+      end
+
+      def songs
+        @songs = @play_list.songs
+        render :json => @songs
+      end
+
+      def toggle_presence_in_play_list
+        user = User.find(params[:user_id]) rescue nil
+        song = Song.find(params[:song_id]) rescue nil
+        if user
+          if song
+            if @play_list
+              if @play_list.songs.include? song
+                if PlayListSong.where(song_id: song.id, play_list_id: @play_list.id).destroy_all
+                  render json: { success: true, message: 'Successfully removed from playlist.' }
+                else
+                  render json: { success: false, message: 'Can not be removed from playlist.' }
+                end
+              else
+                if PlayListSong.create(song_id: song.id, play_list_id: @play_list.id)
+                  render json: { success: true, message: 'Successfully added to playlist.' }
+                else
+                  render json: { success: false, message: 'Can not be added to playlist.' }
+                end
+              end
+            else
+              render json: { success: false, status: :not_found, message: 'Play list not found!' }
+            end
+          else
+            render json: { success: false, status: :not_found, message: 'Song not found!' }
+          end
+        else
+          render json: { success: false, status: :not_found, message: 'User not found!' }
+        end
+
       end
 
       private

@@ -1,17 +1,27 @@
 <%- model_class = Album -%>
 <legend>Filters</legend>
-<form class="form form-inline" role="form">
-  <label for="InputFieldA" class="col-xs-4">Album Name</label>
-  <div class="form-group col-xs-12 col-sm-6 col-lg-4">
-    <div class="col-xs-2">
-      <input type="text" class="form-control" id="InputFieldA" placeholder="Search by Album Name">
+<%= form_tag backend_albums_path, method: :get do %>
+    <div class="col-lg-6 col-md-6">
+      <%= label_tag :name %>
+      <%= text_field_tag :name, params[:name], class: 'form-control' %>
     </div>
-  </div>
-
-  <div class="form-group col-xs-12 col-sm-6 col-lg-3">
-    <button type="submit" class="btn btn-primary col-xs-8 col-xs-offset-4 pull-right">Search</button>
-  </div>
-</form>
+    <div class="col-lg-6 col-md-6">
+      <%= label_tag 'Release Year' %>
+      <%= text_field_tag :year, params[:year], class: 'form-control' %>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <%= label_tag 'Artist' %>
+      <%= autocomplete_field_tag 'artist', params[:artist], autocomplete_artist_name_backend_albums_path, :size => 75, class: 'form-control' %>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <%= label_tag 'Category' %>
+      <%= autocomplete_field_tag 'category', params[:category], autocomplete_category_name_backend_albums_path, :size => 75, class: 'form-control' %>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <br>
+      <%= submit_tag 'Filter', class: 'btn btn-info' %>
+    </div>
+<% end %>
 <div class="" style="clear: both; height: 30px !important;"></div>
 <legend>Total: <%= pluralize(@albums.size, 'Album') %></legend>
 <div class="col-xs-12 action-groups">
