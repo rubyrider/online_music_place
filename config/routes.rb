@@ -254,6 +254,12 @@
 Rails.application.routes.draw do
   root to: 'music#index'
   get '/home', to: 'music#index'
+  get '/albums', to: 'music#index'
+  get '/albums/:id', to: 'music#index'
+  get '/artists/', to: 'music#index'
+  get '/artists/:id', to: 'music#index'
+  get '/artist/:id', to: 'music#index'
+  get '/profile/:id', to: 'music#index'
 
   namespace :api do
   namespace :v1 do

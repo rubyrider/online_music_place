@@ -11,7 +11,7 @@ window.MusicApp.factory 'model.content', [ 'Restangular', 'utils.logging', 'Date
 
     getHomePageContents: () ->
       _params = {page: @page}
-      Logging.info("[Models::Content]")
+      Logging.info("Loading [Models::Content]")
 
       Restangular.all('albums').getList(_params)
   }
