@@ -109,3 +109,4 @@ source "https://rails-assets.org" do
 end
 gem 'cocoon'
 gem 'apipie-rails'
+gem 'lodash-rails'

@@ -19,6 +19,7 @@
 //= require autocomplete-rails
 //= require cocoon
 //= require underscore
+//= require lodash
 //= require_tree ./backend
 //= require_tree .
 

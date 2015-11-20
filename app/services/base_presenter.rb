@@ -32,7 +32,7 @@ class BasePresenter
     #
     # @returns array of decorated object
     def collect(collections)
-      collections.collect { |collection| self.new(collection) }
+      presenter_collection = collections.collect { |collection| self.new(collection) }
     end
   end
 end

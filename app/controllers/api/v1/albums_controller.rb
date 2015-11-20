@@ -8,7 +8,8 @@ module Api
       # GET /albums.json
       def index
         @albums = Album.page(params[:page]).per(20)
-        @albums = AlbumPresenter.collect(@albums)
+
+        render json: @albums.to_json(root: false)
       end
 
       # GET /albums/1
