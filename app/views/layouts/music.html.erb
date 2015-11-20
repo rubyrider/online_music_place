@@ -22,7 +22,9 @@
       </div>
     </div>
     <div class="col-sm-4 col-sm-offset-2 avater">
-      <img src="assets/images/anthony.png" alt="Amthony"/>
+      <% if current_user %>
+          <img src="<%= current_user.avatar_url %>" alt="<%= current_user.full_name %>"/>
+          <% end %>
       <% if current_user %>
           <h4><%= current_user.full_name %></h4>
       <% else %>
