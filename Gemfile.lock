@@ -71,6 +71,14 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     acts_as_follower (0.2.0)
+    angular-rails-templates (0.1.4)
+      railties (>= 3.1)
+      sprockets
+      tilt
+    angular-ui-select2-rails (0.1.1)
+      jquery-rails
+      select2-rails
+    angularjs-rails (1.4.7)
     apipie-rails (0.3.5)
       json
     arbre (1.0.3)
@@ -220,9 +228,55 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.4)
       sprockets-rails
+    rails-assets-WOW (1.1.2)
     rails-assets-angular (1.4.7)
     rails-assets-angular-devise (1.1.0)
       rails-assets-angular (>= 1.2.0, < 2)
+    rails-assets-animate.css (3.4.0)
+    rails-assets-bootstrap (3.3.5)
+      rails-assets-jquery (>= 1.9.1)
+    rails-assets-bootstrap-datepicker (1.5.0)
+      rails-assets-jquery (>= 1.7.1)
+    rails-assets-doc-ready (1.0.4)
+      rails-assets-eventie (>= 1, < 2)
+    rails-assets-eventEmitter (4.3.0)
+    rails-assets-eventie (1.0.6)
+    rails-assets-fizzy-ui-utils (1.0.1)
+      rails-assets-doc-ready (~> 1.0.4)
+      rails-assets-matches-selector (~> 1.0.2)
+    rails-assets-fontawesome (4.4.0)
+    rails-assets-get-size (1.2.2)
+      rails-assets-get-style-property (~> 1.0)
+    rails-assets-get-style-property (1.0.4)
+    rails-assets-html5shiv (3.7.3)
+    rails-assets-isotope (2.2.2)
+      rails-assets-fizzy-ui-utils (~> 1.0.1)
+      rails-assets-get-size (~> 1.2.2)
+      rails-assets-masonry (~> 3.3.0)
+      rails-assets-matches-selector (~> 1.0.2)
+      rails-assets-outlayer (~> 1.4.1)
+    rails-assets-jquery (2.1.4)
+    rails-assets-lodash (3.10.1)
+    rails-assets-masonry (3.3.2)
+      rails-assets-fizzy-ui-utils (~> 1.0.1)
+      rails-assets-get-size (~> 1.2.2)
+      rails-assets-outlayer (~> 1.4.0)
+    rails-assets-matches-selector (1.0.3)
+    rails-assets-momentjs (2.10.6)
+    rails-assets-outlayer (1.4.2)
+      rails-assets-doc-ready (~> 1.0.0)
+      rails-assets-eventEmitter (>= 4.2, < 5)
+      rails-assets-eventie (~> 1.0.3)
+      rails-assets-fizzy-ui-utils (~> 1.0.1)
+      rails-assets-get-size (~> 1.2.2)
+      rails-assets-get-style-property (~> 1.0.4)
+      rails-assets-matches-selector (~> 1.0.2)
+    rails-assets-respond (1.4.2)
+    rails-assets-restangular (1.5.1)
+      rails-assets-angular (~> 1.0)
+      rails-assets-lodash (>= 1.3.0)
+    rails-assets-underscore (1.8.3)
+    rails-assets-wysihtml (0.5.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -263,6 +317,8 @@ GEM
       activemodel
       elasticsearch (>= 1)
       hashie
+    select2-rails (4.0.0)
+      thor (~> 0.14)
     simple_token_authentication (1.10.0)
       actionmailer (>= 3.2.6, < 5)
       actionpack (>= 3.2.6, < 5)
@@ -312,6 +368,9 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts_as_follower (= 0.2.0)
+  angular-rails-templates (= 0.1.4)
+  angular-ui-select2-rails
+  angularjs-rails
   annotate!
   apipie-rails
   bootstrap-datepicker-rails!
@@ -338,7 +397,19 @@ DEPENDENCIES
   pry
   rack-cors
   rails (= 4.2.4)
+  rails-assets-WOW!
   rails-assets-angular-devise!
+  rails-assets-animate.css!
+  rails-assets-bootstrap!
+  rails-assets-bootstrap-datepicker!
+  rails-assets-fontawesome!
+  rails-assets-html5shiv!
+  rails-assets-isotope!
+  rails-assets-momentjs!
+  rails-assets-respond!
+  rails-assets-restangular!
+  rails-assets-underscore!
+  rails-assets-wysihtml!
   rails4-autocomplete
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
