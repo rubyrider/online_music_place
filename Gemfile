@@ -77,4 +77,23 @@ gem 'jquery.fileupload-rails'
 gem 'paperclip-wav-mp3', '~> 0.0'
 gem 'paperclip'
 gem 'chronic'
-gem 'kaminari'
+
+source 'https://rails-assets.org' do
+  # Rails assets
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-fontawesome'
+  gem 'rails-assets-animate.css'
+  gem 'rails-assets-html5shiv'
+  gem 'rails-assets-isotope'
+  gem 'rails-assets-respond'
+  gem 'rails-assets-WOW'
+  gem 'rails-assets-restangular'
+  gem 'rails-assets-underscore'
+  gem 'rails-assets-momentjs'
+  gem 'rails-assets-bootstrap-datepicker'
+  gem 'rails-assets-wysihtml'
+end
+
+gem 'angular-ui-select2-rails'
+gem 'angular-rails-templates', '0.1.4'
+gem 'angularjs-rails'

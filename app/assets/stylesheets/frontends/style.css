@@ -1,0 +1,468 @@
+.bold{
+	font-weight:bold;
+}
+
+.padding45{
+	padding:45px 0;
+}
+
+.padding30{
+	padding:30px 0;
+}
+
+.padding20{
+	padding:20px 0;
+}
+
+.margin0auto{
+	margin:0 auto;
+}
+
+.textCenterAlign{
+	text-align:center;
+}
+
+.header {
+	padding:0;
+	height:90px;
+}
+
+.header .logo, .header .playlist, .header .user{
+	height:90px;
+	padding:25px 0px;
+}
+
+.header .search{
+	padding-left:30px;
+}
+
+.header .user .search input{
+	padding:20px;
+}
+
+.header .user .search button{
+	padding:10px;
+}
+
+.header .user .search button i{
+}
+
+.header .playlist i{
+	padding: 0 10px;
+}
+
+.header img{
+	height:115px;
+	margin:0 auto;
+	overflow: visible;
+	display:block;
+	position:relative;
+	z-index:2;
+}
+
+.avater h3{
+}
+
+.avater img{
+	float: left;
+    height: 50px;
+    margin-top: -5px;
+    margin-left: 10px;
+    padding-right: 25px;
+}
+
+.slider {
+	padding:0;
+	margin-bottom: 100px;
+}
+
+.menuArea{
+	padding:0;
+}
+
+.menuUl1st{
+	padding-top:100px;
+}
+
+.menu{
+	padding:0;
+}
+
+.menu ul{
+	list-style:none;
+	margin:0 auto;
+	padding-left:0;
+	padding-right:0;
+}
+
+.menu ul a{
+	text-decoration:none;
+	padding:10px;
+	padding-left:20px;
+}
+
+.menu ul li{
+	padding:20px 0;
+}
+
+.menu ul li i{
+	padding-right:10px;
+}
+
+.menu ul li:hover i{
+	color:#C25B5A
+}
+
+.menu ul li:hover{
+	background:#DCF89E;
+}
+
+.menu ul .hr hr{
+	height:3px;
+	background:#E1E1E1;
+}
+
+.menu ul .hr:hover{
+	background:none;
+}
+
+.menu img{
+	height:50px;
+}
+
+.menu h3{
+	padding-bottom:30px;
+}
+
+.menu .btn, .playlistItem .btn{
+	padding: 10px 20px;
+    border: 1px solid #CC3247;
+    border-radius: 10px;
+}
+
+.service {
+}
+
+.serviceArea {
+}
+
+.serviceAreaMenu ul{
+	list-style:none;
+	padding:15px;
+}
+
+.serviceAreaMenu ul li{
+	display:inline;
+	padding:10px;
+}
+
+.serviceAreaMenu ul li:hover{
+	border-bottom: 2px solid #9ECB3B;
+}
+
+.serviceAreaMenu .serviceAreaMenu1st{
+	padding-left:0;
+}
+
+.musicSelect{
+	width:86%;
+	height:100%;
+	background: rgba(27, 29, 37, .8);
+	display:none;
+	position:absolute;
+	padding:15px;
+	text-decoration: none;
+	color:#fff;
+}
+
+.serviceArea a:hover .musicSelect{
+	display:inline-block;
+}
+
+.musicSelect span{
+	font-size: 10px;
+    font-weight: bold;
+}
+
+.musicSelect .control{
+	padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 15px;
+}
+
+.musicSelect .rating i{
+	float:left;
+	padding:0 2px;
+}
+
+.musicSelect .rating h3{
+	margin-top: -7px;
+    float: right;
+    color: #EA2E49;
+    font-weight: 800;
+}
+
+.playlistItem{
+	padding:0;
+}
+
+.playlistItem ul{
+	list-style:none;
+	padding-left:30px;
+}
+
+.playlistItem ul li{
+	padding:20px 0;
+}
+
+.playlistItem ul li a{
+	text-decoration:none;
+	color:#000000;
+	font-weight:bold;
+}
+
+.playlistItem ul li a div{
+	height: 40px;
+    width: 40px;
+    background: #000000;
+    display: none;
+    position: absolute;
+    z-index: 3;
+    border-radius: 50%;
+    margin-left: -50px;
+}
+
+.playlistItem ul li a div i{
+	padding:10px;
+	font-size:22px;
+	color:#fff;
+	display:inline-block;
+}
+
+.playlistItem ul li a:hover div{
+    background: rgba(255, 197, 12, .8);
+	display:inline-block
+}
+
+.playlistItem ul li a:hover{
+	color:#FFC50C;
+}
+
+.playlistItem ul li a:hover span{
+	color:#FFC50C;
+}
+
+.playlistItem ul li span{
+	margin-top: -15px;
+    display: block;
+    position: absolute;
+    margin-left: 50px;
+	font-weight:400;
+	font-size:11px;
+	color:#A1A1A1;
+}
+
+.playlistItem .song img{
+	height:40px;
+	padding-right:10px;
+}
+
+.playlistItem h3{
+	margin-bottom:0;
+}
+
+.appButton{
+	padding:5.6px;
+}
+
+.player{
+	height: 100px;
+    width: 100%;
+	padding:0;
+    display: block;
+    position: fixed;
+    bottom: 0;
+}
+
+.plaing{
+	padding:25px 0 25px 20px;
+}
+
+.plaing img{
+	float:left;
+	height:50px;
+	padding-right:15px;
+}
+
+.plaing h4{
+	margin-top:6px;
+}
+
+.plaing h4 span{
+	font-size:14px;
+}
+
+.playBar{
+	padding: 45px 15px;
+	font-size:12px;
+}
+
+.playBarStart i{
+	padding:0 10px 0 0;
+}
+
+.playBar .fa-step-forward{
+	margin-right:25px;
+}
+
+.playBar .progress{
+	height:12px;
+	padding:0;
+	background:#333745;
+	border:1px solid #000000;
+}
+
+.playBar .progress-bar{
+	background:#9ECB3B;
+}
+
+.playBarEnd{
+}
+
+.playBarEnd i{
+	padding:0 0 0 30px;
+}
+
+.volume{
+	padding: 45px 15px;
+}
+
+.volume .progress{
+	height:8px;
+	margin-top:6px;
+	padding:0;
+	background:#333745;
+	border:1px solid #000000;
+}
+
+.volume .progress-bar{
+	background:#77C4D3;
+}
+
+.footer {
+}
+
+.footer_area {
+}
+
+.footer_area-copyright {
+}
+
+.footer_area-socialmedia {
+}
+
+
+/****Details****/
+
+.playSongSlider{
+	display:block;
+	position:absolute;
+}
+
+.playSongSlider .img-responsive{
+	width:97.5%;
+}
+
+.playSongSliderTop{
+	padding:30px;
+	display: block;
+    position: relative;
+	background:rgba(27, 29, 37, .6);
+	margin-bottom:3px;
+}
+
+.playSongSliderTop img{
+	width:22%;
+	float:left;
+	margin-right:10px;
+}
+
+.playSongSliderTop h3{
+	margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 11.5%;
+}
+
+.playSongSliderTop h3 span{
+	position: absolute;
+    margin-left: -28.6%;
+    margin-top: 22px;
+    font-weight: 100;
+}
+
+.playSongSliderTop button{
+	border: 1px solid #fff;
+    background: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+.playSong{
+	padding:0;
+}
+
+.ArtistSongList ul{
+	list-style:none;
+	margin:0 auto;
+	padding-left:0;
+	padding-right:0;
+}
+
+.ArtistSongList ul li{
+	padding:5px 0;
+	background:#F2F2F4;
+	margin:2px 0;
+	border-left: 8px solid #9ECB3B;
+}
+
+.ArtistSongList .songPlay{
+	padding: 30px 25px 30px 25px;
+    font-size: 40px;
+	color:#333745;
+}
+
+.ArtistSongList .songTitle{
+	margin-top:0;
+	position:absolute;
+	font-weight:600;
+}
+
+.ArtistSongList .songSinger{
+	margin-top:18px;
+	position:absolute;
+	color:#333745;
+}
+
+.ArtistSongList .songDuration{
+	margin-top: 15px;
+    position: absolute;
+    margin-left: 45%;
+	color:#333745;
+}
+
+.ArtistSongList .songFevo{
+	margin-top: 15px;
+    position: absolute;
+    margin-left: 65%;
+}
+
+.ArtistSongList .songFevo i{
+	padding-right:25px;
+	color:#9ECB3B;
+}
+
+.sideSection{
+	height:715px;
+	background:#B7B7B7;
+}
