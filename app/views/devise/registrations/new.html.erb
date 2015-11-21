@@ -1,0 +1,28 @@
+<div class="login">
+  <h2>Sign up</h2>
+  <img src="/assets/images/logo.png" alt="">
+  <br>
+  <br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field form-group">
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password(minimum 8 character)' %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-success' %>
+      </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>

@@ -40,3 +40,12 @@
 #open-modal {
     cursor: pointer;
 }
+.login {
+    margin: 0 auto;
+    text-align: center;
+}
+.login .form-control {
+    width: 20%;
+    margin: 0 auto;
+
+}
