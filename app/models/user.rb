@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  mount_uploader :avatar, UserAvatarUploader
+
   has_many :liked_songs
   has_many :songs, through: :liked_songs
   has_many :liked_albums
