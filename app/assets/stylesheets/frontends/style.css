@@ -1,3 +1,7 @@
+a, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
 .bold{
 	font-weight:bold;
 }
@@ -143,7 +147,8 @@
 .service {
 }
 
-.serviceArea {
+.serviceArea a{
+    text-decoration: none;
 }
 
 .serviceAreaMenu ul{
@@ -165,18 +170,24 @@
 }
 
 .musicSelect{
-	width:86%;
-	height:100%;
+    width: 86%;
+    height: 100%;
+	display: none;
 	background: rgba(27, 29, 37, .8);
-	display:none;
 	position:absolute;
-	padding:15px;
 	text-decoration: none;
+    text-align: center;
 	color:#fff;
+    font-weight: bolder;
+}
+
+.musicSelect img{
+    position: relative;
 }
 
 .serviceArea a:hover .musicSelect{
-	display:inline-block;
+	display: inline-block;
+    border: 2px solid rgba(97, 106, 116, 0.6);
 }
 
 .musicSelect span{
@@ -185,10 +196,18 @@
 }
 
 .musicSelect .control{
-	padding: 20px;
-    font-size: 30px;
+
+    font-size: 60px;
+    position: absolute;
+    top: 30%;
+    left: 34%;
+}
+
+.musicSelect h5{
+
+    font-size: 20px;
+    margin-top: 20%;
     text-align: center;
-    letter-spacing: 15px;
 }
 
 .musicSelect .rating i{
@@ -367,7 +386,9 @@
 
 .playSongSlider{
 	display:block;
-	position:absolute;
+	position:relative;
+    width: 100%;
+    opacity: 0.6;
 }
 
 .playSongSlider .img-responsive{
@@ -375,24 +396,26 @@
 }
 
 .playSongSliderTop{
-	padding:30px;
-	display: block;
-    position: relative;
-	background:rgba(27, 29, 37, .6);
-	margin-bottom:3px;
+
+    position: absolute;
+    bottom: 30%;
+    left: 6%;
 }
 
 .playSongSliderTop img{
-	width:22%;
+    width: 25%;
 	float:left;
-	margin-right:10px;
+    padding-right: 20px;
 }
 
 .playSongSliderTop h3{
-	margin-top: 0;
+
     font-weight: bold;
-    margin-bottom: 11.5%;
+    margin-top: 48px;
+    color: #1B1D25;
 }
+
+
 
 .playSongSliderTop h3 span{
 	position: absolute;
@@ -401,12 +424,6 @@
     font-weight: 100;
 }
 
-.playSongSliderTop button{
-	border: 1px solid #fff;
-    background: none;
-    border-radius: 10px;
-    padding: 5px 15px;
-}
 
 .playSong{
 	padding:0;
@@ -420,10 +437,10 @@
 }
 
 .ArtistSongList ul li{
-	padding:5px 0;
-	background:#F2F2F4;
-	margin:2px 0;
-	border-left: 8px solid #9ECB3B;
+    background: #F2F2F4;
+    margin: 2px 0;
+    width: 98%;
+    border-left: 8px solid #9ECB3B;
 }
 
 .ArtistSongList .songPlay{
@@ -433,16 +450,18 @@
 }
 
 .ArtistSongList .songTitle{
-	margin-top:0;
+	margin-top: 10px;
 	position:absolute;
 	font-weight:600;
 }
 
 .ArtistSongList .songSinger{
-	margin-top:18px;
+	margin-top:24px;
 	position:absolute;
 	color:#333745;
 }
+
+
 
 .ArtistSongList .songDuration{
 	margin-top: 15px;
@@ -459,8 +478,26 @@
 
 .ArtistSongList .songFevo i{
 	padding-right:25px;
-	color:#9ECB3B;
+
 }
+
+.ArtistSongList .songFevo i:first-child:hover{
+    color: #9ECB3B;
+    cursor: pointer;
+
+}
+
+.ArtistSongList .songFevo i:last-child:hover{
+    color: #9ECB3B;
+    cursor: pointer;
+
+}
+
+.icon_selected{
+    color: #9ECB3B;
+}
+
+
 
 .sideSection{
 	height:715px;

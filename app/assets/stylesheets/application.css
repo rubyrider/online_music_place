@@ -30,6 +30,7 @@
 }
 .ui-menu-item:hover {
     background: rgb(61, 197, 255);
+
     cursor: pointer;
     color: white;
 }

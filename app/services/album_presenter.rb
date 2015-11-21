@@ -1,7 +1,11 @@
 class AlbumPresenter < BasePresenter
 
-  def collect(collections)
-    collections.collect { |collection| self.new(collection) }
+  def as_json(options = nil)
+    {
+        id:           self.object.id,
+        name:         self.object.title,
+        release_date: self.object.release_date
+    }
   end
 
 end

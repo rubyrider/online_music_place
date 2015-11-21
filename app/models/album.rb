@@ -37,6 +37,10 @@ class Album < ActiveRecord::Base
     "#{DEFAULT_TITLE}-#{Date.today.strftime('%F')}"
   end
 
+  def title
+    name || default_title
+  end
+
   def self.filter_by_params(params)
     results = Album.all
     if params[:name].present?

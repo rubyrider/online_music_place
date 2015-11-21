@@ -16,42 +16,38 @@
             <button class="btn color_CC3247">Download App</button>
         </div>
     </div>
-    <div class="service col-md-8 bg_FEFFFF">
-        <div class="serviceSlider col-md-12">
-            <img class="img-responsive" src="assets/images/slider.jpg" alt="" />
-        </div>
-        <div class="serviceArea col-md-12">
-            <div class="serviceAreaMenu row bold">
+    <div class="playSong col-md-8 bg_FEFFFF">
+        <div class="playSongContent col-md-12">
+            <div class="ArtistSongList col-md-9">
+                <div class="playSongSlider">
+                    <img class="img-responsive" src="assets/images/slider.jpg" alt="" />
+                </div>
+                <div class="playSongSliderTop">
+                    <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt="" />-->
+                    <img src="assets/images/a1.jpg" alt="">
+                    <h3>{{album.name}}</h3>
+                    <button class="btn btn-success">share</button>
+                    <button class="btn btn-info">like</button>
+                </div>
                 <ul>
-                    <li class="serviceAreaMenu1st"><a href="#/">Overview</a></li>
-                    <li><a href="#/new_releases">New releases</a></li>
-                    <li><a href="#/new_releases">Albums</a></li>
-                    <li><a href="#/new_releases">Artists</a></li>
-                    <li><a href="#/new_releases">Mode</a></li>
+                    <!--<li ng-repeat="song in songs">-->
+                    <li>
+
+                        <span class="songPlay">
+                            <i class="fa fa-play-circle-o"></i>
+                        </span>
+                            <span class="songTitle">Tumi amar shudu amr jibon sathi moron tumi</span>
+                            <span class="songSinger">by Habib</span>
+                            <span class="songDuration">4:34</span>
+									<span class="songFevo">
+										<i class="fa fa-heart" class="heart_icon"></i>
+										<i class="fa fa-plus" class="plus_icon"></i>
+									</span>
+
+                    </li>
                 </ul>
             </div>
-            <div class="row" ng-repeat="albumGroup in albums" style="margin-bottom: 20px">
-                <div ng-repeat="album in albumGroup" class="col-md-2">
-                    <a ng-href="#/album/{{album.id}}">
-                        <div class="musicSelect">
-                            <h5>{{album.name}}</h5>
-                            <div class="control">
-                                <i class="fa fa-play-circle-o"></i>
-
-                            </div>
-                            <!--<div class="rating">-->
-                            <!--<i class="fa fa-heart"></i>-->
-                            <!--<i class="fa fa-heart"></i>-->
-                            <!--<i class="fa fa-heart"></i>-->
-                            <!--<i class="fa fa-heart"></i>-->
-                            <!--<i class="fa fa-heart-o"></i>-->
-                            <!--</div>-->
-
-                        </div>
-                        <img src="/assets/images/a1.jpg" class="img-responsive" alt="" />
-                    </a>
-                    <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
-                </div>
+            <div class="sideSection col-md-3">
             </div>
         </div>
     </div>
@@ -70,7 +66,7 @@
 
             <h3>Take music</h3>
             <img class="appButton" src="assets/images/app.jpg" alt="" />
-            <button class="btn">Download App</button>
+            <button class="btn">Download Appp</button>
         </div>
     </div>
 </section>
