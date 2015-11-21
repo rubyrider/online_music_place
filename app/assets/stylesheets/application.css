@@ -48,5 +48,9 @@
 .login .form-control {
     width: 20%;
     margin: 0 auto;
-
 }
+#logo {
+    cursor: pointer;
+}
+
+/********Player *************/
