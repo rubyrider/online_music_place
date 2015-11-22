@@ -3,7 +3,7 @@ window.MusicApp.controller 'ContentCtrl', [
   ($scope, Content, Logging, $http, $location, $routeParams, DateUtils) ->
 
     Content.getHomePageContents().then (response) ->
-      $scope.albums = _.chunk(response, 6);
+      $scope.albums = _.chunk(response, 4);
 
       Logging.info("[Models::Content]: #{$scope.albums}")
 

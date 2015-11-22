@@ -15,5 +15,5 @@ window.MusicApp.factory 'model.artist', [ 'Restangular', 'utils.logging', 'DateU
 
       Restangular.one('artists', id).get(_params)
   }
-  object
+  objects
 ]

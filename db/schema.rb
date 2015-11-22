@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122092323) do
+ActiveRecord::Schema.define(version: 20151122120757) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -263,6 +263,7 @@ ActiveRecord::Schema.define(version: 20151122092323) do
     t.integer  "demo_track_id", limit: 4
     t.string   "artist_name",   limit: 255
     t.string   "audio",         limit: 255
+    t.float    "duration",      limit: 24
   end
 
   create_table "subscriptions", force: :cascade do |t|

@@ -110,3 +110,5 @@ end
 gem 'cocoon'
 gem 'apipie-rails'
 gem 'lodash-rails'
+gem 'taglib-ruby'
+gem 'ruby-audioinfo', git: 'git@github.com:moumar/ruby-audioinfo.git'
