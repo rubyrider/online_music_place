@@ -23,15 +23,15 @@
                     <img class="img-responsive" src="assets/images/slider.jpg" alt="" />
                 </div>
                 <div class="playSongSliderTop">
-                    <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt="" />-->
-                    <img src="assets/images/a1.jpg" alt="">
+                    <img class="img-responsive" ng-src="{{album.cover.url ? (album.cover.url) : 'https://placeholdit.imgix.net/~text?txtsize=20&txt=Album&w=94&h=94'}}" alt="" />
+                    <!--<img src="{{album.cover_url}}" alt="">-->
                     <h3>{{album.name}}</h3>
                     <button class="btn btn-success">share</button>
                     <button class="btn btn-info">like</button>
                 </div>
-                <ul>
+                <ul class="pp_playlist">
                     <!--<li ng-repeat="song in songs">-->
-                    <li ng-repeat="song in songs">
+                    <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
 
                         <span class="songPlay">
                             <i class="fa fa-play-circle-o"></i>
