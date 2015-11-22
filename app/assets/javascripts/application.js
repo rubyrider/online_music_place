@@ -34,9 +34,54 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", ".play-icon", function() {
+    $(document).on("click", ".heart_icon", function() {
+        var $this = $(this);
+        var song_id = $this.data('song-id');
+        var url = '/api/v1/users/' + window.current_user.id + '/songs/' + song_id + '/toggle_like';
 
+        $.ajax({
+            url: url,
+            type: 'POST',
+            success: function (response) {
+                console.log(response);
+                if($this.hasClass('true')){
+                    $this.removeClass('true');
+                }
+                else{
+                    $this.addClass('true');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     });
+
+    /////////////////////like album////////////////////
+    $(document).on("click", ".like-album", function() {
+        var $this = $(this);
+        var album_id = $this.data('album-id');
+        var url = '/api/v1/users/' + window.current_user.id + '/albums/' + album_id + '/toggle_like';
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            success: function (response) {
+                console.log(response);
+                if($this.hasClass('true')){
+                    $this.removeClass('true');
+                }
+                else{
+                    $this.addClass('true');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    ///////////////////music player//////////////////
 
     function remove_play_icon(){
         $('.play-icon').each(function(index){
@@ -45,8 +90,6 @@ $(document).ready(function () {
         });
     }
 
-
-    ///////////////////music player//////////////////
     var song;
     var tracker = $('.p_tracker');
     var volume = $('.p_volume');
