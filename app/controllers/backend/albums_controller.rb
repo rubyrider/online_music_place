@@ -56,7 +56,7 @@ module Backend
     # PATCH/PUT /backend/albums/1.json
     def update
       respond_to do |format|
-        if @album.update(backend_album_params)
+        if @album.update!(backend_album_params)
           format.html { redirect_to [:backend, @album], notice: 'Album was successfully updated.' }
           format.json { render :show, status: :ok, location: @album }
         else
