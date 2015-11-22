@@ -7,7 +7,7 @@ module Api
       # GET /albums
       # GET /albums.json
       def index
-        @albums = Album.page(params[:page]).per(20)
+        @albums = Album.order('created_at DESC').page(params[:page]).per(20)
 
         respond_to :json
       end
@@ -15,7 +15,7 @@ module Api
       # GET /albums/1
       # GET /albums/1.json
       def show
-        render json: @album.to_json(:include => [:songs])
+        render
       end
 
       # GET /albums/new
@@ -98,7 +98,7 @@ module Api
       end
       # Use callbacks to share common setup or constraints between actions.
       def set_album
-        @album = Album.find(params[:id])
+        @album = Album.includes(:songs => [:artists]).find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,25 +1,28 @@
 <%- model_class = Song -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @song.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:artist) %>:</strong></dt>
+  <% artist_names = @song.artists.collect { |artist| artist.name } %>
+  <dd> <%= artist_names.join(', ') %></dd>
   <dt><strong><%= model_class.human_attribute_name(:album_id) %>:</strong></dt>
-  <dd><%= @song.album_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:filename) %>:</strong></dt>
-  <dd><%= @song.filename %></dd>
+  <dd><%= @song.album.try(:name) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:track) %>:</strong></dt>
-  <dd><%= @song.try(:track).try(:audio).try(:url) %></dd>
+  <dd><%= link_to @song.try(:audio).try(:url) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:duration) %>:</strong></dt>
+  <dd><%= link_to @song.duration %> MIN</dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              backend_songs_path, :class => 'btn btn-default'  %>
+            backend_songs_path, :class => 'btn btn-default' %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_backend_song_path(@song), :class => 'btn btn-default' %>
+            edit_backend_song_path(@song), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              backend_song_path(@song),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+            backend_song_path(@song),
+            :method => 'delete',
+            :data   => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+            :class  => 'btn btn-danger' %>

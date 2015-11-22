@@ -13,6 +13,7 @@
 #  demo_track_id :integer
 #  artist_name   :string(255)
 #  audio         :string(255)
+#  duration      :float(24)
 #
 
 require 'test_helper'

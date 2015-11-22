@@ -11,7 +11,9 @@
 <body>
 <header class="header container-fluid">
   <div class="col-md-2 bg_9ECB3B logo">
-    <img src="assets/images/logo.png" alt="GAN BAJ" id="logo"/>
+    <a ng-href="/">
+      <img src="assets/images/logo.png" alt="GAN BAJ" id="logo"/>
+    </a>
   </div>
   <div class="col-md-8 bg_FEFFFF user">
     <div class="col-sm-6 search">
@@ -25,7 +27,7 @@
     <div class="col-sm-4 col-sm-offset-2 avater">
       <% if current_user %>
           <img src="<%= current_user.avatar_url %>" alt="<%= current_user.full_name %>"/>
-          <% end %>
+      <% end %>
       <% if current_user %>
           <h4><%= current_user.full_name %></h4>
       <% else %>
@@ -63,34 +65,33 @@
 <section class="player1 bg_1B1D25 container-fluid color_FEFFFF">
 
 
+  <div class="example">
 
-        <div class="example">
-
-          <div class="p_player">
-            <div class="p_title"></div>
-            <div class="p_artist"></div>
-            <div class="p_cover"></div>
-            <div class="p_controls">
-              <div class="p_play"></div>
-              <div class="p_pause"></div>
-              <div class="p_rew"></div>
-              <div class="p_fwd"></div>
-            </div>
-            <div class="p_volume"></div>
-            <div class="p_tracker"></div>
-          </div>
-          <ul class="p_playlist hidden">
-            <li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="a1.jpg" artist="Artist 1">01.mp3</li>
-            <li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="cover2.jpg" artist="Artist 2">02.mp3</li>
-            <li audiourl="03.mp3" cover="cover3.jpg" artist="Artist 3">03.mp3</li>
-            <li audiourl="04.mp3" cover="cover4.jpg" artist="Artist 4">04.mp3</li>
-            <li audiourl="05.mp3" cover="cover5.jpg" artist="Artist 5">05.mp3</li>
-            <li audiourl="06.mp3" cover="cover6.jpg" artist="Artist 6">06.mp3</li>
-            <li audiourl="07.mp3" cover="cover7.jpg" artist="Artist 7">07.mp3</li>
-          </ul>
+    <div class="p_player">
+      <div class="p_title"></div>
+      <div class="p_artist"></div>
+      <div class="p_cover"></div>
+      <div class="p_controls">
+        <div class="p_play"></div>
+        <div class="p_pause"></div>
+        <div class="p_rew"></div>
+        <div class="p_fwd"></div>
+      </div>
+      <div class="p_volume"></div>
+      <div class="p_tracker"></div>
+    </div>
+    <ul class="p_playlist hidden">
+      <li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="a1.jpg" artist="Artist 1">01.mp3</li>
+      <li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="cover2.jpg" artist="Artist 2">02.mp3</li>
+      <li audiourl="03.mp3" cover="cover3.jpg" artist="Artist 3">03.mp3</li>
+      <li audiourl="04.mp3" cover="cover4.jpg" artist="Artist 4">04.mp3</li>
+      <li audiourl="05.mp3" cover="cover5.jpg" artist="Artist 5">05.mp3</li>
+      <li audiourl="06.mp3" cover="cover6.jpg" artist="Artist 6">06.mp3</li>
+      <li audiourl="07.mp3" cover="cover7.jpg" artist="Artist 7">07.mp3</li>
+    </ul>
 
 
-         </div>
+  </div>
 </section>
 
 <%= render 'layouts/login_modal' %>
@@ -102,7 +103,6 @@
     <div class="footer_area-socialmedia"></div>
   </div>
 </footer>
-
 
 
 </body>

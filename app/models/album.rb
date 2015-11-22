@@ -24,7 +24,7 @@ class Album < ActiveRecord::Base
   mount_uploader :cover, AlbumCoverUploader
   mount_uploader :banner, BannerUploader
 
-  has_many :songs
+  has_many :songs, dependent: :nullify
   has_many :album_artists
   has_many :artists, through: :album_artists
   has_many :album_categories

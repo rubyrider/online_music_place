@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require dropdown-filter
-//= require turbolinks
 //= require jquery-ui
 //= require autocomplete-rails
 //= require cocoon

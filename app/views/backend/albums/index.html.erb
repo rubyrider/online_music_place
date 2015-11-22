@@ -52,6 +52,8 @@
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                         edit_backend_album_path(album), :class => 'btn btn-default btn-xs' %>
+            <%= link_to t('.edit', :default => t("helpers.links.destroy")),
+                        backend_album_path(album), method: :delete, :class => 'btn btn-default btn-xs' %>
 
           </td>
         </tr>

@@ -35,8 +35,7 @@
     <th><%= model_class.human_attribute_name(:id) %></th>
     <th><%= model_class.human_attribute_name(:name) %></th>
     <th><%= model_class.human_attribute_name(:album_id) %></th>
-    <th><%= model_class.human_attribute_name(:filename) %></th>
-    <th><%= model_class.human_attribute_name(:asset) %></th>
+    <th><%= model_class.human_attribute_name(:duration) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -46,8 +45,7 @@
         <td><%= link_to song.id, backend_song_path(song) %></td>
         <td><%= song.name %></td>
         <td><%= song.try(:album).try(:name) %></td>
-        <td><%= song.filename %></td>
-        <td><%= song.asset %></td>
+        <td><%= song.duration %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_backend_song_path(song), :class => 'btn btn-default btn-xs' %>
