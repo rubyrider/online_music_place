@@ -31,6 +31,7 @@
       <% else %>
           <a type="button" data-toggle="modal" data-target="#login-modal" id="open-modal">Login</a>
       <% end %>
+      <button class="btn-btn-info" data-toggle="modal" data-target="#playlist-modal">Playlist</button>
     </div>
   </div>
   <div class="col-md-2 bg_FFC50C playlist textCenterAlign">
@@ -93,6 +94,7 @@
 </section>
 
 <%= render 'layouts/login_modal' %>
+<%= render 'layouts/user_playlist_modal' %>
 
 <footer class="footer">
   <div class="footer_area">

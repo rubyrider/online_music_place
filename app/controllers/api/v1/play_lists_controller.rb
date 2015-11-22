@@ -29,11 +29,12 @@ module Api
       # POST /play_lists
       # POST /play_lists.json
       def create
-        @play_list = PlayList.new(play_list_params)
-
+        @play_list = PlayList.new()
+        @play_list.user_id = current_user.id
+        @play_list.name = params[:play_list]['name']
         respond_to do |format|
           if @play_list.save
-            format.html { redirect_to @play_list, notice: 'Play list was successfully created.' }
+            format.html { redirect_to root_path, notice: 'Play list was successfully created.' }
             format.json { render :show, status: :created, location: @play_list }
           else
             format.html { render :new }
@@ -124,7 +125,7 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def play_list_params
-        params[:play_list]
+        params.require(:play_list).permit(:name)
       end
     end
   end
