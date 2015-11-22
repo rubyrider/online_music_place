@@ -29,5 +29,6 @@ ARTISTNAME = ['Habib', 'Ayub Bacchu', 'Shumon', 'James', 'Anila Naz', 'Adnan Sam
    song.album_id = album.id
     song.name = "Song #{j}"
     song.artist_name = ARTISTNAME.sample
+    song.save!
   end
 end
