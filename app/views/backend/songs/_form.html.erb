@@ -70,6 +70,9 @@
         </div>
     <% end %>
 
+    <%= f.label :audio_file %>
+    <%= f.file_field :audio, class: 'form-control' %>
+
 
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

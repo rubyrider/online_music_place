@@ -12,6 +12,7 @@
 #  track_id      :integer
 #  demo_track_id :integer
 #  artist_name   :string(255)
+#  audio         :string(255)
 #
 
 require 'test_helper'

@@ -12,11 +12,14 @@
 #  track_id      :integer
 #  demo_track_id :integer
 #  artist_name   :string(255)
+#  audio         :string(255)
 #
 
 class Song < ActiveRecord::Base
 
   searchkick
+
+  mount_uploader :audio, SongAudioUploader
 
   belongs_to :album
   has_many :song_languages
