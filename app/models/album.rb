@@ -11,6 +11,7 @@
 #  cover        :string(255)
 #  new_release  :boolean
 #  banner       :string(255)
+#  popularity   :float(24)        default(10.0)
 #
 
 class Album < ActiveRecord::Base

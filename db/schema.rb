@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122082000) do
+ActiveRecord::Schema.define(version: 20151122092323) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20151122082000) do
     t.string   "cover",        limit: 255
     t.boolean  "new_release"
     t.string   "banner",       limit: 255
+    t.float    "popularity",   limit: 24,  default: 10.0
   end
 
   create_table "analytics", force: :cascade do |t|
