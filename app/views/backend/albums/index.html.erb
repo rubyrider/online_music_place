@@ -32,6 +32,7 @@
     <div class="page-header">
       <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
     </div>
+    <%= paginate @albums %>
     <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
@@ -47,7 +48,7 @@
           <td><%= link_to album.id, backend_album_path(album) %></td>
           <td><%= album.name %></td>
           <td><%= album.release_date %></td>
-          <td><%= album.created_date %></td>
+          <td><%= album.created_at %></td>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                         edit_backend_album_path(album), :class => 'btn btn-default btn-xs' %>

@@ -17,7 +17,7 @@
 
 class Song < ActiveRecord::Base
 
-  searchkick
+  # searchkick
 
   mount_uploader :audio, SongAudioUploader
 

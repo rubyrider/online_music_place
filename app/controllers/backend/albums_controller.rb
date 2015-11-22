@@ -11,7 +11,7 @@ module Backend
     def index
       add_breadcrumb "List".freeze, :backend_albums_path
 
-      @albums = AlbumPresenter.collect(Album.filter_by_params(params))
+      @albums = Album.filter_by_params(params).page(params[:page]).per(10)
       @artists = Artist.all.order(:name)
       @categories = Category.all
     end
@@ -56,7 +56,12 @@ module Backend
     # PATCH/PUT /backend/albums/1.json
     def update
       respond_to do |format|
-        if @album.update!(backend_album_params)
+        @album = Album.find(params[:id])
+        @album.name = params[:album][:name]
+        @album.cover = params[:album][:cover]
+        @album.release_date = params[:album][:release_date]
+        @album.new_release = params[:album][:new_release]
+        if @album.save!
           format.html { redirect_to [:backend, @album], notice: 'Album was successfully updated.' }
           format.json { render :show, status: :ok, location: @album }
         else

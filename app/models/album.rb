@@ -16,7 +16,7 @@
 
 class Album < ActiveRecord::Base
 
-  searchkick
+  # searchkick
   
   DEFAULT_TITLE = 'Untitled Album'.freeze
 
