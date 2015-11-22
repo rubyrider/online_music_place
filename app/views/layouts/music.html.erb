@@ -33,7 +33,6 @@
       <% else %>
           <a type="button" data-toggle="modal" data-target="#login-modal" id="open-modal">Login</a>
       <% end %>
-      <button class="btn-btn-info" data-toggle="modal" data-target="#playlist-modal">Playlist</button>
     </div>
   </div>
   <div class="col-md-2 bg_FFC50C playlist textCenterAlign">
@@ -109,5 +108,4 @@
 
 <script type="text/javascript" charset="utf-8">
   window.current_user = <%= raw current_user.to_json %>
-    $(document).ready();
 </script>
