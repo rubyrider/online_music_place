@@ -41,8 +41,8 @@
                             <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>
                             <span class="songDuration">{{song.duration}}</span>
 									<span class="songFevo">
-										<i class="fa fa-heart" class="heart_icon"></i>
-										<i class="fa fa-plus" class="plus_icon"></i>
+										<i class="fa fa-heart" class="heart_icon {{song.favorite == 'true' ? 'green' : ''}} "></i>
+										<i id="song_{{song.id}}" class="fa fa-plus plus_icon add_this {{song.playlist}}" data-song-id="{{song.id}}" ng-click="add_click(song)"></i>
 									</span>
 
                     </li>

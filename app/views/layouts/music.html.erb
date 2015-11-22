@@ -81,8 +81,8 @@
       <div class="p_tracker"></div>
     </div>
     <ul class="p_playlist hidden">
-      <li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="a1.jpg" artist="Artist 1">01.mp3</li>
-      <li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="cover2.jpg" artist="Artist 2">02.mp3</li>
+      <!--<li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="a1.jpg" artist="Artist 1">01.mp3</li>-->
+      <!--<li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="cover2.jpg" artist="Artist 2">02.mp3</li>-->
       <li audiourl="03.mp3" cover="cover3.jpg" artist="Artist 3">03.mp3</li>
       <li audiourl="04.mp3" cover="cover4.jpg" artist="Artist 4">04.mp3</li>
       <li audiourl="05.mp3" cover="cover5.jpg" artist="Artist 5">05.mp3</li>
@@ -104,6 +104,10 @@
   </div>
 </footer>
 
-
 </body>
 </html>
+
+<script type="text/javascript" charset="utf-8">
+  window.current_user = <%= raw current_user.to_json %>
+    $(document).ready();
+</script>

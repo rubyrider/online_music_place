@@ -49,6 +49,14 @@ class Song < ActiveRecord::Base
   after_save :update_duration
   before_save :find_or_create_artist
 
+  def favorite_by?(user)
+    self.users.include?(user)
+  end
+
+  def belongs_to_playlist?
+    self.play_lists.present?
+  end
+
   def self.filter_by_params(params)
     results = Song.all
     if params[:name].present?

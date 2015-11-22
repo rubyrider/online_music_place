@@ -8,4 +8,13 @@ window.MusicApp.controller 'AlbumCtrl', [
 
       Logging.info("[Models::Album]: #{$scope.album}")
 
+    $scope.add_click = (msg) ->
+#      $('#playlist-modal').modal('show')
+
+      song_id = msg.id
+      $('#playlist-modal').modal('show')
+      form_url = "/api/v1/users/#{window.current_user.id}/songs/#{msg.id}/play_lists/toggle_presence_in_play_list"
+      $('#new_play_list').attr('action', form_url)
+
+
 ]
