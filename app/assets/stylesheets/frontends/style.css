@@ -302,6 +302,7 @@ a, h1, h2, h3, h4, h5, h6{
     display: block;
     position: fixed;
     bottom: 0;
+    background: rgba(27, 29, 37, 0.87);
 }
 
 .plaing{
@@ -427,6 +428,7 @@ a, h1, h2, h3, h4, h5, h6{
 
 .playSong{
 	padding:0;
+    margin-bottom: 5%;
 }
 
 .ArtistSongList ul{
@@ -507,12 +509,12 @@ a, h1, h2, h3, h4, h5, h6{
 /*player*/
 .p_player {
     /*background: transparent url("../images/spr.png") no-repeat scroll center top;*/
-    background: #8A8080;
-    height: 150px;
 
+    height: 150px;
     position: relative;
     width: 100%;
     z-index: 2;
+    margin-left: 25%;
 }
 .p_title, .p_artist {
     font-family: verdana;
