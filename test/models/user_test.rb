@@ -22,6 +22,7 @@
 #  last_name              :string(255)
 #  gender                 :integer
 #  avatar                 :string(255)
+#  admin                  :boolean
 #
 # Indexes
 #
