@@ -108,8 +108,7 @@ class Song < ActiveRecord::Base
   private
   def set_song_title!
     if self.name.blank?
-      __song_title = initiate_properties.try(:album)
-      self.name    = __song_title
+      self.name    = tag_title
     end
   end
 
