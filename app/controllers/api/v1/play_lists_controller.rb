@@ -1,7 +1,7 @@
 module Api
   module V1
     class PlayListsController < ApiController
-      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs, :toggle_presence_in_play_list]
+      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs]
       acts_as_token_authentication_handler_for User, only: [:toggle_presence_in_play_list, :edit, :update, :destroy]
 
       # GET /play_lists
@@ -29,11 +29,12 @@ module Api
       # POST /play_lists
       # POST /play_lists.json
       def create
-        @play_list = PlayList.new(play_list_params)
-
+        @play_list = PlayList.new()
+        @play_list.user_id = current_user.id
+        @play_list.name = params[:play_list]['name']
         respond_to do |format|
           if @play_list.save
-            format.html { redirect_to @play_list, notice: 'Play list was successfully created.' }
+            format.html { redirect_to root_path, notice: 'Play list was successfully created.' }
             format.json { render :show, status: :created, location: @play_list }
           else
             format.html { render :new }
@@ -86,32 +87,36 @@ module Api
       end
 
       def toggle_presence_in_play_list
-        user = User.find(params[:user_id]) rescue nil
+        user = current_user
         song = Song.find(params[:song_id]) rescue nil
+        @play_list = PlayList.find(params[:play_list_id])
         if user
           if song
             if @play_list
               if @play_list.songs.include? song
                 if PlayListSong.where(song_id: song.id, play_list_id: @play_list.id).destroy_all
-                  render json: { success: true, message: 'Successfully removed from playlist.' }
+                  # render json: { success: true, message: 'Successfully removed from playlist.' }
                 else
-                  render json: { success: false, message: 'Can not be removed from playlist.' }
+                  # render json: { success: false, message: 'Can not be removed from playlist.' }
                 end
               else
                 if PlayListSong.create(song_id: song.id, play_list_id: @play_list.id)
-                  render json: { success: true, message: 'Successfully added to playlist.' }
+                  # render json: { success: true, message: 'Successfully added to playlist.' }
                 else
-                  render json: { success: false, message: 'Can not be added to playlist.' }
+                  # render json: { success: false, message: 'Can not be added to playlist.' }
                 end
               end
             else
-              render json: { success: false, status: :not_found, message: 'Play list not found!' }
+              # render json: { success: false, status: :not_found, message: 'Play list not found!' }
             end
           else
-            render json: { success: false, status: :not_found, message: 'Song not found!' }
+            # render json: { success: false, status: :not_found, message: 'Song not found!' }
           end
         else
-          render json: { success: false, status: :not_found, message: 'User not found!' }
+          # render json: { success: false, status: :not_found, message: 'User not found!' }
+        end
+        respond_to do |format|
+          format.js
         end
 
       end
@@ -124,7 +129,7 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def play_list_params
-        params[:play_list]
+        params.require(:play_list).permit(:name)
       end
     end
   end

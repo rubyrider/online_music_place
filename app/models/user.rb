@@ -22,6 +22,7 @@
 #  last_name              :string(255)
 #  gender                 :integer
 #  avatar                 :string(255)
+#  admin                  :boolean
 #
 # Indexes
 #
@@ -45,6 +46,7 @@ class User < ActiveRecord::Base
   has_many :play_lists, through: :liked_play_lists
   has_many :liked_artists
   has_many :artists, through: :liked_artists
+  has_many :play_lists
 
   include UserRole
 

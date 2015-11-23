@@ -27,7 +27,7 @@
                     <!--<img src="{{album.cover_url}}" alt="">-->
                     <h3>{{album.name}}</h3>
                     <button class="btn btn-success">share</button>
-                    <button class="btn btn-info">like</button>
+                    <button class="btn btn-info like-album {{album.favorite}}" data-album-id="{{album.id}}">like</button>
                 </div>
                 <div class="row">&nbsp;</div>
                 <ul class="pp_playlist">
@@ -35,14 +35,14 @@
                     <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
 
                         <span class="songPlay">
-                            <a data-song-url="{{song.song_url}}"><i class="fa fa-play-circle-o"></i></a>
+                            <a data-song-url="{{song.song_url}}"><i artist="{{song.artist_names.join(' ')}}" songtitle="{{song.name}}" audiourl="{{song.song_url}}" class="fa fa-play-circle-o play-icon"></i></a>
                         </span>
                             <span class="songTitle">{{song.name}}</span>
                             <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>
                             <span class="songDuration">{{song.duration}}</span>
 									<span class="songFevo">
-										<i class="fa fa-heart" class="heart_icon"></i>
-										<i class="fa fa-plus" class="plus_icon"></i>
+										<i class="fa fa-heart heart_icon {{song.favorite}}" data-song-id="{{song.id}}"></i>
+										<i id="song_{{song.id}}" class="fa fa-plus plus_icon add_this {{song.playlist}}" data-song-id="{{song.id}}" ng-click="add_click(song)"></i>
 									</span>
 
                     </li>

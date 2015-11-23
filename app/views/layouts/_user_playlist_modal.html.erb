@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div id="playlist-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1>Playlist</h1>
+      </div>
+      <div class="modal-body">
+        Add to:
+
+        <%= form_tag '/api/v1/users/1/songs/1/play_lists/toggle_presence_in_play_list', id: 'new_play_list', remote: true do %>
+            <%= select_tag :play_list_id, options_from_collection_for_select(@playlists, 'id', 'name'), class: 'form-control' %>
+            <%= submit_tag 'Submit', class: 'btn btn-success' %>
+        <% end %>
+
+        <br>
+        <h5>Create New</h5>
+        <%= form_tag api_v1_play_lists_path do %>
+            <div class="form-group">
+              <%= text_field_tag "play_list[name]", '', class: 'form-control', placeholder: 'Name' %>
+            </div>
+            <div class="form-group">
+              <%= submit_tag 'Create', class: 'btn btn-success' %>
+            </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

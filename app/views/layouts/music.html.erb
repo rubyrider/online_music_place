@@ -79,11 +79,22 @@
       <div class="p_volume"></div>
       <div class="p_tracker"></div>
     </div>
-    <div id="playlist-area"></div>
+    <ul class="p_playlist hidden">
+      <!--<li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="a1.jpg" artist="Artist 1">01.mp3</li>-->
+      <!--<li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="cover2.jpg" artist="Artist 2">02.mp3</li>-->
+      <li audiourl="03.mp3" cover="cover3.jpg" artist="Artist 3">03.mp3</li>
+      <li audiourl="04.mp3" cover="cover4.jpg" artist="Artist 4">04.mp3</li>
+      <li audiourl="05.mp3" cover="cover5.jpg" artist="Artist 5">05.mp3</li>
+      <li audiourl="06.mp3" cover="cover6.jpg" artist="Artist 6">06.mp3</li>
+      <li audiourl="07.mp3" cover="cover7.jpg" artist="Artist 7">07.mp3</li>
+    </ul>
+
+
   </div>
 </section>
 
 <%= render 'layouts/login_modal' %>
+<%= render 'layouts/user_playlist_modal' %>
 
 <footer class="footer">
   <div class="footer_area">
@@ -92,14 +103,9 @@
   </div>
 </footer>
 
-<script type="text/x-template" id="playlist">
-  <ul class="p_playlist hidden">
-    <@ _.each(songs, function(song) { @>
-        <li audiourl='<@= song.song_url @>' cover='<\@= song.cover_url @>' artist='<\%= song.artist_names %>'></li>
-    <@ }); @>
-  </ul>
-</script>
-
-
 </body>
 </html>
+
+<script type="text/javascript" charset="utf-8">
+  window.current_user = <%= raw current_user.to_json %>
+</script>

@@ -42,6 +42,10 @@ class Album < ActiveRecord::Base
     name || default_title
   end
 
+  def favorite_by?(user)
+    self.users.include?(user)
+  end
+
   def self.filter_by_params(params)
     results = Album.all
     if params[:name].present?

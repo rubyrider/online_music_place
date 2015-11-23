@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122120757) do
+ActiveRecord::Schema.define(version: 20151122134631) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -313,6 +313,7 @@ ActiveRecord::Schema.define(version: 20151122120757) do
     t.string   "last_name",              limit: 255
     t.integer  "gender",                 limit: 4
     t.string   "avatar",                 limit: 255
+    t.boolean  "admin"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
