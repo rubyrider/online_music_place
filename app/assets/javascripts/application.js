@@ -29,11 +29,6 @@
  *
  * */
 $(document).ready(function () {
-    $('#logo').on('click', function () {
-        window.location.href = '/'
-    });
-
-
     $(document).on("click", ".heart_icon", function() {
         var $this = $(this);
         var song_id = $this.data('song-id');
