@@ -28,4 +28,8 @@ class PlayList < ActiveRecord::Base
   def creator
     self.user
   end
+
+  def favorite_by?(user)
+    self.users.include?(user)
+  end
 end

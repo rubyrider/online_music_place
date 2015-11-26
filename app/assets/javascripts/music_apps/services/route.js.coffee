@@ -21,6 +21,16 @@ window.MusicApp.config [
       templateUrl: '/assets/music_apps/templates/artists/index.html'
       controller: 'ArtistCtrl'
     )
+    .when(
+      '/playlists',
+      templateUrl: '/assets/music_apps/templates/playlist/index.html'
+      controller: 'PlaylistCtrl'
+    )
+    .when(
+      '/play_lists/:id',
+      templateUrl: '/assets/music_apps/templates/albums/index.html'
+      controller: 'PlaylistCtrl'
+    )
     .otherwise redirectTo: '/'
     $location.html5Mode true
 ]
