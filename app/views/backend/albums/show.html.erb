@@ -7,9 +7,9 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @album.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cover) %>:</strong></dt>
-  <dd><%= image_tag(@album.cover_url) %></dd>
+  <dd><%= image_tag(@album.cover.url(:sm)) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:banner) %>:</strong></dt>
-  <dd><%= image_tag(@album.banner_url) %></dd>
+  <dd><%= image_tag(@album.banner.url(:sm)) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:release_date) %>:</strong></dt>
   <dd><%= @album.release_date %></dd>
 </dl>

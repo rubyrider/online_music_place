@@ -6,7 +6,9 @@
                 <li><a class="color_000000" href=""><i class="fa fa-headphones color_9ECB3B"></i>MOST HEARD</a></li>
                 <li><a class="color_000000" href=""><i class="fa fa-heart-o color_9ECB3B"></i>SONG OF THE DAY</a></li>
                 <li><a class="color_000000" href=""><i class="fa fa-gift color_9ECB3B"></i>SURPRISE ME</a></li>
-                <li class="hr"><hr /></li>
+                <li class="hr">
+                    <hr/>
+                </li>
                 <li><a class="color_000000" href=""><i class="fa fa-tripadvisor color_9ECB3B"></i>RADIO</a></li>
                 <li><a class="color_000000" href=""><i class="fa fa-user-secret color_9ECB3B"></i>FRIENDS</a></li>
             </ul>
@@ -18,16 +20,24 @@
     </div>
     <div class="playSong col-md-8 bg_FEFFFF">
         <div class="playSongContent col-md-12">
-            <div class="ArtistSongList col-md-9">
+            <div class="ArtistSongList col-md-12">
                 <div class="playSongSlider">
-                    <img class="img-responsive" ng-src="{{album.banner_url}}" alt="" />
+                    <img class="img-responsive" ng-src="{{album.banner_url || '/assets/images/banner1.jpg'}}" alt=""/>
                 </div>
-                <div class="playSongSliderTop">
+                <div class="playSongSliderTop col-md-12">
                     <!--<img class="img-responsive" ng-src="{{album.cover_url}}" alt="" />-->
-                    <img src="{{album.cover_url ? (album.cover_url) : '/assets/images/slider.jpg'}}" alt="">
-                    <h3>{{album.name}}</h3>
-                    <button class="btn btn-success">share</button>
-                    <button class="btn btn-info like-album {{album.favorite}}" data-album-id="{{album.id}}">like</button>
+                    <div class="col-md-2">
+                        <img src="{{album.cover_url ? (album.cover_url) : '/assets/images/slider.jpg'}}" alt="">
+                    </div>
+                    <div class="col-md-10">
+                        <h3 class="album-title">{{album.name}}</h3>
+                        <div class="clearfix clear20"></div>
+                        <div class="album-buttons">
+                        <button class="btn btn-success btn-transparent">share</button>
+                        <button class="btn btn-info btn-transparent like-album {{album.favorite}}" data-album-id="{{album.id}}">like
+                        </div>
+                    </div>
+                    </button>
                 </div>
                 <div class="row">&nbsp;</div>
                 <ul class="pp_playlist">
@@ -35,39 +45,24 @@
                     <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
 
                         <span class="songPlay">
-                            <a data-song-url="{{song.song_url}}"><i artist="{{song.artist_names.join(' ')}}" songtitle="{{song.name}}" audiourl="{{song.song_url}}" class="fa fa-play-circle-o play-icon"></i></a>
+                            <a data-song-url="{{song.song_url}}"><i artist="{{song.artist_names.join(' ')}}"
+                                                                    songtitle="{{song.name}}"
+                                                                    audiourl="{{song.song_url}}"
+                                                                    class="fa fa-play-circle-o play-icon"></i></a>
                         </span>
-                            <span class="songTitle">{{song.name}}</span>
-                            <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>
-                            <span class="songDuration">{{song.duration}}</span>
+                        <span class="songTitle">{{song.name}}</span>
+                        <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>
+                        <span class="songDuration">{{song.duration}}</span>
 									<span class="songFevo">
-										<i class="fa fa-heart heart_icon {{song.favorite}}" data-song-id="{{song.id}}"></i>
-										<i id="song_{{song.id}}" class="fa fa-plus plus_icon add_this {{song.playlist}}" data-song-id="{{song.id}}" ng-click="add_click(song)"></i>
+										<i class="fa fa-heart heart_icon {{song.favorite}}"
+                                           data-song-id="{{song.id}}"></i>
+										<i id="song_{{song.id}}" class="fa fa-plus plus_icon add_this {{song.playlist}}"
+                                           data-song-id="{{song.id}}" ng-click="add_click(song)"></i>
 									</span>
 
                     </li>
                 </ul>
             </div>
-            <div class="sideSection col-md-3">
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2 playlistItem">
-        <div class="col-md-12 bg_EAEAEA song padding20">
-            <ul>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Dera Lala <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Happy <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>All of me <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Pumpell <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Dera Lala <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Dera Lala <span>Shakira</span></a></li>
-            </ul>
-        </div>
-        <div class="col-md-12 bg_E1E1E1 textCenterAlign margin0auto padding30">
-
-            <h3>Take music</h3>
-            <img class="appButton" src="assets/images/app.jpg" alt="" />
-            <button class="btn">Download Appp</button>
         </div>
     </div>
 </section>

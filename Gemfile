@@ -45,8 +45,6 @@ group :development do
   gem 'spring'
 
   gem 'concernize'
-
-  gem 'annotate', github: 'ctran/annotate_models'
 end
 
 gem 'devise'

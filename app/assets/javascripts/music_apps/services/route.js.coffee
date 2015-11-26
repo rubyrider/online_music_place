@@ -31,6 +31,5 @@ window.MusicApp.config [
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'PlaylistCtrl'
     )
-    .otherwise redirectTo: '/'
     $location.html5Mode true
 ]

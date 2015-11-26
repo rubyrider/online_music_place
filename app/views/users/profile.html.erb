@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="col-md-4">
+    <div class="img"><%= image_tag @user.avatar.url %></div>
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <h2>Details</h2>
+      <small><%= link_to 'Edit Profile', edit_profile_user_path(current_user), class: 'btn btn-transparent-green' %></small>
+      <hr />
+      <h5>Email: <%= @user.email %></h5>
+      <h5>Full Name: <%= @user.full_name %></h5>
+      <hr />
+      <h5>Playlists: <%= @user.play_lists.count %></h5>
+    </div>
+  </div>
+</div>

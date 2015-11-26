@@ -24,16 +24,19 @@
 						</span>
       </div>
     </div>
-    <div class="col-sm-4 col-sm-offset-2 avater">
+    <div class="col-sm-4 col-sm-offset-2">
       <% if current_user %>
-          <img src="<%= current_user.avatar_url %>" alt="<%= current_user.full_name %>"/>
-          <h4><%= current_user.email %></h4>
-          <p><%= link_to 'Sign Out', '/users/sign_out', method: :delete %></p>
-      <% end %>
-      <% if current_user %>
-          <h4><%= current_user.full_name %></h4>
+          <div class="col-sm-4">
+          <img src="<%= current_user.avatar_url || asset_path('images/default-pp') %>" alt="<%= current_user.full_name %>" class="logo-center"/>
+          </div>
+          <div class="col-sm-8" style="padding-top: 10px">
+            <h4><%= link_to current_user.email, profile_user_path(current_user), target: "_self"  %></h4>
+            <p><%= link_to 'Sign Out', '/users/sign_out', method: :delete, target: "_self" %></p>
+          </div>
+          <div class="clearfix"></div>
       <% else %>
-          <a type="button" data-toggle="modal" data-target="#login-modal" id="open-modal">Login</a>
+          <a type="button" data-toggle="modal" data-target="#login-modal" id="open-modal" class="btn btn-transparent-green col-sm-offset-2">Login</a>
+          <a type="button" href="/users/sign_up" class="btn btn-transparent-green" target="_self">Registration</a>
       <% end %>
     </div>
   </div>
@@ -48,21 +51,6 @@
 
 <div ng-view></div>
 
-<!-- build:js(src) scripts/vendor.js -->
-<!-- bower:js -->
-<!-- run `gulp inject` to automatically populate bower script dependencies -->
-<!-- endbower -->
-<!-- endbuild -->
-
-<!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
-<!-- inject:js -->
-<!-- js files will be automatically insert here -->
-<!-- endinject -->
-
-<!-- inject:partials -->
-<!-- angular templates will be automatically converted in js and inserted here -->
-<!-- endinject -->
-<!-- endbuild -->
 <section class="player1 bg_1B1D25 container-fluid color_FEFFFF">
 
 

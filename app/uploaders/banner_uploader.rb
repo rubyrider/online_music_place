@@ -32,9 +32,30 @@ class BannerUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
+  # Create different versions of your uploaded files:
+  version :sm do
+    process :resize_to_fit => [100, 100]
+  end
+  # Create different versions of your uploaded files:
+  version :xsm do
+    process :resize_to_fit => [150, 150]
+  end
+  # Create different versions of your uploaded files:
+  version :sm_medium do
+    process :resize_to_fit => [250, 250]
+  end
+  # Create different versions of your uploaded files:
+  version :medium do
+    process :resize_to_fit => [350, 350]
+  end
+
+  # Create different versions of your uploaded files:
+  version :last do
+    process :resize_to_fit => [1050, 1050]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

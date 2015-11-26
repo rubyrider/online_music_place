@@ -7,6 +7,14 @@
       <%= devise_error_messages! %>
 
       <div class="field form-group">
+        <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: 'First Name' %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder: 'Last Name' %>
+      </div>
+
+      <div class="field form-group">
         <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
       </div>
 
@@ -16,6 +24,11 @@
 
       <div class="field form-group">
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
+      </div>
+
+
+      <div class="field form-group">
+        <%= f.file_field :avatar, class: 'form-control', placeholder: 'Avatar' %>
       </div>
 
       <div class="actions">

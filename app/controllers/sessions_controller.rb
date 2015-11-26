@@ -36,7 +36,7 @@ class SessionsController < Devise::SessionsController
 
     respond_to do |format|
       format.html {
-        redirect_to root_path && return
+        redirect_to root_path
       }
 
       format.json {

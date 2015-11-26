@@ -53,4 +53,19 @@
     cursor: pointer;
 }
 
-/********Player *************/
+.logo-center{
+    border: 1px outset #000000;
+    -moz-border-radius-topleft: 75px;
+    -moz-border-radius-topright:75px;
+    -moz-border-radius-bottomleft:75px;
+    -moz-border-radius-bottomright:75px;
+    -webkit-border-top-left-radius:75px;
+    -webkit-border-top-right-radius:75px;
+    -webkit-border-bottom-left-radius:75px;
+    -webkit-border-bottom-right-radius:75px;
+    border-top-left-radius:75px;
+    border-top-right-radius:75px;
+    border-bottom-left-radius:75px;
+    border-bottom-right-radius:75px;
+    height: 60px !important;
+}

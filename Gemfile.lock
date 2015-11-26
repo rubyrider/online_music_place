@@ -24,14 +24,6 @@ GIT
       sass-rails
 
 GIT
-  remote: git://github.com/ctran/annotate_models.git
-  revision: d878a5b784ee0f703e9ee677bc0231dc24159512
-  specs:
-    annotate (2.6.10)
-      activerecord (>= 3.2, <= 4.3)
-      rake (~> 10.4)
-
-GIT
   remote: git@github.com:moumar/ruby-audioinfo.git
   revision: 2d1b56b770c35f473b46570e2ce8877b575e6458
   specs:
@@ -398,7 +390,6 @@ DEPENDENCIES
   angular-rails-templates (= 0.1.4)
   angular-ui-select2-rails
   angularjs-rails
-  annotate!
   apipie-rails
   bootstrap-datepicker-rails!
   bootstrap-glyphicons

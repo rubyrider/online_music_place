@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
 
   belongs_to :subscription
 
-  validates :role, :presence => true
+  validates :role, :first_name, :last_name,:presence => true
 
   def full_name
     [first_name, last_name].compact.join(' ')

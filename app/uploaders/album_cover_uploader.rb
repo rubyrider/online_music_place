@@ -16,6 +16,32 @@ class AlbumCoverUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}"
   end
 
+  # Create different versions of your uploaded files:
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
+  # Create different versions of your uploaded files:
+  version :sm do
+    process :resize_to_fit => [100, 100]
+  end
+  # Create different versions of your uploaded files:
+  version :xsm do
+    process :resize_to_fit => [150, 150]
+  end
+  # Create different versions of your uploaded files:
+  version :sm_medium do
+    process :resize_to_fit => [250, 250]
+  end
+  # Create different versions of your uploaded files:
+  version :medium do
+    process :resize_to_fit => [350, 350]
+  end
+
+  # Create different versions of your uploaded files:
+  version :last do
+    process :resize_to_fit => [1050, 1050]
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

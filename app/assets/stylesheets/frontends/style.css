@@ -401,20 +401,30 @@ a, h1, h2, h3, h4, h5, h6{
     top: 10%;
     position: absolute;
     bottom: 30%;
-    left: 6%;
 }
 
 .playSongSliderTop img{
-    width: 40%;
+    width: 150px;
 	float:left;
     padding-right: 20px;
 }
 
 .playSongSliderTop h3{
-
     font-weight: bold;
     margin-top: 48px;
     color: #1B1D25;
+}
+
+.album-title {
+    position: absolute;
+    top: -47px;
+    color: #fff !important;
+    padding: 0 10px;
+}
+
+.clear20 {
+   clear: both;
+    height: 40px;
 }
 
 
@@ -682,4 +692,22 @@ a, h1, h2, h3, h4, h5, h6{
 }
 .true {
     color: greenyellow;
+}
+
+.album-buttons{
+    padding: 53px 10px;
+}
+
+.btn-transparent {
+    color: #fff !important;
+    background-color: inherit !important;
+    border: 1px solid #fff !important;
+    border-radius: 10px !important;
+}
+
+.btn-transparent-green {
+    color: #9ecb3b !important;
+    background-color: inherit !important;
+    border: 1px solid #9ecb3b !important;
+    border-radius: 10px !important;
 }

@@ -1,4 +1,5 @@
-json.(@album, :id, :name, :cover_url, :banner_url)
+json.(@album, :id, :name, :banner_url)
+json.cover_url @album.cover_url(:xsm)
 json.favorite @album.favorite_by?(current_user)
 json.songs @album.songs do |song|
   json.id song.id
