@@ -7,4 +7,9 @@ window.MusicApp.controller 'ContentCtrl', [
 
       Logging.info("[Models::Content]: #{$scope.albums}")
 
+    Content.getUserPlaylists().then (response) ->
+      $scope.playlists = response
+
+      Logging.info("[Models::Content]: #{$scope.albums}")
+
 ]

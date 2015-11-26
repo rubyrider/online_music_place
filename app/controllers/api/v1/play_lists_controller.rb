@@ -10,7 +10,9 @@ module Api
         if params[:system].present?
           @play_lists = PlayList.where(:system_play_list => true)
         else
-          @play_lists = PlayList.all
+          if current_user
+            @play_lists = current_user.play_lists
+          end
         end
         render json: @play_lists
       end

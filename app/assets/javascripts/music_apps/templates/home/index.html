@@ -57,12 +57,7 @@
     <div class="col-md-2 playlistItem">
         <div class="col-md-12 bg_EAEAEA song padding20">
             <ul>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Dera Lala <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Happy <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>All of me <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Pumpell <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Dera Lala <span>Shakira</span></a></li>
-                <li><a href=""><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>Dera Lala <span>Shakira</span></a></li>
+                <li ng-repeat="playlist in playlists"><a href="/play_list/{{playlist.id}}"><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>{{playlist.name}}</a></li>
             </ul>
         </div>
         <div class="col-md-12 bg_E1E1E1 textCenterAlign margin0auto padding30">
