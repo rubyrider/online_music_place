@@ -394,6 +394,7 @@ a, h1, h2, h3, h4, h5, h6{
 
 .playSongSlider .img-responsive{
 	width:97.5%;
+    max-height: 180px;
 }
 
 .playSongSliderTop{
@@ -404,7 +405,7 @@ a, h1, h2, h3, h4, h5, h6{
 }
 
 .playSongSliderTop img{
-    width: 25%;
+    width: 40%;
 	float:left;
     padding-right: 20px;
 }

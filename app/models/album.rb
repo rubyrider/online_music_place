@@ -21,8 +21,8 @@ class Album < ActiveRecord::Base
   DEFAULT_TITLE = 'Untitled Album'.freeze
 
   include Anonymity
-  mount_uploader :cover, AlbumCoverUploader
   mount_uploader :banner, BannerUploader
+  mount_uploader :cover, AlbumCoverUploader
 
   has_many :songs, dependent: :nullify
   has_many :album_artists

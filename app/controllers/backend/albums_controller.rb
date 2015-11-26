@@ -59,6 +59,7 @@ module Backend
         @album = Album.find(params[:id])
         @album.name = params[:album][:name]
         @album.cover = params[:album][:cover]
+        @album.banner = params[:album][:banner]
         @album.release_date = params[:album][:release_date]
         @album.new_release = params[:album][:new_release]
         if @album.save!

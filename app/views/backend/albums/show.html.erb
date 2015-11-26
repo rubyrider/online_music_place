@@ -8,6 +8,8 @@
   <dd><%= @album.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cover) %>:</strong></dt>
   <dd><%= image_tag(@album.cover_url) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:banner) %>:</strong></dt>
+  <dd><%= image_tag(@album.banner_url) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:release_date) %>:</strong></dt>
   <dd><%= @album.release_date %></dd>
 </dl>
