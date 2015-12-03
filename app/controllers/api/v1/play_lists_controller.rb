@@ -8,10 +8,10 @@ module Api
       # GET /play_lists.json
       def index
         if params[:system].present?
-          @play_lists = PlayList.where(:system_play_list => true)
+          @play_lists = PlayList.where(:system_play_list => true).page(params[:page])
         else
           if current_user
-            @play_lists = current_user.play_lists
+            @play_lists = current_user.play_lists.page(params[:page])
           end
         end
         render json: @play_lists
@@ -88,7 +88,7 @@ module Api
       end
 
       def songs
-        @songs = @play_list.songs
+        @songs = @play_list.songs.page(params[:page]).per(20)
         render :json => @songs
       end
 

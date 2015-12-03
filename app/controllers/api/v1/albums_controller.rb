@@ -83,7 +83,7 @@ module Api
       end
 
       def songs
-        @songs = @album.songs
+        @songs = @album.songs.page(params[:page]).per(10)
         render :json => @songs
       end
 
