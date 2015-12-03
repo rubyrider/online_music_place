@@ -22,7 +22,7 @@ window.MusicApp.config [
       controller: 'ArtistCtrl'
     )
     .when(
-      '/playlists',
+      '/play_lists',
       templateUrl: '/assets/music_apps/templates/playlist/index.html'
       controller: 'PlaylistCtrl'
     )
