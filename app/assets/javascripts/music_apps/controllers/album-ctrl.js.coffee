@@ -9,6 +9,17 @@ window.MusicApp.controller 'AlbumCtrl', [
       $scope.album = response
       $scope.songs = response.songs
 
+      $(".p_playlist").html ""
+      songs = response.songs
+      i = 0
+
+      while i < songs.length
+        console.log songs[i]
+        html_markup = "<li audiourl='" + songs[i].song_url + "' artist=''>" + songs[i].name + "</li>"
+        console.log html_markup
+        $("ul.p_playlist").append html_markup
+        i++
+
       Logging.info("[Models::Album]: #{$scope.album}")
 
     $scope.add_click = (msg) ->
