@@ -21,7 +21,7 @@ window.MusicApp.factory 'model.playlist', [ 'Restangular', 'utils.logging', 'Dat
 
     getRandom: () ->
       _params = {page: @page, system: true}
-      Restangular.all('play_lists/surprise_me').getList(_params)
+      Restangular.one('play_lists', 'surprise_me').get(_params)
 
     getUserPlaylists: () ->
       _params = {page: @page}

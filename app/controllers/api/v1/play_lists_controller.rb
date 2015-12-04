@@ -75,7 +75,6 @@ module Api
 
       def surprise_me
         @play_list = PlayList.where(system_play_list: true).sample
-        render json: [{play_list: @play_list, songs: @play_list.songs}]
       end
 
       def featured

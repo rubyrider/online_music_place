@@ -7,10 +7,21 @@ window.MusicApp.controller "PlaylistCtrl", [ "$scope", "model.playlist", "utils.
 
   if $routeParams.id == 'surprise_me'
     Playlist.getRandom().then (response) ->
-      console.log(response[0].play_list)
-      console.log(response[0].songs)
-      $scope.album = response[0].play_list
-      $scope.songs = response[0].songs
+      $scope.album = response
+      $scope.songs = response.songs
+
+      $(".p_playlist").html ""
+      songs = response.songs
+      i = 0
+
+      while i < songs.length
+        console.log songs[i]
+        html_markup = "<li audiourl='" + songs[i].song_url + "' artist=''>" + songs[i].name + "</li>"
+        console.log html_markup
+        $("ul.p_playlist").append html_markup
+        i++
+
+
   else if $routeParams.id
     Playlist.getSongs($routeParams.id).then (response) ->
       $scope.album = response
