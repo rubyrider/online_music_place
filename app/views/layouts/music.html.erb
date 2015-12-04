@@ -30,13 +30,17 @@
           <img src="<%= current_user.avatar_url || asset_path('images/default-pp') %>" alt="<%= current_user.full_name %>" class="logo-center"/>
           </div>
           <div class="col-sm-8" style="padding-top: 10px">
-            <h4><%= link_to current_user.email, profile_user_path(current_user), target: "_self"  %></h4>
-            <p><%= link_to 'Sign Out', '/users/sign_out', method: :delete, target: "_self" %></p>
+            <% if current_user.full_name.present? %>
+                <h4><%= link_to current_user.full_name, profile_user_path(current_user), target: "_self"  %></h4>
+            <% else %>
+                <h4><%= link_to current_user.email, profile_user_path(current_user), target: "_self"  %></h4>
+                <% end %>
+            <p><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
           </div>
           <div class="clearfix"></div>
       <% else %>
           <a type="button" data-toggle="modal" data-target="#login-modal" id="open-modal" class="btn btn-transparent-green col-sm-offset-2">Login</a>
-          <a type="button" href="/users/sign_up" class="btn btn-transparent-green" target="_self">Registration</a>
+          <a type="button" data-toggle="modal" data-target="#registration-modal" class="btn btn-transparent-green" target="_self">Registration</a>
       <% end %>
     </div>
   </div>
@@ -84,6 +88,7 @@
 </section>
 
 <%= render 'layouts/login_modal' %>
+<%= render 'layouts/registration_modal' %>
 <%= render 'layouts/user_playlist_modal' %>
 
 <footer class="footer">

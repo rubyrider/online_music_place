@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div id="registration-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <img src="assets/images/logo.png" alt="">
+      </div>
+      <div class="modal-body">
+        <%= form_tag user_registration_path do %>
+            <div class="field form-group">
+              <%= text_field_tag 'user[first_name]', '', autofocus: true, class: 'form-control', placeholder: 'First Name' %>
+            </div>
+
+            <div class="field form-group">
+              <%= text_field_tag 'user[last_name]', '', autofocus: true, class: 'form-control', placeholder: 'Last Name' %>
+            </div>
+
+            <div class="field form-group">
+              <%= email_field_tag 'user[email]', '', autofocus: true, class: 'form-control', placeholder: 'Email' %>
+            </div>
+
+            <div class="field form-group">
+              <%= password_field_tag 'user[password]', '', autocomplete: "off", class: 'form-control', placeholder: 'Password(minimum 8 character)' %>
+            </div>
+
+            <div class="field form-group">
+              <%= password_field_tag 'user[password_confirmation]', '', autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
+            </div>
+
+
+            <div class="field form-group">
+              <%= file_field_tag 'user[avatar]', class: 'form-control' %>
+            </div>
+
+            <div class="actions">
+              <%= submit_tag "Sign up", class: 'btn btn-success' %>
+            </div>
+        <% end %>
+        <%= link_to "Sign in", '/users/sing_in', 'ng-href': new_user_registration_path,  target:"_self" %><br />
+      </div>
+      <div class="modal-footer yellow">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

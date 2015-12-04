@@ -7,6 +7,9 @@ window.MusicApp.controller 'ContentCtrl', [
 
       Logging.info("[Models::Content]: #{$scope.albums}")
 
+    Content.getRandomPlaylists().then (response) ->
+      $scope.random_playlist_id = response
+
     Content.getUserPlaylists().then (response) ->
       $scope.playlists = response
 

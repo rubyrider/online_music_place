@@ -1,5 +1,8 @@
 window.MusicApp.controller "PlaylistCtrl", [ "$scope", "model.playlist", "utils.logging", "$http", "$location", "$routeParams", "DateUtils", ($scope, Playlist, Logging, $http, $location, $routeParams, DateUtils) ->
-  console.log($routeParams.id)
+
+  Playlist.getUserPlaylists().then (response) ->
+    $scope.playlists = response
+
   if $routeParams.id
     Playlist.getSongs($routeParams.id).then (response) ->
       $scope.album = response

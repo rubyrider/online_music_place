@@ -28,7 +28,6 @@ class SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-
     if current_user
       current_user.update authentication_token: nil
       signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))

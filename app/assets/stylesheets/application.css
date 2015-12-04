@@ -34,7 +34,7 @@
     cursor: pointer;
     color: white;
 }
-#login-modal {
+#login-modal, #registration-modal {
     margin: 0 auto;
     text-align: center;
 }
@@ -68,4 +68,9 @@
     border-bottom-left-radius:75px;
     border-bottom-right-radius:75px;
     height: 60px !important;
+}
+
+.yellow {
+
+    background: #FFC50C;
 }
