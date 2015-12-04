@@ -68,7 +68,7 @@ module Api
       def destroy
         @play_list.destroy
         respond_to do |format|
-          format.html { redirect_to play_lists_url, notice: 'Play list was successfully destroyed.' }
+          format.html { redirect_to :back, notice: 'Play list was successfully destroyed.' }
           format.json { head :no_content }
         end
       end

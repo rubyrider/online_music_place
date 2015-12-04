@@ -46,6 +46,11 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">Gaanbaz</a>
+        <ul class="nav navbar-nav">
+          <li><a href="<%= profile_user_path(current_user) %>">Profile</a></li>
+          <li><a href="<%= edit_profile_user_path(current_user) %>">Edit Profile</a></li>
+          <li><a href="<%= play_lists_user_path(current_user) %>">Play Lists</a></li>
+        </ul>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav pull-right">
             <li><%= link_to "Sign Out", "/path1"  %></li>

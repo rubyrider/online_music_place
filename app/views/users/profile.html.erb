@@ -1,16 +1,16 @@
 <div class="col-md-12">
   <div class="col-md-4">
-    <div class="img"><%= image_tag @user.avatar.url %></div>
+    <div class="img"><img src="<%= current_user.avatar_url || asset_path('images/default-pp') %>" alt="<%= current_user.full_name %>"></div>
   </div>
   <div class="col-md-8">
     <div class="row">
       <h2>Details</h2>
       <small><%= link_to 'Edit Profile', edit_profile_user_path(current_user), class: 'btn btn-transparent-green' %></small>
       <hr />
-      <h5>Email: <%= @user.email %></h5>
-      <h5>Full Name: <%= @user.full_name %></h5>
+      <h5><b>Email:</b> <%= @user.email %></h5>
+      <h5><b>Full Name:</b> <%= @user.full_name %></h5>
       <hr />
-      <h5>Playlists: <%= @user.play_lists.count %></h5>
+      <h5><b>Playlists:</b> <%= @user.play_lists.count %></h5>
     </div>
   </div>
 </div>

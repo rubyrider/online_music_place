@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :profile
+      get :play_lists
       get 'edit-profile' => :edit_profile
       patch :update
     end
