@@ -19,6 +19,10 @@ window.MusicApp.factory 'model.playlist', [ 'Restangular', 'utils.logging', 'Dat
       _params = {page: @page, system: true}
       Restangular.one('play_lists', id).get(_params)
 
+    getRandom: () ->
+      _params = {page: @page, system: true}
+      Restangular.all('play_lists/surprise_me').getList(_params)
+
     getUserPlaylists: () ->
       _params = {page: @page}
       Logging.info("Loading [Models::Content]")

@@ -31,5 +31,10 @@ window.MusicApp.config [
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'PlaylistCtrl'
     )
+    .when(
+      '/play_lists/surprise_me',
+      templateUrl: '/assets/music_apps/templates/albums/index.html'
+      controller: 'PlaylistCtrl'
+    )
     $location.html5Mode true
 ]
