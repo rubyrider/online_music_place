@@ -22,4 +22,8 @@
 #
 
 class Advertisement < ActiveRecord::Base
+
+  scope :for_left_side, -> { where left_position: true }
+  scope :for_right_side, -> { where right_position: true }
+
 end

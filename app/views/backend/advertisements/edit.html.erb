@@ -1,5 +1,62 @@
-<%- model_class = Advertisement -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
-<%= render :partial => 'form' %>
+<%= form_for @advertisement, url: backend_advertisement_path(@advertisement), :html => { :class => "form-horizontal advertisement" } do |f| %>
+
+    <% if @advertisement.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@advertisement.errors.count, "error") %> prohibited this advertisement from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @advertisement.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :title, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'form-control' %>
+      </div>
+      <%= error_span(@advertisement[:title]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :left_position, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :left_position, :class => 'form-control' %>
+      </div>
+      <%= error_span(@advertisement[:left_position]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :right_position, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :right_position, :class => 'form-control' %>
+      </div>
+      <%= error_span(@advertisement[:right_position]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :content, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :content, :class => 'form-control ckeditor' %>
+      </div>
+      <%= error_span(@advertisement[:content]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :custom_css, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :custom_css, :class => 'form-control ckeditor' %>
+      </div>
+      <%= error_span(@advertisement[:custom_css]) %>
+    </div>
+
+    <div class="clearfix" style="clear: both; height: 40px !important;"></div>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                backend_advertisements_path, :class => 'btn btn-default' %>
+
+<% end %>

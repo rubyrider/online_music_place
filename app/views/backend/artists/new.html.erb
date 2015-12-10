@@ -2,4 +2,68 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
-<%= render :partial => 'form' %>
+<%= form_for @artist, url: backend_artists_path, :html => { :class => "form-horizontal artist" } do |f| %>
+
+    <% if @artist.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @artist.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+      <%= error_span(@artist[:name]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :dob, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :dob, :class => 'form-control' %>
+      </div>
+      <%= error_span(@artist[:dob]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :details, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :details, :class => 'form-control' %>
+      </div>
+      <%= error_span(@artist[:details]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :musical_band_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :musical_band_id, :class => 'form-control' %>
+      </div>
+      <%= error_span(@artist[:musical_band_id]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label 'Photo', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :photo, :class => 'form-control' %>
+      </div>
+      <%= error_span(@artist[:photo]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label 'Cover', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :cover, :class => 'form-control' %>
+      </div>
+      <%= error_span(@artist[:cover]) %>
+    </div>
+
+
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                backend_artists_path, :class => 'btn btn-default' %>
+
+<% end %>

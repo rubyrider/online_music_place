@@ -31,7 +31,7 @@ module Backend
     # POST /play_lists
     # POST /play_lists.json
     def create
-      @play_list = PlayList.new()
+      @play_list = PlayList.new(play_list_params)
       # @play_list.name = params[:play_list][:play_list_songs_attributes].keys.each{|k| puts params[:play_list][:play_list_songs_attributes][k]['song_attributes']["name"]}
       @play_list.name = params[:play_list][:name]
       respond_to do |format|

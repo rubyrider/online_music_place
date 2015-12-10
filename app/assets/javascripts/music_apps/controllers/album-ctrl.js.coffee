@@ -5,22 +5,27 @@ window.MusicApp.controller 'AlbumCtrl', [
     Album.getUserPlaylists().then (response) ->
       $scope.playlists = response
 
-    Album.getAlbum($routeParams.id).then (response) ->
-      $scope.album = response
-      $scope.songs = response.songs
+    if $routeParams.id
+      Album.getAlbum($routeParams.id).then (response) ->
+        $scope.album = response
+        $scope.songs = response.songs
 
-      $(".p_playlist").html ""
-      songs = response.songs
-      i = 0
+        $(".p_playlist").html ""
+        songs = response.songs
+        i = 0
 
-      while i < songs.length
-        console.log songs[i]
-        html_markup = "<li audiourl='" + songs[i].song_url + "' artist=''>" + songs[i].name + "</li>"
-        console.log html_markup
-        $("ul.p_playlist").append html_markup
-        i++
+        while i < songs.length
+          console.log songs[i]
+          html_markup = "<li audiourl='" + songs[i].song_url + "' artist=''>" + songs[i].name + "</li>"
+          console.log html_markup
+          $("ul.p_playlist").append html_markup
+          i++
 
-      Logging.info("[Models::Album]: #{$scope.album}")
+        Logging.info("[Models::Album]: #{$scope.album}")
+    else
+      Album.getAlbums().then (response) ->
+        $scope.albums = _.chunk(response, 4);
+
 
     $scope.add_click = (msg) ->
 #      $('#playlist-modal').modal('show')

@@ -1,0 +1,7 @@
+.jp-audio, .jp-audio-stream, .jp-video {
+     border: none !important;
+    width: 100% !important;
+}
+
+.jp-interface {
+}

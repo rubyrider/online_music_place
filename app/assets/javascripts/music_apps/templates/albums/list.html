@@ -1,0 +1,29 @@
+<div class="service col-md-8 bg_FEFFFF">
+    <div class="serviceSlider col-md-12">
+        <img class="img-responsive" src="assets/images/slider.jpg" alt="" />
+    </div>
+    <div class="serviceArea col-md-12">
+        <div class="serviceAreaMenu row bold">
+            <ul>
+                <li class="serviceAreaMenu1st"><a href="/">Overview</a></li>
+                <li><a href="/new_releases">New releases</a></li>
+                <li><a href="/albums">Albums</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/playlists">Playlists</a></li>
+            </ul>
+        </div>
+        <div class="row" ng-repeat="albumGroup in albums" style="margin-bottom: 20px">
+            <div ng-repeat="album in albumGroup" class="col-md-3">
+                <a ng-href="/albums/{{album.id}}" class="play-album" data-album-id="{{album.id}}" data-type="album">
+                    <div class="musicSelect">
+                        <h5>{{album.name}}</h5>
+                        <div class="control">
+                            <i class="fa fa-play-circle-o"></i>
+                        </div>
+                    </div>
+                    <img ng-src="{{album.photo.url ? (album.photo.url) : '/assets/images/placeholder.png'}}" class="img-responsive" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

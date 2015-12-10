@@ -1,23 +1,4 @@
-<section class="slider container-fluid">
-    <div class="col-md-2 menu">
-        <div class="col-md-12 bg_EAEAEA menuArea">
-            <ul class="menuUl1st col-md-12">
-                <li><a class="color_000000" href=""><i class="fa fa-signal color_9ECB3B"></i>TOP SONGS</a></li>
-                <li><a class="color_000000" href=""><i class="fa fa-headphones color_9ECB3B"></i>MOST HEARD</a></li>
-                <li><a class="color_000000" href=""><i class="fa fa-heart-o color_9ECB3B"></i>SONG OF THE DAY</a></li>
-                <li><a class="color_000000" ng-href="/play_lists/surprise_me"><i class="fa fa-gift color_9ECB3B"></i>SURPRISE ME</a></li>
-                <li class="hr">
-                    <hr/>
-                </li>
-                <li><a class="color_000000" href=""><i class="fa fa-tripadvisor color_9ECB3B"></i>RADIO</a></li>
-                <li><a class="color_000000" href=""><i class="fa fa-user-secret color_9ECB3B"></i>FRIENDS</a></li>
-            </ul>
-        </div>
-        <div class="col-md-12 bg_E1E1E1 textCenterAlign margin0auto padding30">
-            <h3>Add Section</h3>
-            <button class="btn color_CC3247">Download App</button>
-        </div>
-    </div>
+
     <div class="playSong col-md-8 bg_FEFFFF">
         <div class="playSongContent col-md-12">
             <div class="ArtistSongList col-md-12">
@@ -45,10 +26,7 @@
                     <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
 
                         <span class="songPlay">
-                            <a data-song-url="{{song.song_url}}"><i artist="{{song.artist_names.join(' ')}}"
-                                                                    songtitle="{{song.name}}"
-                                                                    audiourl="{{song.song_url}}"
-                                                                    class="fa fa-play-circle-o play-icon"></i></a>
+                            <a class="play-song" data-title="{{song.name}}" data-audio-url="{{song.song_url}}"><i class="fa fa-play-circle-o play-icon"></i></a>
                         </span>
                         <span class="songTitle">{{song.name}}</span>
                         <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>
@@ -65,17 +43,3 @@
             </div>
         </div>
     </div>
-    <div class="col-md-2 playlistItem">
-        <div class="col-md-12 bg_EAEAEA song padding20">
-            <ul>
-                <li ng-repeat="playlist in playlists"><a href="/play_lists/{{playlist.id}}"><img src="assets/images/anthony.png" alt="" /><div><i class="fa fa-volume-up"></i></div>{{playlist.name}}</a></li>
-            </ul>
-        </div>
-        <div class="col-md-12 bg_E1E1E1 textCenterAlign margin0auto padding30">
-
-            <h3>Take music</h3>
-            <img class="appButton" src="assets/images/app.jpg" alt="" />
-            <button class="btn">Download App</button>
-        </div>
-    </div>
-</section>

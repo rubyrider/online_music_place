@@ -12,6 +12,11 @@ module Api
         respond_to :json
       end
 
+      def get_for_jplayer
+        album = Album.find(params[:id])
+        @songs = album.songs
+      end
+
       # GET /albums/1
       # GET /albums/1.json
       def show

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122134631) do
+ActiveRecord::Schema.define(version: 20151210102012) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20151122134631) do
     t.text     "custom_css",     limit: 65535
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.boolean  "right_position"
+    t.boolean  "left_position"
   end
 
   add_index "advertisements", ["ad_position_id"], name: "index_advertisements_on_ad_position_id", using: :btree
@@ -220,6 +222,9 @@ ActiveRecord::Schema.define(version: 20151122134631) do
     t.boolean  "featured"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.boolean  "left_side"
+    t.boolean  "mood"
+    t.string   "cover",            limit: 255
   end
 
   create_table "song_artists", force: :cascade do |t|

@@ -9,6 +9,8 @@ module Api
       def index
         if params[:system].present?
           @play_lists = PlayList.where(:system_play_list => true).page(params[:page])
+        elsif params[:mood].present?
+          @play_lists = PlayList.where(:system_play_list => true, mood: true).page(params[:page])
         else
           if current_user
             @play_lists = current_user.play_lists.page(params[:page])
@@ -21,6 +23,12 @@ module Api
       # GET /play_lists/1.json
       def show
 
+      end
+
+
+      def get_for_jplayer
+        playlist = PlayList.find(params[:id])
+        @songs = playlist.songs
       end
 
       # GET /play_lists/new

@@ -8,13 +8,23 @@ module Api
       # GET /artists.json
       def index
         @artists = Artist.all
-        render json: @artist
+        if @artists
+          render json: @artists
+        else
+          render json: []
+        end
+
       end
 
       # GET /artists/1
       # GET /artists/1.json
       def show
-        render json: @artist
+        @artist = Artist.find(params[:id])
+      end
+
+      def get_for_jplayer
+        artist = Artist.find(params[:id])
+        @songs = artist.songs
       end
 
       # GET /artists/new

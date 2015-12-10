@@ -113,6 +113,8 @@ GEM
       mime-types (>= 1.16)
     chronic (0.10.2)
     cicphash (1.1.0)
+    ckeditor_rails (4.5.3)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -270,6 +272,8 @@ GEM
       rails-assets-masonry (~> 3.3.0)
       rails-assets-matches-selector (~> 1.0.2)
       rails-assets-outlayer (~> 1.4.1)
+    rails-assets-jplayer (2.9.2)
+      rails-assets-jquery (>= 1.7.2)
     rails-assets-jquery (2.1.4)
     rails-assets-lodash (3.10.1)
     rails-assets-masonry (3.3.2)
@@ -398,6 +402,7 @@ DEPENDENCIES
   cancancan
   carrierwave
   chronic
+  ckeditor_rails
   cocoon
   coffee-rails (~> 4.1.0)
   concernize
@@ -425,6 +430,7 @@ DEPENDENCIES
   rails-assets-fontawesome!
   rails-assets-html5shiv!
   rails-assets-isotope!
+  rails-assets-jplayer
   rails-assets-momentjs!
   rails-assets-respond!
   rails-assets-restangular!

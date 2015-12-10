@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_tree ./backends
  *= stub active_admin
+ *= require jplayer.flat
+ *= require simple-line-icons
+ *= require jquery.bxslider
  *= require_self
  */
 .ui-autocomplete {
@@ -73,4 +76,96 @@
 .yellow {
 
     background: #FFC50C;
+}
+
+/********* Player ***********/
+
+.bg-dark {
+    background-color: #5a6a7a;
+    color: #c9d0d7;
+}
+.jp-controls {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 0;
+    width: 100%;
+}
+.jp-controls > div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 40px;
+    height: 60px;
+}
+.bg-dark a {
+    color: #e6eaed;
+}
+.jp-controls a {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 5px;
+}
+.jp-controls a i {
+    line-height: inherit;
+}
+.i-lg {
+    font-size: 1.3333333333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+}
+.i-2x {
+    font-size: 2em;
+}
+a.hid {
+    display: none;
+}
+div.jp-progress {
+    width: auto;
+    padding: 0 15px;
+    vertical-align: top;
+    position: relative;
+}
+.bg-dark.dk, .bg-dark .dk {
+    background-color: #4d5d6e;
+}
+.jp-seek-bar {
+    position: relative;
+}
+.bg-info {
+    background-color: #4cb6cb;
+    color: #eaf6f9;
+}
+.jp-play-bar {
+    height: 60px;
+}
+.bg-dark .text-lt {
+    color: #ffffff !important;
+}
+.jp-title {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    right: 25px;
+    display: block !important;
+    line-height: 60px;
+}
+.bg-dark .text-muted {
+    color: #acb7c1 !important;
+}
+.bg-dark.lter, .bg-dark .lter {
+    background-color: #778490;
+}
+.jp-volume-bar-value {
+    height: 6px;
+}
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.jp-video-270p{
+    width: 100%;
+}
+.browse-more {
+    color: #9FCB3A;
 }

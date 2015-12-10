@@ -1,0 +1,45 @@
+
+<div class="playSong col-md-8 bg_FEFFFF">
+  <div class="playSongContent col-md-12">
+    <div class="ArtistSongList col-md-12">
+      <div class="playSongSlider">
+        <img class="img-responsive" ng-src="{{album.banner_url || '/assets/images/banner1.jpg'}}" alt=""/>
+      </div>
+      <div class="playSongSliderTop col-md-12">
+        <!--<img class="img-responsive" ng-src="{{album.cover_url}}" alt="" />-->
+        <div class="col-md-2">
+          <img src="{{artist.photo.url ? (artist.photo.url) : '/assets/images/slider.jpg'}}" alt="">
+        </div>
+        <div class="col-md-10">
+          <h3 class="album-title">{{artist.name}}</h3>
+          <div class="clearfix clear20"></div>
+          <div class="album-buttons">
+            <button class="btn btn-success btn-transparent">share</button>
+            <button class="btn btn-info btn-transparent like-album {{artist.favorite}}" data-album-id="{{artist.id}}">like</button>>
+          </div>
+        </div>
+        </button>
+      </div>
+      <div class="row">&nbsp;</div>
+      <ul class="pp_playlist">
+        <!--<li ng-repeat="song in songs">-->
+        <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
+
+                        <span class="songPlay">
+                            <a class="play-song" data-title="{{song.name}}" data-audio-url="{{song.song_url}}"><i class="fa fa-play-circle-o play-icon"></i></a>
+                        </span>
+          <span class="songTitle">{{song.name}}</span>
+          <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>
+          <span class="songDuration">{{song.duration}}</span>
+									<span class="songFevo">
+										<i class="fa fa-heart heart_icon {{song.favorite}}"
+                                           data-song-id="{{song.id}}"></i>
+										<i id="song_{{song.id}}" class="fa fa-plus plus_icon add_this {{song.playlist}}"
+                                           data-song-id="{{song.id}}" ng-click="add_click(song)"></i>
+									</span>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

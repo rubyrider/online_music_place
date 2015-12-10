@@ -14,6 +14,9 @@
 #
 
 class PlayList < ActiveRecord::Base
+
+  mount_uploader :cover, PlayListCoverUploader
+
   belongs_to :user
   has_many :liked_play_lists
   has_many :users, through: :liked_play_lists
@@ -24,6 +27,8 @@ class PlayList < ActiveRecord::Base
                                 reject_if: :all_blank,
                                 allow_destroy: true
   accepts_nested_attributes_for :songs
+
+  scope :left_side_playlists, -> {where(left_side: true)}
 
   def creator
     self.user

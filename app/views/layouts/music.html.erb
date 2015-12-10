@@ -53,50 +53,58 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ng-view></div>
-
-<section class="player1 bg_1B1D25 container-fluid color_FEFFFF">
-
-
-  <div class="example">
-
-    <div class="p_player">
-      <div class="p_title"></div>
-      <div class="p_artist"></div>
-      <div class="p_cover"></div>
-      <div class="p_controls">
-        <div class="p_play"></div>
-        <div class="p_pause"></div>
-        <div class="p_rew"></div>
-        <div class="p_fwd"></div>
-      </div>
-      <div class="p_volume"></div>
-      <div class="p_tracker"></div>
+<section class="slider container-fluid">
+  <div class="col-md-2 menu">
+    <div class="col-md-12 bg_EAEAEA menuArea">
+      <ul class="menuUl1st col-md-12">
+        <% @left_side_play_list.each do |p| %>
+            <li><a class="color_000000 play-album" href="/play_lists/<%= p.id %>" data-type="playlist" data-album-id="<%= p.id %>"><i class="fa fa-signal color_9ECB3B"></i><%= p.name %></a></li>
+        <% end %>
+       </ul>
     </div>
-    <ul class="p_playlist hidden">
-      <!--<li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="a1.jpg" artist="Artist 1">01.mp3</li>-->
-      <!--<li audiourl="http://p1.allmp3song.com/files/sfd73/36175/04%20-%20Tinko%20Ke%20Sahare(AllMp3Song.com).mp3" cover="cover2.jpg" artist="Artist 2">02.mp3</li>-->
-      <li audiourl="03.mp3" cover="cover3.jpg" artist="Artist 3">03.mp3</li>
-      <li audiourl="04.mp3" cover="cover4.jpg" artist="Artist 4">04.mp3</li>
-      <li audiourl="05.mp3" cover="cover5.jpg" artist="Artist 5">05.mp3</li>
-      <li audiourl="06.mp3" cover="cover6.jpg" artist="Artist 6">06.mp3</li>
-      <li audiourl="07.mp3" cover="cover7.jpg" artist="Artist 7">07.mp3</li>
-    </ul>
-
-
+    <% Advertisement.for_left_side.each do |advertisement| %>
+        <style>
+            <%= raw (advertisement.custom_css) %>
+        </style>
+        <%= raw (advertisement.content) %>
+    <% end %>
+  </div>
+<div ng-view></div>
+  <div class="col-md-2 playlistItem">
+    <div class="col-md-12 bg_EAEAEA song padding20">
+      <ul>
+        <% if @playlists %>
+            <% @playlists.each do |p| %>
+                <li><a href="/play_lists/<%= p.id %>" data-album-id="<%= p.id %>" data-type="playlist" class="play-album"><img src="<%= p.cover_url.present? ? p.cover_url : 'assets/images/anthony.png' %>" alt="" /><div><i class="fa fa-volume-up"></i></div><%= p.name %></a></li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <% Advertisement.for_right_side.each do |advertisement| %>
+        <style>
+            <%= raw (advertisement.custom_css) %>
+        </style>
+        <%= raw (advertisement.content) %>
+    <% end %>
   </div>
 </section>
+
+
+
+
 
 <%= render 'layouts/login_modal' %>
 <%= render 'layouts/registration_modal' %>
 <%= render 'layouts/user_playlist_modal' %>
 
-<footer class="footer">
-  <div class="footer_area">
-    <div class="footer_area-copyright"></div>
-    <div class="footer_area-socialmedia"></div>
-  </div>
-</footer>
+<%= render 'layouts/player' %>
+
+<!--<footer class="footer">-->
+  <!--<div class="footer_area">-->
+    <!--<div class="footer_area-copyright"></div>-->
+    <!--<div class="footer_area-socialmedia"></div>-->
+  <!--</div>-->
+<!--</footer>-->
 
 </body>
 </html>

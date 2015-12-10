@@ -111,3 +111,6 @@ gem 'lodash-rails'
 gem 'quiet_assets', group: :development
 gem 'taglib-ruby'
 gem 'ruby-audioinfo', git: 'git@github.com:moumar/ruby-audioinfo.git'
+gem 'rails-assets-jplayer'
+
+gem 'ckeditor_rails'

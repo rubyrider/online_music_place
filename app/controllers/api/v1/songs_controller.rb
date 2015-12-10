@@ -1,14 +1,18 @@
 module Api
   module V1
     class SongsController < ApiController
-      before_action :set_song, only: [:show, :edit, :update, :destroy, :toggle_like]
+      before_action :set_song, only: [:show, :edit, :update, :destroy, :toggle_like, :play_song]
       acts_as_token_authentication_handler_for User, only: [:toggle_like]
 
       # GET /songs
       # GET /songs.json
       def index
-        @songs = Song.all
+        @songs = Song.all.order(:updated_at).first(12)
         render :json => @songs
+      end
+
+      def play_song
+        send_file @song.audio.path
       end
 
       # GET /songs/1

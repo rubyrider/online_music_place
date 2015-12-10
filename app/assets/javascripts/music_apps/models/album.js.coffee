@@ -15,6 +15,12 @@ window.MusicApp.factory 'model.album', [ 'Restangular', 'utils.logging', 'DateUt
 
       Restangular.one('albums', id).get(_params)
 
+    getAlbums: ->
+      _params = {page: @page}
+      Logging.info("Loading [Models::Album]")
+
+      Restangular.all('albums').getList(_params)
+
     getUserPlaylists: () ->
       _params = {page: @page}
       Logging.info("Loading [Models::Content]")

@@ -7,31 +7,17 @@
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @advertisement.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
-  <dd><%= @advertisement.content %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:from_date) %>:</strong></dt>
-  <dd><%= @advertisement.from_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= @advertisement.end_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:featured) %>:</strong></dt>
-  <dd><%= @advertisement.featured %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ad_position_id) %>:</strong></dt>
-  <dd><%= @advertisement.ad_position_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:height) %>:</strong></dt>
-  <dd><%= @advertisement.height %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:width) %>:</strong></dt>
-  <dd><%= @advertisement.width %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:modal) %>:</strong></dt>
-  <dd><%= @advertisement.modal %></dd>
+  <dd><%= raw @advertisement.content %></dd>
   <dt><strong><%= model_class.human_attribute_name(:custom_css) %>:</strong></dt>
   <dd><%= @advertisement.custom_css %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              advertisements_path, :class => 'btn btn-default'  %>
+              backend_advertisements_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_advertisement_path(@advertisement), :class => 'btn btn-default' %>
+              edit_backend_advertisement_path(@advertisement), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              advertisement_path(@advertisement),
+              backend_advertisement_path(@advertisement),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

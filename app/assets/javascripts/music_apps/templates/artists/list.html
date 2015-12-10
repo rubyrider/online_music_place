@@ -1,0 +1,38 @@
+<div class="service col-md-8 bg_FEFFFF">
+    <div class="serviceSlider col-md-12">
+        <img class="img-responsive" src="assets/images/slider.jpg" alt="" />
+    </div>
+    <div class="serviceArea col-md-12">
+        <div class="serviceAreaMenu row bold">
+            <ul>
+                <li class="serviceAreaMenu1st"><a href="/">Overview</a></li>
+                <li><a href="/new_releases">New releases</a></li>
+                <li><a href="/albums">Albums</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/playlists">Playlists</a></li>
+            </ul>
+        </div>
+        <div class="row" ng-repeat="artistGroup in artists" style="margin-bottom: 20px">
+            <div ng-repeat="artist in artistGroup" class="col-md-3">
+                <a ng-href="/artists/{{artist.id}}" class="play-album" data-album-id="{{artist.id}}">
+                    <div class="musicSelect">
+                        <h5>{{artist.name}}</h5>
+                        <div class="control">
+                            <i class="fa fa-play-circle-o"></i>
+                        </div>
+                        <!--<div class="rating">-->
+                        <!--<i class="fa fa-heart"></i>-->
+                        <!--<i class="fa fa-heart"></i>-->
+                        <!--<i class="fa fa-heart"></i>-->
+                        <!--<i class="fa fa-heart"></i>-->
+                        <!--<i class="fa fa-heart-o"></i>-->
+                        <!--</div>-->
+
+                    </div>
+                    <img ng-src="{{artist.photo.url ? (artist.photo.url) : '/assets/images/placeholder.png'}}" class="img-responsive" alt="" />
+                </a>
+                <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
+            </div>
+        </div>
+    </div>
+</div>

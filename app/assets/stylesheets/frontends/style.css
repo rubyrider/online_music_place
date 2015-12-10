@@ -197,7 +197,7 @@ a, h1, h2, h3, h4, h5, h6{
 
 .musicSelect .control{
 
-    font-size: 60px;
+    font-size: 25px;
     position: absolute;
     top: 30%;
     left: 34%;
@@ -205,7 +205,7 @@ a, h1, h2, h3, h4, h5, h6{
 
 .musicSelect h5{
 
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 20%;
     text-align: center;
 }

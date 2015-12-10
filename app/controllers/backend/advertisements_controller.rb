@@ -36,7 +36,7 @@ class Backend::AdvertisementsController < BackendController
 
     respond_to do |format|
       if @advertisement.save
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
+        format.html { redirect_to backend_advertisement_path(@advertisement), notice: 'Advertisement was successfully created.' }
         format.json { render :show, status: :created, location: @advertisement }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class Backend::AdvertisementsController < BackendController
   def update
     respond_to do |format|
       if @advertisement.update(backend_advertisement_params)
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully updated.' }
+        format.html { redirect_to backend_advertisement_path(@advertisement), notice: 'Advertisement was successfully updated.' }
         format.json { render :show, status: :ok, location: @advertisement }
       else
         format.html { render :edit }
@@ -90,7 +90,9 @@ class Backend::AdvertisementsController < BackendController
                                               :modal,
                                               :custom_css,
                                               :created_at,
-                                              :updated_at
+                                              :updated_at,
+                                              :left_position,
+                                              :right_position
                                           ]
     )
   end

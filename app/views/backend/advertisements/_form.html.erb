@@ -22,66 +22,34 @@
     </div>
     <%= error_span(@advertisement[:title]) %>
   </div>
+
+  <div class="control-group">
+    <%= f.label :left_position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :left_position, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:left_position]) %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :right_position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :right_position, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertisement[:right_position]) %>
+  </div>
   <div class="control-group">
     <%= f.label :content, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :content, :class => 'form-control' %>
+      <%= f.text_area :content, :class => 'form-control ckeditor' %>
     </div>
     <%= error_span(@advertisement[:content]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :from_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :from_date, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:from_date]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :end_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :end_date, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:end_date]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :featured, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :featured, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:featured]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :ad_position_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ad_position_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:ad_position_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :height, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :height, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:height]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :width, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :width, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:width]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :modal, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :modal, :class => 'form-control' %>
-    </div>
-    <%= error_span(@advertisement[:modal]) %>
-  </div>
+
   <div class="control-group">
     <%= f.label :custom_css, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :custom_css, :class => 'form-control' %>
+      <%= f.text_area :custom_css, :class => 'form-control ckeditor' %>
     </div>
     <%= error_span(@advertisement[:custom_css]) %>
   </div>

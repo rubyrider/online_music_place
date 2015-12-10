@@ -22,12 +22,41 @@
       </div>
       <%= error_span(@play_list[:name]) %>
     </div>
+
+    <div class="control-group">
+      <%= f.label :cover, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :cover, :class => 'form-control' %>
+      </div>
+      <%= error_span(@play_list[:cover]) %>
+    </div>
     <div class="control-group">
       <%= f.label :system, :class => 'control-label' %>
       <div class="controls">
         <%= f.check_box :system_play_list %>
       </div>
       <%= error_span(@play_list[:name]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :add_to_left_side, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :left_side %>
+      </div>
+      <%= error_span(@play_list[:left_side]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :featured, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :featured %>
+      </div>
+      <%= error_span(@play_list[:featured]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :mood, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :mood %>
+      </div>
+      <%= error_span(@play_list[:mood]) %>
     </div>
     <fieldset id="recipe-ingredients">
       <ol>

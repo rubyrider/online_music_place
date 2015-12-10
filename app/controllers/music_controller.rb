@@ -1,9 +1,6 @@
 class MusicController < ApplicationController
   def index
-    if current_user
-      @playlists = current_user.play_lists
-    else
-      @playlists = []
-    end
+    @playlists = PlayList.where(system_play_list: true, featured: true)
+    @left_side_play_list = PlayList.left_side_playlists
   end
 end

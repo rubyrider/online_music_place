@@ -43,6 +43,7 @@ module Backend
     # PATCH/PUT /backend/artists/1
     # PATCH/PUT /backend/artists/1.json
     def update
+      @artist = Artist.find(params[:id])
       respond_to do |format|
         if @artist.update(backend_artist_params)
           format.html { redirect_to [:backend , @artist], notice: 'Artist was successfully updated.' }

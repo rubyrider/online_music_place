@@ -41,7 +41,7 @@ class Artist < ActiveRecord::Base
   include Anonymity
 
   has_many :song_artists
-  has_many :songs
+  has_many :songs, through: :song_artists
   has_many :album_artists
   has_many :albums
   has_many :liked_artists
