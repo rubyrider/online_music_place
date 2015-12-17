@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
+  devise_for :users, :controllers => {
+      :registrations      => "registrations",
+      :sessions           => "sessions",
+      omniauth_callbacks: 'omniauth_callbacks'
+  }
+
   resources :users do
     member do
       get :profile
@@ -20,19 +25,21 @@ Rails.application.routes.draw do
   get '/category/:id/songs', to: 'music#index'
   get '/search/:q', to: 'music#index'
   get '/artists/:id', to: 'music#index'
-  get '/artist/:id', to: 'music#index'
   get '/profile/:id', to: 'music#index'
+  get '/users/:id/finish_signup' => 'users#finish_signup', :as => :finish_signup
+  patch '/users/:id/finish_signup' => 'users#finish_signup'
+
 
   namespace :api do
-  namespace :v1 do
-    get 'home/index'
-    get 'home/search'
+    namespace :v1 do
+      get 'home/index'
+      get 'home/search'
     end
   end
   namespace :backend do
-  get 'home/index'
-  get 'home/search'
-  get 'home/autocomplete'
+    get 'home/index'
+    get 'home/search'
+    get 'home/autocomplete'
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -119,7 +126,7 @@ Rails.application.routes.draw do
     resources :ad_positions
     resources :advertisements
     resources :play_lists do
-    	get :autocomplete_song_name, :on => :collection
+      get :autocomplete_song_name, :on => :collection
     end
     resources :musical_bands
   end

@@ -115,5 +115,9 @@ gem 'rails-assets-jplayer'
 
 gem 'ckeditor_rails'
 gem 'friendly_id'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
 gem "koala", "~> 2.2"

@@ -68,7 +68,9 @@
         <%= raw (advertisement.content) %>
     <% end %>
   </div>
-  <div ng-view id="wrapper" class="col-md-8"></div>
+  <div class="col-md-8">
+    <span ng-view id="wrapper"></span>
+  </div>
   <div class="col-md-2 playlistItem">
     <div class="col-md-12 bg_EAEAEA song padding20">
       <ul>

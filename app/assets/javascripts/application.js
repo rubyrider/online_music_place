@@ -27,6 +27,7 @@
 //= require jquery.jplayer.inspector.min
 //= require jquery.bxslider
 //= require_tree ./backend
+//= require_tree ./facebooks
 //= require ckeditor-jquery
 
 $(document).ready(function () {
