@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210102012) do
+ActiveRecord::Schema.define(version: 20151216065417) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -101,7 +101,10 @@ ActiveRecord::Schema.define(version: 20151210102012) do
     t.boolean  "new_release"
     t.string   "banner",       limit: 255
     t.float    "popularity",   limit: 24,  default: 10.0
+    t.string   "slug",         limit: 255
   end
+
+  add_index "albums", ["slug"], name: "index_albums_on_slug", unique: true, using: :btree
 
   create_table "analytics", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -127,15 +130,25 @@ ActiveRecord::Schema.define(version: 20151210102012) do
     t.integer  "gender",          limit: 4
     t.string   "cover",           limit: 255
     t.string   "photo",           limit: 255
+    t.string   "slug",            limit: 255
+    t.boolean  "band"
+    t.boolean  "band_leader"
+    t.string   "role",            limit: 255
+    t.integer  "band_id",         limit: 4
   end
 
+  add_index "artists", ["band_id"], name: "index_artists_on_band_id", using: :btree
   add_index "artists", ["musical_band_id"], name: "index_artists_on_musical_band_id", using: :btree
+  add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "slug",       limit: 255
   end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -144,6 +157,8 @@ ActiveRecord::Schema.define(version: 20151210102012) do
     t.date     "since"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "logo",       limit: 255
+    t.string   "banner",     limit: 255
   end
 
   create_table "follows", force: :cascade do |t|
@@ -225,6 +240,36 @@ ActiveRecord::Schema.define(version: 20151210102012) do
     t.boolean  "left_side"
     t.boolean  "mood"
     t.string   "cover",            limit: 255
+    t.string   "slug",             limit: 255
+  end
+
+  add_index "play_lists", ["slug"], name: "index_play_lists_on_slug", unique: true, using: :btree
+
+  create_table "portal_configurations", force: :cascade do |t|
+    t.string   "meta_title",          limit: 255
+    t.text     "meta_description",    limit: 65535
+    t.text     "meta_keywords",       limit: 65535
+    t.string   "site_title",          limit: 255
+    t.string   "facebook_api_key",    limit: 255
+    t.string   "facebook_api_secret", limit: 255
+    t.string   "facebook_profile",    limit: 255
+    t.string   "linkedin_profile",    limit: 255
+    t.string   "twitter_profile",     limit: 255
+    t.string   "google_profile",      limit: 255
+    t.string   "version",             limit: 255
+    t.string   "hotline",             limit: 255
+    t.string   "contact_email",       limit: 255
+    t.string   "address_line_one",    limit: 255
+    t.string   "address_line_two",    limit: 255
+    t.string   "city",                limit: 255
+    t.string   "state",               limit: 255
+    t.string   "country",             limit: 255
+    t.string   "province",            limit: 255
+    t.string   "zip",                 limit: 255
+    t.string   "logo",                limit: 255
+    t.text     "about",               limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "song_artists", force: :cascade do |t|
@@ -269,7 +314,11 @@ ActiveRecord::Schema.define(version: 20151210102012) do
     t.string   "artist_name",   limit: 255
     t.string   "audio",         limit: 255
     t.float    "duration",      limit: 24
+    t.string   "picture",       limit: 255
+    t.string   "slug",          limit: 255
   end
+
+  add_index "songs", ["slug"], name: "index_songs_on_slug", unique: true, using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "name",       limit: 255

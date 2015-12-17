@@ -15,6 +15,10 @@
 
 class PlayList < ActiveRecord::Base
 
+  include SlugConcern
+
+  searchkick
+
   mount_uploader :cover, PlayListCoverUploader
 
   belongs_to :user
@@ -24,11 +28,11 @@ class PlayList < ActiveRecord::Base
   has_many :songs, through: :play_list_songs
 
   accepts_nested_attributes_for :play_list_songs,
-                                reject_if: :all_blank,
+                                reject_if:     :all_blank,
                                 allow_destroy: true
   accepts_nested_attributes_for :songs
 
-  scope :left_side_playlists, -> {where(left_side: true)}
+  scope :left_side_playlists, -> { where(left_side: true) }
 
   def creator
     self.user
@@ -36,5 +40,15 @@ class PlayList < ActiveRecord::Base
 
   def favorite_by?(user)
     self.users.include?(user)
+  end
+
+  def as_json(options= nil)
+    {
+        id:         self.to_param,
+        name:       self.name,
+        created_at: self.created_at,
+        updated_at: self.updated_at,
+        cover:      self.cover
+    }
   end
 end

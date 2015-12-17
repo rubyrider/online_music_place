@@ -23,6 +23,7 @@ module Music
 
     config.autoload_paths << Rails.root.join('app', 'services')
     config.autoload_paths << Rails.root.join('app', 'forms')
+    config.autoload_paths << Rails.root.join('lib/signatures')
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true

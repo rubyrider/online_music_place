@@ -32,17 +32,27 @@ window.MusicApp.config [
       controller: 'ArtistCtrl'
     )
     .when(
-      '/play_lists',
+      '/playlists',
       templateUrl: '/assets/music_apps/templates/playlist/index.html'
       controller: 'PlaylistCtrl'
     )
     .when(
-      '/play_lists/:id',
+      '/playlists/:id',
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'PlaylistCtrl'
     )
     .when(
       '/play_lists/surprise_me',
+      templateUrl: '/assets/music_apps/templates/albums/index.html'
+      controller: 'PlaylistCtrl'
+    )
+    .when(
+      '/songs/',
+      templateUrl: '/assets/music_apps/templates/albums/index.html'
+      controller: 'PlaylistCtrl'
+    )
+    .when(
+      '/profile/:id',
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'PlaylistCtrl'
     )

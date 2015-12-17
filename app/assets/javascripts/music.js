@@ -13,36 +13,20 @@
 //= require_tree ./music_apps/services
 //= require_tree ./music_apps/controllers
 
-window.playlists = [
-    {
-        "id": 3,
-        "name": "Din Bari Jay",
-        "duration": 5.28,
-        "song_url": "/uploads/song/audio/3/din_bari.mp3",
-        "artist_names": [
-            "Bappa"
-        ]
-    },
-    {
-        "id": 15,
-        "name": "Hridoypur",
-        "duration": 4.97,
-        "song_url": "/uploads/song/audio/15/Dolchut_-_Chader_Jonno_Gaan__music.com.bd_.mp3",
-        "artist_names": [
-            "Dolchut"
-        ]
-    }
-]
 
-_.templateSettings = {
-    interpolate: /\<\@\=(.+?)\@\>/gim,
-    evaluate: /\<\@([\s\S]+?)\@\>/gim,
-    escape: /\<\@\-(.+?)\@\>/gim
-};
-
-$(function () {
-    {
-        var _playlist = _.template($("#playlist").html())
-        $("#playlist-area").html(_playlist({songs: window.playlists}))
+(function() {
+    try {
+        var $_console$$ = console;
+        Object.defineProperty(window, "console", {
+            get: function() {
+                if ($_console$$._commandLineAPI)
+                    throw "Sorry, for security reasons, the script console is deactivated on netflix.com";
+                return $_console$$
+            },
+            set: function($val$$) {
+                $_console$$ = $val$$
+            }
+        })
+    } catch ($ignore$$) {
     }
-})
+})();

@@ -7,7 +7,7 @@ module Api
       # GET /artists
       # GET /artists.json
       def index
-        @artists = Artist.all
+        @artists = Artist.limit(12)
         if @artists
           render json: @artists
         else

@@ -1,29 +1,14 @@
-# == Schema Information
-#
-# Table name: songs
-#
-#  id            :integer          not null, primary key
-#  name          :string(255)
-#  album_id      :string(255)
-#  filename      :string(255)
-#  asset         :string(255)
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  track_id      :integer
-#  demo_track_id :integer
-#  artist_name   :string(255)
-#  audio         :string(255)
-#  duration      :float(24)
-#
-
 require 'taglib'
 require 'audioinfo'
 
 class Song < ActiveRecord::Base
 
-  # searchkick
+  include SlugConcern
+
+  searchkick
 
   mount_uploader :audio, SongAudioUploader
+  mount_uploader :picture, AlbumCoverUploader
   attr_reader :properties
 
   belongs_to :album
@@ -48,6 +33,25 @@ class Song < ActiveRecord::Base
 
   after_save :update_duration
   before_save :find_or_create_artist
+
+  def as_json(options = nil)
+    {
+        id:         self.id,
+        slug:       self.slug,
+        name:       self.name,
+        album_id:   self.album_id,
+        album:      self.album,
+        created_at: self.created_at,
+        updated_at: self.updated_at,
+        audio_url:  self.audio_url,
+        duration:   self.duration,
+        picture:    self.picture.as_json[:picture]
+    }
+  end
+
+  def audio_url
+    Signature.new(self).generate_uri
+  end
 
   def favorite_by?(user)
     self.users.include?(user)
@@ -105,10 +109,27 @@ class Song < ActiveRecord::Base
     __song_title = initiate_properties.try(:title)
   end
 
+  def song_cover_image(style = :sm)
+    # if (image_object = self.picture.url(style).presence)
+    #   image_object
+    # else
+    #   self.info.info.tag2.fetch('APIC') rescue default_cover_image
+    # end
+  end
+
+  def default_cover_image
+    nil
+  end
+
   private
+
   def set_song_title!
-    if self.name.blank?
-      self.name    = tag_title
+    unless self.name.present?
+      if tag_title.present?
+        self.name = "#{tag_title}-#{self.id}"
+      else
+        self.name = "Track-#{self.id}"
+      end
     end
   end
 

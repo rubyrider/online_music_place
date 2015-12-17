@@ -1,5 +1,5 @@
 json.array! @albums do |album|
-  json.id album.id
+  json.id album.to_param
   json.name album.title
   json.cover_url album.cover.url(:sm_medium)
   json.banner_url album.banner.url(:sm_medium)

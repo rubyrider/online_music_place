@@ -35,6 +35,7 @@
       </div>
       <%= error_span(@song[:album_id]) %>
     </div>
+
    <div class="control-group">
       <%= f.label :filename, :class => 'control-label' %>
       <div class="controls">
@@ -42,33 +43,14 @@
       </div>
       <%= error_span(@song[:filename]) %>
     </div>
+
     <div class="control-group">
-      <%= f.label :asset, :class => 'control-label' %>
+      <%= f.label :picture, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :asset, :class => 'form-control' %>
+        <%= f.file_field :picture, :class => 'form-control' %>
       </div>
-      <%= error_span(@song[:asset]) %>
+      <%= error_span(@song[:picture]) %>
     </div>
-
-    <!--<%#= f.fields_for :track do |t|  %>-->
-        <!--<div class="control-group">-->
-          <!--<%#= t.label :audio, 'Track' ,:class => 'control-label' %>-->
-          <!--<div class="controls">-->
-            <!--<%#= t.file_field :audio, :class => 'form-control' %>-->
-          <!--</div>-->
-          <!--<%#= error_span(@song[:attachment]) %>-->
-        <!--</div>-->
-    <!--<%# end %>-->
-
-    <!--<%#= f.fields_for :demo_track do |t|  %>-->
-        <!--<div class="control-group">-->
-          <!--<%#= t.label :audio, 'Demo Track' ,:class => 'control-label' %>-->
-          <!--<div class="controls">-->
-            <!--<%#= t.file_field :audio, :class => 'form-control' %>-->
-          <!--</div>-->
-          <!--<%#= error_span(@song[:attachment]) %>-->
-        <!--</div>-->
-    <!--<%# end %>-->
 
     <%= f.label :audio_file %>
     <%= f.file_field :audio, class: 'form-control' %>

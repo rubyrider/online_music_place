@@ -22,23 +22,22 @@
 
 class Artist < ActiveRecord::Base
 
+  include SlugConcern
+  include Anonymity
+
   searchkick
 
   mount_uploader :cover, ArtistCoverUploader
   mount_uploader :photo, ArtistPhotoUploader
 
-  DEFAULT_NAME = 'Anonymous Singer'.freeze
-
+  DEFAULT_NAME      = 'Anonymous Singer'.freeze
   MINIMUM_VALID_AGE = 4
-
-  GENDER = {
+  GENDER            = {
       :not_mentioned => 0,
-      :male => 1,
-      :female => 2,
-      :other => 3
+      :male          => 1,
+      :female        => 2,
+      :other         => 3
   }
-
-  include Anonymity
 
   has_many :song_artists
   has_many :songs, through: :song_artists
@@ -46,7 +45,29 @@ class Artist < ActiveRecord::Base
   has_many :albums
   has_many :liked_artists
   has_many :users, through: :liked_artists
+  has_many :band_artists, class_name: 'Artist', foreign_key: :band_id
   belongs_to :musical_band
+
+  def as_json(options = nil)
+    {
+        id:            self.to_param,
+        likes:         self.users.count,
+        who_likes:     self.users,
+        name:          self.name,
+        details:       self.details,
+        gender:        self.gender,
+        dob:           self.gender,
+        band:          self.band,
+        role:          self.role,
+        bander_leader: self.band_leader,
+        band_id:       self.band_id
+    }
+  end
+
+  # t.boolean  "band"
+  # t.boolean  "band_leader"
+  # t.string   "role",            limit: 255
+  # t.integer  "band_id",         limit: 4
 
   def default_name
     DEFAULT_NAME
@@ -64,6 +85,7 @@ class Artist < ActiveRecord::Base
   def __age
     calculate_age
   end
+
   alias_method :age, :__age
 
   def self.filter_by_params(params)

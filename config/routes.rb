@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   get '/albums/:id', to: 'music#index'
   get '/artists/', to: 'music#index'
   get '/artists/:id', to: 'music#index'
+  get '/songs/:id', to: 'music#index'
+  get '/playlists/:id', to: 'music#index'
+  get '/category/:id/songs', to: 'music#index'
+  get '/search/:q', to: 'music#index'
+  get '/artists/:id', to: 'music#index'
   get '/artist/:id', to: 'music#index'
   get '/profile/:id', to: 'music#index'
 

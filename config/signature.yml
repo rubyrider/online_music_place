@@ -1,0 +1,10 @@
+development:
+  secret_key_base: b32d095af2a7bb265217643e4f6478ba69f365ff9ccd3a1e60f730008f18aeb80564d93ec76427ccc9477da7e8ade980d6a60e457ea235f58a359584363409d5
+
+test:
+  secret_key_base: 0eb3f9812c1b2ba6f4ce6843f89ce7dc3a2895d73f012243bf8eff53c82bbf397c976b7da0fd3180e9084dbe2e943bb38d16175858f202f833ff4e3e56932789
+
+# Do not keep production secrets in the repository,
+# instead read values from the environment.
+production:
+  secret_key_base: fca0e0a50e86ccc1ecb9a6a9980086601cded5b383874f5bd763ad323bdcc8b2f58ba885b716d02cb5e884e83e05f886517a419a859674df37efc94f5ec24e71

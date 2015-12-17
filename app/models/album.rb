@@ -1,22 +1,7 @@
-# == Schema Information
-#
-# Table name: albums
-#
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  release_date :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  anonymous    :boolean          default(FALSE)
-#  cover        :string(255)
-#  new_release  :boolean
-#  banner       :string(255)
-#  popularity   :float(24)        default(10.0)
-#
-
 class Album < ActiveRecord::Base
+  include SlugConcern
 
-  # searchkick
+  searchkick
   
   DEFAULT_TITLE = 'Untitled Album'.freeze
 
@@ -33,6 +18,17 @@ class Album < ActiveRecord::Base
   has_many :users, through: :liked_albums
 
   before_validation :set_default_title
+
+  def as_json(options = nil)
+    {
+        id:         self.to_param,
+        name:       self.name,
+        cover:      self.cover,
+        banner:     self.banner,
+        created_at: self.created_at,
+        categories: self.categories
+    }
+  end
 
   def default_title
     "#{DEFAULT_TITLE}-#{Date.today.strftime('%F')}"

@@ -114,3 +114,6 @@ gem 'ruby-audioinfo', git: 'git@github.com:moumar/ruby-audioinfo.git'
 gem 'rails-assets-jplayer'
 
 gem 'ckeditor_rails'
+gem 'friendly_id'
+gem 'omniauth-facebook'
+gem "koala", "~> 2.2"

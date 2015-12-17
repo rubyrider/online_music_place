@@ -1,3 +1,17 @@
 // Place all the styles related to the music controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#wrapper {
+  min-height: 400px !important;
+}
+
+.bg-info {
+    background: #9ECB3B !important;
+}
+
+.right-short-nav {
+  a {
+        color: #9ECB3B !important;
+  }
+}
