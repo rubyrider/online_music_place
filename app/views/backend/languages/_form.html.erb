@@ -1,4 +1,4 @@
-<%= form_for @language, url: new_backend_language_path, :html => { :class => "form-horizontal language" } do |f| %>
+<%= form_for @language, url: backend_languages_path, :html => { :class => "form-horizontal language" } do |f| %>
 
     <% if @language.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -30,8 +30,8 @@
     <%= error_span(@language[:key]) %>
   </div>
 
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+    <hr />
+    <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
               backend_languages_path, :class => 'btn btn-default' %>
 

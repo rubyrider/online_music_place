@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217185406) do
+ActiveRecord::Schema.define(version: 20151218084339) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -146,8 +146,10 @@ ActiveRecord::Schema.define(version: 20151217185406) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "slug",       limit: 255
+    t.integer  "parent_id",  limit: 4
   end
 
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "companies", force: :cascade do |t|
@@ -189,7 +191,10 @@ ActiveRecord::Schema.define(version: 20151217185406) do
     t.string   "key",        limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "slug",       limit: 255
   end
+
+  add_index "languages", ["slug"], name: "index_languages_on_slug", unique: true, using: :btree
 
   create_table "liked_albums", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

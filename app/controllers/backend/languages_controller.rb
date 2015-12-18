@@ -36,7 +36,7 @@ class Backend::LanguagesController < BackendController
 
     respond_to do |format|
       if @language.save
-        format.html { redirect_to @language, notice: 'Language was successfully created.' }
+        format.html { redirect_to [:backend, @language], notice: 'Language was successfully created.' }
         format.json { render :show, status: :created, location: @language }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class Backend::LanguagesController < BackendController
   def update
     respond_to do |format|
       if @language.update(language_params)
-        format.html { redirect_to @language, notice: 'Language was successfully updated.' }
+        format.html { redirect_to [:backend, @language], notice: 'Language was successfully updated.' }
         format.json { render :show, status: :ok, location: @language }
       else
         format.html { render :edit }
@@ -77,6 +77,6 @@ class Backend::LanguagesController < BackendController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def language_params
-      params[:language]
+      params.require(:language).permit!
     end
 end

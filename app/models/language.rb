@@ -10,4 +10,8 @@
 #
 
 class Language < ActiveRecord::Base
+  include SlugConcern
+
+  validates :name, :presence => true, :uniqueness => true
+  validates :key, :presence => true, :uniqueness => true
 end

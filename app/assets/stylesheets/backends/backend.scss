@@ -42,3 +42,25 @@ a.btn-danger {
   margin-bottom: 0 !important;
   box-shadow: 1px 1px 1px #888888;
 }
+
+.nav > li {
+  position: relative;
+  display: block;
+  padding: 10px;
+}
+
+.side-nav h5.menu_title {
+  border-bottom: 1px solid rgba(41, 41, 41, 0.41) !important;
+  padding-bottom: 10px !important;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+
+.admin {
+  .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    text-align: right;
+  }
+}

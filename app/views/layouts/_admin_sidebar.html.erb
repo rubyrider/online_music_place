@@ -1,178 +1,79 @@
-<ul class="nav">
+<ul class="nav admin">
   <div class="col-sm-12">
-    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/sillyleo/128.jpg" alt="" style="border-radius: 14px;" class="">
+    <img src="<%= current_user.avatar.url %>" alt="" style="border-radius: 14px;" class="">
   </div>
   <div class="clearfix"></div>
-  <h4>Welcome Admin</h4>
-  <p><%= link_to 'View Profile', '#' %></p>
-  <p><%= link_to 'Sign Out', '#' %></p>
+  <h4>Welcome <%= current_user.full_name %>&nbsp;(<%= link_to 'Sign Out', '/users/sign_out', method: :delete %>)</h4>
+
   <div class="clearfix"></div>
-  <h5 class="menu_title">Reports & Users</h5>
   <li>
-    <h6>
-      <%= link_to "/backend/analytics" do %>
-          <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Reports
-      <% end %>
-    </h6>
-  </li>
-  <li>
-    <h6><%= link_to "/backend/users" do %>
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;User Management
-      <% end %></h6>
     <ul class="nav">
       <li>
-        <a href="#">
+        <a href="/backend/users">
           <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
+          Manage User</a>
       </li>
     </ul>
   </li>
   <li>
-    <h6><%= link_to "/backend/artists" do %>
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Artist Management
-      <% end %></h6>
     <ul class="nav">
       <li>
-        <a href="#">
+        <a href="/backend/artists">
           <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
+          Manage Artist</a>
       </li>
     </ul>
   </li>
-  <h5 class="menu_title">Songs Management</h5>
-  <h6>
-    <%= link_to  "/backend/songs" do %>
-        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Song Management
-    <% end %>
-  </h6>
   <ul class="nav">
     <li>
       <a href="/backend/songs">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-        Manage</a>
-    </li>
-    <li>
-      <a href="/backend/songs/new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
+        Manage Songs & Tracks</a>
     </li>
   </ul>
-  <h6>
-    <%= link_to  backend_albums_path do %>
-        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Album Management
-    <% end %>
-  </h6>
   <ul class="nav">
     <li>
       <a href="<%= backend_albums_path %>">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-        Manage</a>
-    </li>
-    <li>
-      <a href="<%= new_backend_album_url %>"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
+        Manage Albums</a>
     </li>
   </ul>
-  <h6>
-    <%= link_to  "/backend/play_lists" do %>
-        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Playlist Management
-    <% end %>
-  </h6>
   <ul class="nav">
     <li>
       <a href="/backend/play_lists">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-        Manage</a>
+        Manage User Playlist</a>
     </li>
     <li>
       <a href="/backend/play_lists?system=true">
-        <span class="glyphicon glyphicon glyphicon-play" aria-hidden="true"></span>&nbsp;
-        System Playlist</a>
-    </li>
-    <li>
-      <a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
+        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
+        Manage System Playlist</a>
     </li>
   </ul>
   <li>
-    <h6>
-      <%= link_to "/backend/musical_bands" do %>
-          <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>&nbsp; Musical Bands
-      <% end %>
-    </h6>
-    <ul class="nav">
-      <li>
-        <a href="#">
-          <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
-      </li>
-      <li>
-        <a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
-      </li>
-    </ul>
-  </li>
-  <h5 class="menu_title">Dictionary Management</h5>
-  <li>
-    <h6>
-      <%= link_to  backend_categories_path do %>
-          <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>&nbsp;Genre
-      <% end %>
-    </h6>
     <ul class="nav">
       <li>
         <a href="<%= backend_categories_path %>">
           <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
-      </li>
-      <li>
-        <a href="<%= new_backend_category_path %>"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
+          Manage Genres</a>
       </li>
     </ul>
   </li>
   <li>
-    <h6>
-      <%= link_to backend_languages_path do %>
-          <span class="glyphicon glyphicon-bold" aria-hidden="true"></span>&nbsp;
-          Language
-      <% end %>
-    </h6>
     <ul class="nav">
       <li>
-        <a href="#">
+        <a href="<%= backend_languages_path %>">
           <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
-      </li>
-      <li>
-        <a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
+          Manage Languages</a>
       </li>
     </ul>
   </li>
   <li>
-    <h6>
-      <%= link_to backend_advertisements_path do %>
-          <span class="glyphicon glyphicon-bold" aria-hidden="true"></span>&nbsp;
-          Advertisements
-      <% end %>
-    </h6>
     <ul class="nav">
       <li>
-        <a href="#">
+        <a href="<%= backend_advertisements_path %>">
           <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
-      </li>
-      <li>
-        <a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Create</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <h6>
-      <%= link_to "/backend/ad_positions" do %>
-          <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>&nbsp;
-          Advertisement Postion
-      <% end %>
-    </h6>
-    <ul class="nav">
-      <li>
-        <a href="#">
-          <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;
-          Manage</a>
+          Manage Advertisements</a>
       </li>
     </ul>
   </li>

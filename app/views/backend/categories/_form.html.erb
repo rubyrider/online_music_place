@@ -23,7 +23,17 @@
     <%= error_span(@category[:name]) %>
   </div>
 
+  <hr />
 
+  <div class="control-group">
+    <%= f.label :parent_category, :class => 'control-label', hint: 'Leave it blank to create main genre' %>
+    <div class="controls">
+      <%= f.select :parent_id, Category.main.collect {|cat| [cat.name, cat.id]}, {allow_blank: nil, prompt: 'Select a parent Genre'}, :class => 'form-control' %>
+    </div>
+    <%= error_span(@category[:parent_id]) %>
+  </div>
+
+  <hr />
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             backend_categories_path, :class => 'btn btn-default' %>

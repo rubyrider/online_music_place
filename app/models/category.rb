@@ -9,10 +9,18 @@
 #
 
 class Category < ActiveRecord::Base
+
+  include SlugConcern
+
   has_many :song_categories
   has_many :songs, through: :song_categories
   has_many :album_categories
   has_many :albums, through: :album_categories
+  has_many :genres, class_name: 'Category', foreign_key: :parent_id
+
+  validates :name, :presence => true, uniqueness: true
+
+  scope :main, -> { where( parent_id: nil ) }
 
   def self.filter_by_params(params)
     results = Category.all

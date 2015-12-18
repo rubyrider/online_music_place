@@ -10,9 +10,9 @@ module Backend
     # GET /backend/songs.json
     def index
       # @songs = SongPresenter.collect Song.filter_by_params(params).page(params[:page]).per(50)
-      @songs = Song.filter_by_params(params).page(params[:page])
-      @albums = Album.all.order(:name)
-      @artists = Artist.all.order(:name)
+      @songs      = Song.filter_by_params(params).page(params[:page])
+      @albums     = Album.all.order(:name)
+      @artists    = Artist.all.order(:name)
       @categories = Category.all
     end
 
@@ -64,10 +64,16 @@ module Backend
     # DELETE /backend/songs/1
     # DELETE /backend/songs/1.json
     def destroy
-      @song.destroy
-      respond_to do |format|
-        format.html { redirect_to backend_songs_url, notice: 'Song was successfully destroyed.' }
-        format.json { head :no_content }
+      if @song.destroy
+        respond_to do |format|
+          format.html { redirect_to backend_songs_url, notice: 'Song was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to backend_songs_url, notice: "Failed to delete song" }
+          format.json { head :no_content }
+        end
       end
     end
 

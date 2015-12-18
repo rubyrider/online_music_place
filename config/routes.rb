@@ -105,6 +105,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :backend do
+    root 'songs#index'
     resources :users
     resources :songs do
       get :autocomplete_category_name, :on => :collection
