@@ -61,7 +61,7 @@
     </div>
     <div class="row" ng-repeat="playlistGroup in mplaylists" style="margin-bottom: 20px">
       <div ng-repeat="playlist in playlistGroup" class="col-md-2">
-        <a ng-href="/play_lists/{{playlist.id}}" data-type="playlist" data-album-id="{{playlist.id}}" class="play-album">
+        <a ng-href="/playlists/{{playlist.id}}" data-type="playlist" data-album-id="{{playlist.id}}" class="play-album">
           <div class="musicSelect">
             <h5>{{playlist.name}}</h5>
 

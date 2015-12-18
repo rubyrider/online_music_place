@@ -26,6 +26,11 @@ window.MusicApp.config [
       controller: 'AlbumCtrl'
     )
     .when(
+      '/genre/:id',
+      templateUrl: '/assets/music_apps/templates/albums/list.html'
+      controller: 'AlbumCtrl'
+    )
+    .when(
       '/artists',
       templateUrl: '/assets/music_apps/templates/artists/list.html'
       controller: 'ArtistCtrl'

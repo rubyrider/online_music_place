@@ -19,14 +19,16 @@
     <div class="col-sm-9 search">
       <form ng-submit="processForm()" action="/search" ng-submit="submitQuery" ng-click="processOrder()">
       <div class="input-group">
-        <input type="text" name="query" class="form-control" placeholder="Search Library">
+        <input type="text" name="query" class="form-control" placeholder="Search Song, Album and Playlist">
 						<span class="input-group-btn">
-							<button class="btn" type="submit"><i class="fa fa-search color_9ECB3B"></i></button>
+							<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+              <a href="/playlists/surprise_me" class="color_9ECB3B btn btn-transparent-green col-sm-offset-2" style="margin-left: 15px;">Surprise Me</a>
+
 						</span>
       </div>
       </form>
     </div>
-    <div class="col-sm-3 right-short-nav">
+    <div class="col-sm-3 right-short-nav" style="padding-top: 10px">
       <% if current_user %>
           <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
@@ -44,6 +46,17 @@
           <a type="button" data-toggle="modal" data-target="#registration-modal" class="btn btn-transparent-green" target="_self">Registration</a>
       <% end %>
     </div>
+    <div class="clearfix"></div>
+    <ul class="genre-nav">
+      <li>Genre</li>
+      <% Category.limit(10).each do |genre| %>
+          <li><%= link_to genre.name, "/genre/#{genre.to_param}" %></li>
+      <% end %>
+      <li>|&nbsp;Language</li>
+      <% Language.limit(10).each do |genre| %>
+          <li><%= link_to genre.name, "/genre/#{genre.to_param}" %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="col-md-2 bg_FFC50C playlist textCenterAlign">
     <h4><i class="fa fa-random"></i>PLAYLIST</h4>
@@ -70,7 +83,7 @@
         <%= raw (advertisement.content) %>
     <% end %>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8" id="home-wrapper">
     <span ng-view id="wrapper"></span>
   </div>
   <div class="col-md-2 playlistItem">
