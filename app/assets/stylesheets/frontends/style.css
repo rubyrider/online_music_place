@@ -201,6 +201,7 @@ a, h1, h2, h3, h4, h5, h6{
     position: absolute;
     top: 30%;
     left: 34%;
+    padding-top: 35px;
 }
 
 .musicSelect h5{

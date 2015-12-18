@@ -1,0 +1,8 @@
+.cube-loader-active {
+    background: url("cube.gif");
+    position: relative;
+    width: 150px;
+    height: 69px;
+    content: 'Loading..';
+    margin: 30px auto 50px;
+}

@@ -10,6 +10,10 @@ window.MusicApp.config [
       '/albums/:id',
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'AlbumCtrl'
+    ).when(
+      '/search/',
+      templateUrl: '/assets/music_apps/templates/home/index.html'
+      controller: 'ContentCtrl'
     )
     .when(
       '/new_releases',
@@ -42,7 +46,7 @@ window.MusicApp.config [
       controller: 'PlaylistCtrl'
     )
     .when(
-      '/play_lists/surprise_me',
+      '/playlists/surprise_me',
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'PlaylistCtrl'
     )

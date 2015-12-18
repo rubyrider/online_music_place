@@ -17,12 +17,14 @@
   </div>
   <div class="col-md-8 bg_FEFFFF user">
     <div class="col-sm-9 search">
+      <form ng-submit="processForm()" action="/search" ng-submit="submitQuery" ng-click="processOrder()">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Library">
+        <input type="text" name="query" class="form-control" placeholder="Search Library">
 						<span class="input-group-btn">
-							<button class="btn" type="button"><i class="fa fa-search color_9ECB3B"></i></button>
+							<button class="btn" type="submit"><i class="fa fa-search color_9ECB3B"></i></button>
 						</span>
       </div>
+      </form>
     </div>
     <div class="col-sm-3 right-short-nav">
       <% if current_user %>

@@ -1,94 +1,105 @@
 <div class="service bg_FEFFFF">
-    <div class="serviceSlider col-md-12">
-        <div class="my-slider">
-            <ul class="bxslider">
-                <li><%= image_tag('banner.jpg') %></li>
-                <li><%= image_tag('banner1.jpg') %></li>
-                <li><%= image_tag('banner2.jpg') %></li>
-                <li><%= image_tag('banner3.jpg') %></li>
-                <li><%= image_tag('banner4.jpg') %></li>
-            </ul>
-            <script>
-                $('.bxslider').bxSlider({
-                    auto: true
-                });
-            </script>
-        </div>
+  <div class="serviceSlider col-md-12">
+    <div class="my-slider">
+      <ul class="bxslider">
+        <li><%= image_tag('banner.jpg') %></li>
+        <li><%= image_tag('banner1.jpg') %></li>
+        <li><%= image_tag('banner2.jpg') %></li>
+        <li><%= image_tag('banner3.jpg') %></li>
+        <li><%= image_tag('banner4.jpg') %></li>
+      </ul>
+      <script>
+        $('.bxslider').bxSlider({
+          auto: true
+        });
+      </script>
     </div>
-    <div class="serviceArea col-md-12">
-        <div class="serviceAreaMenu row bold">
-            <ul>
-                <li class="serviceAreaMenu1st"><a href="/">Overview</a></li>
-                <li><a href="/new_releases">New releases</a></li>
-                <li><a href="/albums">Albums</a></li>
-                <li><a href="/artists">Artists</a></li>
-                <li><a href="/play_lists">Playlists</a></li>
-            </ul>
-        </div>
-      <div>
-        <h3 class="pull-left" style="color: #9ECB3B;">Latest Songs</h3>
-      </div>
-      <br>
-      <hr>
-      <div class="row" ng-repeat="songGroup in songs" style="margin-bottom: 20px">
-        <div ng-repeat="song in songGroup" class="col-md-2">
-          <a ng-href="#" class="play-song" data-audio-url="{{song.audio_url}}" data-title="{{song.name}}">
-            <div class="musicSelect">
-              <h5>{{song.name}}</h5>
-              <div class="control">
-                <i class="fa fa-play-circle-o"></i>
-              </div>
-            </div>
-            <img ng-src="{{song.picture.url ? (song.picture.last.url) : '/assets/images/placeholder.png'}}"
-                 class="img-responsive" alt="" width="250" height="250"/>
-          </a>
-          <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
-        </div>
-      </div>
-      <div>
-        <h3 class="pull-left"  style="color: #9ECB3B;">Playlists</h3>
-        <a ng-href="/play_lists" class="pull-right browse-more">Browse More</a>
-      </div>
-      <br>
-      <hr>
-      <div class="row" ng-repeat="playlistGroup in mplaylists" style="margin-bottom: 20px">
-        <div ng-repeat="playlist in playlistGroup" class="col-md-2">
-          <a ng-href="/play_lists/{{playlist.id}}" data-type="playlist" data-album-id="{{playlist.id}}" class="play-album">
-            <div class="musicSelect">
-              <h5>{{playlist.name}}</h5>
-
-              <div class="control">
-                <i class="fa fa-play-circle-o"></i>
-              </div>
-            </div>
-            <img ng-src="{{playlist.cover.url ? (playlist.cover.url) : '/assets/images/placeholder.png'}}"
-                 class="img-responsive" alt="" width="250" height="250"/>
-          </a>
-          <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
-        </div>
-      </div>
-      <div>
-        <h3 class="pull-left" style="color: #9ECB3B;">Albums</h3>
-        <a ng-href="/albums" class="pull-right browse-more">Browse More</a>
-      </div>
-      <br>
-      <hr>
-        <div class="row" ng-repeat="albumGroup in albums" style="margin-bottom: 20px">
-            <div ng-repeat="album in albumGroup" class="col-md-2">
-                <a ng-href="/albums/{{album.id}}" data-type="album" data-album-id="{{album.id}}" class="play-album">
-                    <div class="musicSelect">
-                        <h5>{{album.name}}</h5>
-
-                        <div class="control">
-                            <i class="fa fa-play-circle-o"></i>
-                        </div>
-                    </div>
-                    <img ng-src="{{album.cover_url ? (album.cover_url) : '/assets/images/placeholder.png'}}"
-                         class="img-responsive" alt="" width="250" height="250"/>
-                </a>
-                <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
-            </div>
-        </div>
+  </div>
+  <div class="serviceArea col-md-12">
+    <div class="serviceAreaMenu row bold">
+      <ul>
+        <li class="serviceAreaMenu1st"><a href="/">Overview</a></li>
+        <li><a href="/new_releases">New releases</a></li>
+        <li><a href="/albums">Albums</a></li>
+        <li><a href="/artists">Artists</a></li>
+        <li><a href="/play_lists">Playlists</a></li>
+      </ul>
     </div>
+    <div>
+      <h3 class="pull-left" style="color: #9ECB3B;">Latest Songs</h3>
+    </div>
+    <br>
+    <hr>
+    <div class="row" id="song-loader">
+      <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+    </div>
+    <div class="row" ng-repeat="songGroup in songs" style="margin-bottom: 20px">
+      <div ng-repeat="song in songGroup" class="col-md-2">
+        <a ng-href="#" class="play-song" data-audio-url="{{song.audio_url}}" data-title="{{song.name}}">
+          <div class="musicSelect">
+            <h5>{{song.name}}</h5>
+
+            <div class="control">
+              <i class="fa fa-play-circle-o"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+          </div>
+          <img ng-src="{{song.picture.url ? (song.picture.last.url) : '/assets/images/placeholder.png'}}"
+               class="img-responsive" alt="" width="250" height="250"/>
+        </a>
+        <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
+      </div>
+    </div>
+    <div>
+      <h3 class="pull-left" style="color: #9ECB3B;">Playlists</h3>
+      <a ng-href="/play_lists" class="pull-right browse-more">Browse More</a>
+    </div>
+    <br>
+    <hr>
+    <div class="row" id="album-loader">
+      <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+    </div>
+    <div class="row" ng-repeat="playlistGroup in mplaylists" style="margin-bottom: 20px">
+      <div ng-repeat="playlist in playlistGroup" class="col-md-2">
+        <a ng-href="/play_lists/{{playlist.id}}" data-type="playlist" data-album-id="{{playlist.id}}" class="play-album">
+          <div class="musicSelect">
+            <h5>{{playlist.name}}</h5>
+
+            <div class="control">
+              <i class="fa fa-play-circle-o"></i>
+              <i class="fa  fa-heart"></i>
+            </div>
+          </div>
+          <img ng-src="{{playlist.cover.url ? (playlist.cover.url) : '/assets/images/placeholder.png'}}"
+               class="img-responsive" alt="" width="250" height="250"/>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h3 class="pull-left" style="color: #9ECB3B;">Albums</h3>
+      <a ng-href="/albums" class="pull-right browse-more">Browse More</a>
+    </div>
+    <br>
+    <hr>
+    <div class="row" id="playlist-loader">
+      <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+    </div>
+    <div class="row" ng-repeat="albumGroup in albums" style="margin-bottom: 20px">
+      <div ng-repeat="album in albumGroup" class="col-md-2">
+        <a ng-href="/albums/{{album.id}}" data-type="album" data-album-id="{{album.id}}" class="play-album">
+          <div class="musicSelect">
+            <h5>{{album.name}}</h5>
+
+            <div class="control">
+              <i class="fa fa-play-circle-o"></i>
+              <i class="fa  fa-heart"></i>
+            </div>
+          </div>
+          <img ng-src="{{album.cover_url ? (album.cover_url) : '/assets/images/placeholder.png'}}"
+               class="img-responsive" alt="" width="250" height="250"/>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
