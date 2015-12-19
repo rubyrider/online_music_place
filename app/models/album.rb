@@ -26,7 +26,8 @@ class Album < ActiveRecord::Base
         cover:      self.cover,
         banner:     self.banner,
         created_at: self.created_at,
-        categories: self.categories
+        categories: self.categories,
+        audios: self.songs
     }
   end
 

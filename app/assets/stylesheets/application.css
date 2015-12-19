@@ -16,6 +16,8 @@
  *= require jplayer.flat
  *= require simple-line-icons
  *= require jquery.bxslider
+ *= require token-input
+ *= require token-input-mac
  *= require_self
  */
 .ui-autocomplete {

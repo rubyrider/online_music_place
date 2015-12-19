@@ -22,13 +22,19 @@
       </div>
       <%= error_span(@play_list[:name]) %>
     </div>
-
     <div class="control-group">
       <%= f.label :cover, :class => 'control-label' %>
       <div class="controls">
         <%= f.file_field :cover, :class => 'form-control' %>
       </div>
       <%= error_span(@play_list[:cover]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :songs, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :song_ids, data: {tokeninput: { collection: '/backend/songs/song_queries.json', options: { theme: 'facebook', 'prePopulate': @play_list.songs.collect{|artist| {id: artist.id, name: artist.name}}.uniq}}} ,:class => 'form-control' %>
+      </div>
+      <%= error_span(@play_list[:songs]) %>
     </div>
     <div class="control-group">
       <%= f.label :system, :class => 'control-label' %>
@@ -58,18 +64,6 @@
       </div>
       <%= error_span(@play_list[:mood]) %>
     </div>
-    <fieldset id="recipe-ingredients">
-      <ol>
-        <%= f.fields_for :play_list_songs do |song| %>
-            <%= render 'play_list_song_fields', f: song %>
-        <% end %>
-      </ol>
-      <%= link_to_add_association 'add song', f, :play_list_songs,
-                                  'data-association-insertion-node' => "#recipe-ingredients ol",
-                                  'data-association-insertion-method' => "append",
-                                  :wrap_object => Proc.new {|play_list_song| play_list_song.build_song; play_list_song } %>
-    </fieldset>
-
 
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

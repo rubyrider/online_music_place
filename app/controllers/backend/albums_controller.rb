@@ -16,6 +16,11 @@ module Backend
       @categories = Category.all
     end
 
+    def album_queries
+      @artists = Album.limit(10).where('name LIKE ?', "%#{params[:q]}%").collect {|artist| {id: artist.id, name: artist.name}}
+      render json: @artists.to_json, only: [:id, :name]
+    end
+
     # GET /backend/albums/1
     # GET /backend/albums/1.json
     def show

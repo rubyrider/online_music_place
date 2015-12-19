@@ -7,6 +7,7 @@ window.MusicApp.controller "ArtistCtrl", [ "$scope", "model.artist", "utils.logg
       $scope.artist = response.artist
       $scope.songs = response.songs
       Logging.info "[Models::Artist]: " + $scope.artist
+      $("#song-loader .cube-loader-active").hide()
 
   else
     Artist.getAllArtist().then (response) ->

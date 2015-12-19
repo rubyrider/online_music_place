@@ -1,5 +1,5 @@
 window.MusicApp.controller 'AlbumCtrl', [
-  '$scope', 'model.album', 'utils.logging', '$http', '$location', '$routeParams', 'DateUtils',
+  '$scope', 'model.album', 'utils.logging','$http', '$location', '$routeParams', 'DateUtils',
   ($scope, Album, Logging, $http, $location, $routeParams, DateUtils) ->
 
     Album.getUserPlaylists().then (response) ->
@@ -9,18 +9,10 @@ window.MusicApp.controller 'AlbumCtrl', [
       Album.getAlbum($routeParams.id).then (response) ->
         $scope.album = response
         $scope.songs = response.songs
-
-        $(".p_playlist").html ""
-        songs = response.songs
-        i = 0
-
-        while i < songs.length
-          console.log songs[i]
-          html_markup = "<li audiourl='" + songs[i].song_url + "' artist=''>" + songs[i].name + "</li>"
-          console.log html_markup
-          $("ul.p_playlist").append html_markup
-          i++
-
+        $("#jplayer_N").jPlayer( "clearMedia" );
+        $("#jplayer_N").jPlayer( "destroy" );
+        window.MusicApp.murgi.addToPlaylist($scope.songs)
+        $("#song-loader .cube-loader-active").hide()
         Logging.info("[Models::Album]: #{$scope.album}")
     else
       Album.getAlbums().then (response) ->

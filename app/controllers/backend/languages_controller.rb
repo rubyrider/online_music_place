@@ -12,6 +12,11 @@ class Backend::LanguagesController < BackendController
     @languages = Language.all
   end
 
+  def language_queries
+    @artists = Language.limit(10).where('name LIKE ?', "%#{params[:q]}%").collect {|artist| {id: artist.id, name: artist.name}}
+    render json: @artists.to_json, only: [:id, :name]
+  end
+
   # GET /backend/languages/1
   # GET /backend/languages/1.json
   def show

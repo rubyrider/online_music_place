@@ -7,6 +7,10 @@ window.MusicApp.config [
       templateUrl: '/assets/music_apps/templates/home/index.html'
       controller: 'ContentCtrl')
     .when(
+      '/search',
+      templateUrl: '/assets/music_apps/templates/search/index.html'
+      controller: 'SearchCtrl')
+    .when(
       '/albums/:id',
       templateUrl: '/assets/music_apps/templates/albums/index.html'
       controller: 'AlbumCtrl'
@@ -26,9 +30,14 @@ window.MusicApp.config [
       controller: 'AlbumCtrl'
     )
     .when(
-      '/genre/:id',
-      templateUrl: '/assets/music_apps/templates/albums/list.html'
-      controller: 'AlbumCtrl'
+      '/genres/:id',
+      templateUrl: '/assets/music_apps/templates/home/genre.html'
+      controller: 'GenreCtrl'
+    )
+    .when(
+      '/languages/:id',
+      templateUrl: '/assets/music_apps/templates/home/genre.html'
+      controller: 'LangaugeCtrl'
     )
     .when(
       '/artists',

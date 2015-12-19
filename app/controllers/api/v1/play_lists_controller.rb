@@ -8,7 +8,7 @@ module Api
       # GET /play_lists.json
       def index
         if params[:system].present?
-          @play_lists = PlayList.where(:system_play_list => true).page(params[:page])
+          @play_lists = PlayList.where(:system_play_list => true).sample.page(params[:page])
         elsif params[:mood].present?
           @play_lists = PlayList.where(:system_play_list => true, mood: true).page(params[:page])
         else

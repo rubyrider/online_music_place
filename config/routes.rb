@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/albums/:id', to: 'music#index'
   get '/artists/', to: 'music#index'
   get '/artists/:id', to: 'music#index'
+  get '/genres/:id', to: 'music#index'
+  get '/languages/:id', to: 'music#index'
   get '/songs/:id', to: 'music#index'
   get '/playlists/:id', to: 'music#index'
   get '/category/:id/songs', to: 'music#index'
@@ -47,6 +49,9 @@ Rails.application.routes.draw do
   # Example resource route within a namespace:
   namespace :api do
     namespace :v1 do
+      resources :genres, only: [:show]
+      resources :languages, only: [:show]
+
       resources :users do
         member do
           get :favorite_songs
@@ -108,21 +113,28 @@ Rails.application.routes.draw do
     root 'songs#index'
     resources :users
     resources :songs do
+      get :song_queries, on: :collection
       get :autocomplete_category_name, :on => :collection
       get :autocomplete_artist_name, :on => :collection
       get :autocomplete_album_name, :on => :collection
     end
     resources :tracks
     resources :albums do
+      get :album_queries, on: :collection
       get :autocomplete_category_name, :on => :collection
       get :autocomplete_artist_name, :on => :collection
     end
     resources :artists do
+      get :artist_queries, on: :collection
       get :autocomplete_musical_band_name, :on => :collection
     end
-    resources :categories
+    resources :categories do
+      get :category_queries, on: :collection
+    end
     resources :subscriptions
-    resources :languages
+    resources :languages do
+      get :language_queries, on: :collection
+    end
     resources :analytics
     resources :ad_positions
     resources :advertisements

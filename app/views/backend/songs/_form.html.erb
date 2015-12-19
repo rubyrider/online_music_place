@@ -22,16 +22,33 @@
       <%= error_span(@song[:name]) %>
     </div>
     <div class="control-group">
-      <%= f.label :artist_name, :class => 'control-label' %>
+      <%= f.label :artists, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :artist_name, :class => 'form-control' %>
+        <%= f.text_field :artist_ids, data: {tokeninput: { collection: '/backend/artists/artist_queries.json', options: { theme: 'facebook', 'prePopulate': @song.artists.collect{|artist| {id: artist.id, name: artist.name}}.uniq}}} ,:class => 'form-control' %>
       </div>
-      <%= error_span(@song[:artist_name]) %>
+      <%= error_span(@song[:artists]) %>
     </div>
+    <div class="control-group">
+      <%= f.label :languages, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :language_ids, data: {tokeninput: { collection: '/backend/languages/language_queries.json', options: { theme: 'facebook', 'prePopulate': @song.languages.collect{|artist| {id: artist.id, name: artist.name}}.uniq}}} ,:class => 'form-control' %>
+      </div>
+      <%= error_span(@song[:langauges]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :genres, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :category_ids, data: {tokeninput: { collection: '/backend/categories/category_queries.json', options: {theme: 'facebook',  'prePopulate': @song.categories.collect{|artist| {id: artist.id, name: artist.name}}.uniq}}} ,:class => 'form-control' %>
+      </div>
+      <%= error_span(@song[:categories]) %>
+    </div>
+
     <div class="control-group">
       <%= f.label :album, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :album_id, Album.all.collect { |a| [a.name, a.id] }, {include_blank: 'Default'}, :class => 'form-control' %>
+        <%= f.text_field :album_id,
+                         data: {tokeninput: { collection: '/backend/albums/album_queries.json',
+                                                         options:  {theme: 'facebook', tokenLimit: 1, 'prePopulate': [@song.album.presence].as_json}}}, :class => 'form-control'%>
       </div>
       <%= error_span(@song[:album_id]) %>
     </div>
@@ -55,7 +72,8 @@
     <%= f.label :audio_file %>
     <%= f.file_field :audio, class: 'form-control' %>
 
-
+    <hr />
+    <br />
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 backend_songs_path, :class => 'btn btn-default' %>

@@ -8,6 +8,11 @@ module Backend
       @categories = Category.filter_by_params(params)
     end
 
+    def category_queries
+      @artists = Category.limit(10).where('name LIKE ?', "%#{params[:q]}%").collect {|artist| {id: artist.id, name: artist.name}}
+      render json: @artists.to_json, only: [:id, :name]
+    end
+
     # GET /backend/categories/1
     # GET /backend/categories/1.json
     def show

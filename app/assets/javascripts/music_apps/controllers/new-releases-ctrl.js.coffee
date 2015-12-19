@@ -4,6 +4,7 @@ window.MusicApp.controller 'NewReleasesCtrl', [
 
     Content.getHomePageContents().then (response) ->
       $scope.albums = _.chunk(response, 3);
+      $("#song-loader .cube-loader-active").hide()
 
       Logging.info("[Models::Content]: #{$scope.albums}")
 

@@ -20,7 +20,18 @@ class Category < ActiveRecord::Base
 
   validates :name, :presence => true, uniqueness: true
 
-  scope :main, -> { where( parent_id: nil ) }
+  scope :main, -> { where(parent_id: nil) }
+
+  def as_json(options = nil)
+    {
+        id:         self.to_param,
+        name:       self.name,
+        created:    self.created_at,
+        updated_at: self.updated_at,
+        songs:      self.songs,
+        parent:     self.genres
+    }
+  end
 
   def self.filter_by_params(params)
     results = Category.all

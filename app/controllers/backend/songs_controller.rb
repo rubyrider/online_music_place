@@ -11,9 +11,11 @@ module Backend
     def index
       # @songs = SongPresenter.collect Song.filter_by_params(params).page(params[:page]).per(50)
       @songs      = Song.filter_by_params(params).page(params[:page])
-      @albums     = Album.all.order(:name)
-      @artists    = Artist.all.order(:name)
-      @categories = Category.all
+    end
+
+    def song_queries
+      @artists = Song.limit(10).where('name LIKE ?', "%#{params[:q]}%").collect {|artist| {id: artist.id, name: artist.name}}
+      render json: @artists.to_json, only: [:id, :name]
     end
 
     # GET /backend/songs/1
@@ -97,6 +99,9 @@ module Backend
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backend_song_params
+      if params.require(:song)[:album_id].kind_of?(Array)
+        params.require(:song)[:album_id] =  params.require(:song)[:album_id].first
+      end
       params.require(:song).permit!
     end
   end

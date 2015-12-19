@@ -15,13 +15,16 @@
                         <div class="clearfix clear20"></div>
                         <div class="album-buttons">
                         <button class="btn btn-success btn-transparent">share</button>
-                        <button class="btn btn-info btn-transparent like-album {{album.favorite}}" data-album-id="{{album.id}}">like</button>>
+                        <button class="btn btn-info btn-transparent like-album {{album.favorite}}" data-album-id="{{album.id}}">like</button>
                         </div>
                     </div>
                     </button>
                 </div>
                 <div class="row">&nbsp;</div>
                 <ul class="pp_playlist">
+                    <div class="row" id="song-loader">
+                        <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+                    </div>
                     <!--<li ng-repeat="song in songs">-->
                     <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
 

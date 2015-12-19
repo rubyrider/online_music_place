@@ -17,9 +17,9 @@
   </div>
   <div class="col-md-8 bg_FEFFFF user">
     <div class="col-sm-9 search">
-      <form ng-submit="processForm()" action="/search" ng-submit="submitQuery" ng-click="processOrder()">
+      <form ng-submit="submitSearchForm()" ng-controller="SearchCtrl" novalidate>
       <div class="input-group">
-        <input type="text" name="query" class="form-control" placeholder="Search Song, Album and Playlist">
+        <input type="text" name="query" ng-model="query" class="form-control" placeholder="Search Song, Album and Playlist">
 						<span class="input-group-btn">
 							<button class="btn" type="submit"><i class="fa fa-search"></i></button>
               <a href="/playlists/surprise_me" class="color_9ECB3B btn btn-transparent-green col-sm-offset-2" style="margin-left: 15px;">Surprise Me</a>
@@ -50,11 +50,11 @@
     <ul class="genre-nav">
       <li>Genre</li>
       <% Category.limit(10).each do |genre| %>
-          <li><%= link_to genre.name, "/genre/#{genre.to_param}" %></li>
+          <li><%= link_to genre.name, "/genres/#{genre.to_param}" %></li>
       <% end %>
       <li>|&nbsp;Language</li>
       <% Language.limit(10).each do |genre| %>
-          <li><%= link_to genre.name, "/genre/#{genre.to_param}" %></li>
+          <li><%= link_to genre.name, "/languages/#{genre.to_param}" %></li>
       <% end %>
     </ul>
   </div>

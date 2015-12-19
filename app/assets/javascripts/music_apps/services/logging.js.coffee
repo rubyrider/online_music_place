@@ -7,6 +7,6 @@ window.MusicApp.factory 'utils.logging', [
       error:  (msg)             -> @isEnabled() && console.error  @buildMessage('error', msg)
 
       isEnabled:                -> typeof(console) != 'undefined'
-      buildMessage: (type, msg) -> if typeof(msg) == 'object' then msg else "[MessagingApp] #{type.toUpperCase()} - #{msg}"
+      buildMessage: (type, msg) -> if typeof(msg) == 'object' then msg else "[MusicApp] #{type.toUpperCase()} - #{msg}"
     }
 ]

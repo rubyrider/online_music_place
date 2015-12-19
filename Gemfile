@@ -121,3 +121,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
 gem "koala", "~> 2.2"
+gem 'rails-jquery-tokeninput'
