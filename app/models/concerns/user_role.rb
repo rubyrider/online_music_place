@@ -23,4 +23,8 @@ module UserRole
     end
   end
 
+  def current_role
+    User::ROLES.invert[self.role].to_s.humanize
+  end
+
 end

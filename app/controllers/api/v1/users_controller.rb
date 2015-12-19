@@ -2,7 +2,6 @@ module Api
   module V1
     class UsersController < ApiController
       before_action :set_user, only: [:show, :edit, :update, :destroy, :favorite_albums, :favorite_play_lists, :favorite_songs, :favorite_artists]
-      acts_as_token_authentication_handler_for User
 
       # GET /users
       # GET /users.json
@@ -13,7 +12,7 @@ module Api
       # GET /users/1
       # GET /users/1.json
       def show
-        render json: @user
+        render json: @user.to_json
       end
 
       # GET /users/new

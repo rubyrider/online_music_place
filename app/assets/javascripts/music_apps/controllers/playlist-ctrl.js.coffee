@@ -9,18 +9,10 @@ window.MusicApp.controller "PlaylistCtrl", [ "$scope", "model.playlist", "utils.
     Playlist.getRandom().then (response) ->
       $scope.album = response
       $scope.songs = response.songs
-
-      $(".p_playlist").html ""
-      songs = response.songs
-      i = 0
-
-      while i < songs.length
-        console.log songs[i]
-        html_markup = "<li audiourl='" + songs[i].song_url + "' artist=''>" + songs[i].name + "</li>"
-        console.log html_markup
-        $("ul.p_playlist").append html_markup
-        i++
-
+      $("#jplayer_N").jPlayer( "clearMedia" );
+      $("#jplayer_N").jPlayer( "destroy" );
+      window.MusicApp.murgi.addToPlaylist($scope.songs)
+      $("#song-loader .cube-loader-active").hide()
 
   else if $routeParams.id
     Playlist.getSongs($routeParams.id).then (response) ->

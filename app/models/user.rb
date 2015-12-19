@@ -30,6 +30,18 @@ class User < ActiveRecord::Base
   validates :role, :first_name, :last_name,:presence => true
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
+  def as_json(options = nil)
+    {
+        id: self.id,
+        name: self.full_name,
+        avater: self.avatar,
+        created_at: self.created_at,
+        updated_at: self.updated_at,
+        role: self.current_role,
+        songs: self.songs
+    }
+  end
+
   def full_name
     [first_name, last_name].compact.join(' ')
   end

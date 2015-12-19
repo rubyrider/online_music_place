@@ -71,8 +71,8 @@ window.MusicApp.config [
     )
     .when(
       '/profile/:id',
-      templateUrl: '/assets/music_apps/templates/albums/index.html'
-      controller: 'PlaylistCtrl'
+      templateUrl: '/assets/music_apps/templates/profiles/index.html'
+      controller: 'ProfileCtrl'
     )
     $location.html5Mode true
 ]
