@@ -1,21 +1,25 @@
 module Api
   module V1
     class PlayListsController < ApiController
-      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs]
+      before_action :set_play_list, only: [:show, :edit, :update, :destroy, :songs, :toggle_like]
       acts_as_token_authentication_handler_for User, only: [:toggle_presence_in_play_list, :edit, :update, :destroy]
 
       # GET /play_lists
       # GET /play_lists.json
       def index
         if params[:system].present?
-          @play_lists = PlayList.where(:system_play_list => true).sample.page(params[:page])
+          @play_lists = PlayList.where(:system_play_list => true).sample.page(params[:page]).
+              collect {|playlist| playlist.with_user_preference(current_user)}
         elsif params[:mood].present?
-          @play_lists = PlayList.where(:system_play_list => true, mood: true).page(params[:page])
+          @play_lists = PlayList.where(:system_play_list => true, mood: true).page(params[:page]).
+              collect {|playlist| playlist.with_user_preference(current_user)}
         else
           if current_user
-            @play_lists = current_user.play_lists.page(params[:page])
+            @play_lists = current_user.play_lists.page(params[:page]).
+                collect {|playlist| playlist.with_user_preference(current_user)}
           end
         end
+
         render json: @play_lists
       end
 
@@ -95,6 +99,31 @@ module Api
         render :json => @songs
       end
 
+      def toggle_like
+        if user == current_user
+          if user.play_lists.include? @play_list
+            if LikedPlayList.where(user_id: user.id, play_list_id: @play_list.id).destroy_all
+              render :json => {success: true, message: 'Successfully removed from favorite.'}
+              return
+            else
+              render :json => {success: false, message: "Can't remove!"}
+              return
+            end
+          else
+            if LikedPlayList.create(user_id: user.id, play_list_id: @play_list.id)
+              render :json => {success: true, message: 'Successfully added to favorite.'}
+              return
+            else
+              render :json => {success: false, message: "Can't be added to favorite!"}
+              return
+            end
+          end
+        else
+          render json: { success: false, message: 'You are not authorized!' }
+          return
+        end
+      end
+
       def toggle_presence_in_play_list
         user = current_user
         song = Song.find(params[:song_id]) rescue nil
@@ -131,6 +160,9 @@ module Api
       end
 
       private
+      def user
+        User.find(params[:user_id])
+      end
       # Use callbacks to share common setup or constraints between actions.
       def set_play_list
         @play_list = PlayList.find(params[:id])

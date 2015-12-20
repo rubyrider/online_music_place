@@ -59,6 +59,14 @@ Rails.application.routes.draw do
           get :favorite_play_lists
           get :favorite_artists
         end
+        resources :play_lists do
+          member do
+            post :toggle_like
+          end
+          collection do
+            post :toggle_presence_in_play_list
+          end
+        end
         resources :songs, only: [:index] do
           member do
             get :play_song
@@ -66,6 +74,7 @@ Rails.application.routes.draw do
           end
           resources :play_lists do
             collection do
+              post :toggle_like
               post :toggle_presence_in_play_list
             end
           end

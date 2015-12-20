@@ -39,7 +39,8 @@ $(document).ready(function () {
     $(document).on("click", ".heart_icon", function() {
         var $this = $(this);
         var song_id = $this.data('song-id');
-        var url = '/api/v1/users/' + window.current_user.id + '/songs/' + song_id + '/toggle_like';
+        var rpath = $this.data('resources-type');
+        var url = '/api/v1/users/' + window.current_user.id + '/'+ rpath +'/' + song_id + '/toggle_like';
 
         $.ajax({
             url: url,

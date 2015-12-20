@@ -27,9 +27,8 @@
                     </div>
                     <!--<li ng-repeat="song in songs">-->
                     <li ng-repeat="song in songs" audiourl="{{song.audio_url}}">
-
                         <span class="songPlay">
-                            <a class="play-song" data-title="{{song.name}}" data-audio-url="{{song.song_url}}"><i class="fa fa-play-circle-o play-icon"></i></a>
+                            <a class="play-song" data-title="{{song.name}}" data-audio-url="{{song.song_url}}" data-resources-type="songs"><i class="fa fa-play-circle-o play-icon"></i></a>
                         </span>
                         <span class="songTitle">{{song.name}}</span>
                         <span class="songSinger" ng-repeat="artist in song.artist_names">{{artist}}</span>

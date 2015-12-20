@@ -38,7 +38,9 @@ class PlayList < ActiveRecord::Base
     self.user
   end
 
-  def favorite_by?(user)
+  def favorite_by?(user = nil)
+    return false if user.nil?
+
     self.users.include?(user)
   end
 
@@ -48,7 +50,16 @@ class PlayList < ActiveRecord::Base
         name:       self.name,
         created_at: self.created_at,
         updated_at: self.updated_at,
-        cover:      self.cover
+        cover:      self.cover,
+        favorite:   false
     }
+  end
+
+  def with_user_preference(current_user = nil)
+    self.as_json.merge({
+                           favorite: self.favorite_by?(current_user)
+
+                       })
+
   end
 end

@@ -7,12 +7,12 @@ module Api
       # GET /songs
       # GET /songs.json
       def index
-        @songs = Song.limit(16).order(:updated_at)
+        @songs = Song.limit(16).order(:updated_at).collect { |song| song.song_with_user_preference(current_user) }
         render :json => @songs
       end
 
       def play_song
-        send_file @song.audio.path
+        # send_file @song.audio.path
       end
 
       # GET /songs/1

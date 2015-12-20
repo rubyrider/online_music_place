@@ -43,22 +43,35 @@ class Song < ActiveRecord::Base
         # album:      self.album,
         created_at: self.created_at,
         updated_at: self.updated_at,
-        song_url:  self.audio_url,
+        song_url:   self.audio_url,
         duration:   self.duration,
-        picture:    self.picture.as_json[:picture]
+        picture:    self.picture.as_json[:picture],
+        favorite: false,
+        playlist: false
     }
+  end
+
+  def song_with_user_preference(current_user = nil)
+      self.as_json.merge({
+                             favorite: self.favorite_by?(current_user),
+                             playlist: self.belongs_to_playlist?(current_user)
+
+                         })
+
   end
 
   def audio_url
     Signature.new(self).generate_uri
   end
 
-  def favorite_by?(user)
+  def favorite_by?(user = nil)
+    return false if user.nil?
+
     self.users.include?(user)
   end
 
-  def belongs_to_playlist?
-    self.play_lists.present?
+  def belongs_to_playlist?(user = nil)
+    user.play_list_songs.include?(self)
   end
 
   def self.filter_by_params(params)
@@ -139,7 +152,7 @@ class Song < ActiveRecord::Base
   # @assign album_id
   def assign_default_album
     if self.album_id.present?
-      return  true
+      return true
     end
     if tag_album.present?
       @album = Album.where(name: tag_album).first_or_create!

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :albums, through: :liked_albums
   has_many :liked_play_lists
   has_many :play_lists, through: :liked_play_lists
+  has_many :play_list_songs, through: :play_lists, source: :songs
   has_many :liked_artists
   has_many :artists, through: :liked_artists
   has_many :play_lists
@@ -38,7 +39,9 @@ class User < ActiveRecord::Base
         created_at: self.created_at,
         updated_at: self.updated_at,
         role: self.current_role,
-        songs: self.songs
+        songs: self.songs,
+        albums: self.albums,
+        artists: self.artists,
     }
   end
 

@@ -27,8 +27,17 @@ class Album < ActiveRecord::Base
         banner:     self.banner,
         created_at: self.created_at,
         categories: self.categories,
-        audios: self.songs
+        audios:     self.songs,
+        favorite:   false
     }
+  end
+
+  def with_user_preference(current_user = nil)
+    self.as_json.merge({
+                           favorite: self.favorite_by?(current_user)
+
+                       })
+
   end
 
   def default_title
@@ -39,7 +48,8 @@ class Album < ActiveRecord::Base
     name || default_title
   end
 
-  def favorite_by?(user)
+  def favorite_by?(user = nil)
+  return false if user.nil?
     self.users.include?(user)
   end
 

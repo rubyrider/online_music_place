@@ -6,6 +6,6 @@ json.songs @play_list.songs do |song|
   json.duration song.duration
   json.song_url song.audio_url
   json.favorite song.favorite_by?(current_user)
-  json.playlist song.belongs_to_playlist?
+  json.playlist song.belongs_to_playlist?(current_user)
   json.artist_names song.artists.collect {|artist| artist.name}
 end
