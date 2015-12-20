@@ -9,14 +9,19 @@ module Api
       def index
         if params[:system].present?
           @play_lists = PlayList.where(:system_play_list => true).sample.page(params[:page]).
-              collect {|playlist| playlist.with_user_preference(current_user)}
+              collect { |playlist| playlist.with_user_preference(current_user) }
         elsif params[:mood].present?
-          @play_lists = PlayList.where(:system_play_list => true, mood: true).page(params[:page]).
-              collect {|playlist| playlist.with_user_preference(current_user)}
+          if params[:q].present?
+            @play_lists = PlayList.search(params[:q]).
+                collect { |playlist| playlist.with_user_preference(current_user) }
+          else
+            @play_lists = PlayList.where(:system_play_list => true, mood: true).page(params[:page]).
+                collect { |playlist| playlist.with_user_preference(current_user) }
+          end
         else
           if current_user
             @play_lists = current_user.play_lists.page(params[:page]).
-                collect {|playlist| playlist.with_user_preference(current_user)}
+                collect { |playlist| playlist.with_user_preference(current_user) }
           end
         end
 
@@ -32,7 +37,7 @@ module Api
 
       def get_for_jplayer
         playlist = PlayList.find(params[:id])
-        @songs = playlist.songs
+        @songs   = playlist.songs
       end
 
       # GET /play_lists/new
@@ -47,9 +52,9 @@ module Api
       # POST /play_lists
       # POST /play_lists.json
       def create
-        @play_list = PlayList.new()
+        @play_list         = PlayList.new()
         @play_list.user_id = current_user.id
-        @play_list.name = params[:play_list]['name']
+        @play_list.name    = params[:play_list]['name']
         respond_to do |format|
           if @play_list.save
             format.html { redirect_to root_path, notice: 'Play list was successfully created.' }
@@ -103,18 +108,18 @@ module Api
         if user == current_user
           if user.play_lists.include? @play_list
             if LikedPlayList.where(user_id: user.id, play_list_id: @play_list.id).destroy_all
-              render :json => {success: true, message: 'Successfully removed from favorite.'}
+              render :json => { success: true, message: 'Successfully removed from favorite.' }
               return
             else
-              render :json => {success: false, message: "Can't remove!"}
+              render :json => { success: false, message: "Can't remove!" }
               return
             end
           else
             if LikedPlayList.create(user_id: user.id, play_list_id: @play_list.id)
-              render :json => {success: true, message: 'Successfully added to favorite.'}
+              render :json => { success: true, message: 'Successfully added to favorite.' }
               return
             else
-              render :json => {success: false, message: "Can't be added to favorite!"}
+              render :json => { success: false, message: "Can't be added to favorite!" }
               return
             end
           end
@@ -163,6 +168,7 @@ module Api
       def user
         User.find(params[:user_id])
       end
+
       # Use callbacks to share common setup or constraints between actions.
       def set_play_list
         @play_list = PlayList.find(params[:id])

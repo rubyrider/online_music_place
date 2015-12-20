@@ -1,0 +1,78 @@
+<div class="service bg_FEFFFF">
+  <div class="serviceArea col-md-12">
+    <div>
+      <h3 class="pull-left" style="color: #9ECB3B;" ng-if="songs.length > 0">Search Result For Songs</h3>
+    </div>
+    <br>
+    <hr ng-if="songs.length > 0">
+    <div class="row" id="song-loader">
+      <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+    </div>
+    <div class="row" ng-repeat="songGroup in songs" style="margin-bottom: 20px">
+      <div ng-repeat="song in songGroup" class="col-md-2">
+        <a ng-href="#" class="play-song" data-audio-url="{{song.audio_url}}" data-title="{{song.name}}">
+          <div class="musicSelect">
+            <h5>{{song.name}}</h5>
+
+            <div class="control">
+              <i class="fa fa-play-circle-o"></i>
+              <i class="fa fa-heart heart_icon {{song.favorite}}" data-song-id="{{song.id}}" data-resources-type="songs"></i>
+            </div>
+          </div>
+          <img ng-src="{{song.picture.url ? (song.picture.last.url) : '/assets/images/placeholder.png'}}"
+               class="img-responsive" alt="" width="250" height="250"/>
+        </a>
+        <!--<img class="img-responsive" ng-src="{{album.cover.url ? (domain_url + album.cover.url) : placeholder_image_url}}" alt=""  /></a>-->
+      </div>
+    </div>
+    <div>
+      <h3 class="pull-left" style="color: #9ECB3B;" ng-if="mplaylists.length > 0">Search Result For Playlists</h3>
+    </div>
+    <br>
+    <hr ng-if="mplaylists.length > 0">
+    <div class="row" id="album-loader">
+      <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+    </div>
+    <div class="row" ng-repeat="playlistGroup in mplaylists" style="margin-bottom: 20px">
+      <div ng-repeat="playlist in playlistGroup" class="col-md-2">
+        <a ng-href="/playlists/{{playlist.id}}" data-type="playlist" data-album-id="{{playlist.id}}" class="play-album">
+          <div class="musicSelect">
+            <h5>{{playlist.name}}</h5>
+
+            <div class="control">
+              <i class="fa fa-play-circle-o"></i>
+              <i class="fa fa-heart heart_icon {{playlist.favorite}}"  data-song-id="{{playlist.id}}" data-resources-type="play_lists"></i>
+            </div>
+          </div>
+          <img ng-src="{{playlist.cover.url ? (playlist.cover.url) : '/assets/images/placeholder.png'}}"
+               class="img-responsive" alt="" width="250" height="250"/>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h3 class="pull-left" style="color: #9ECB3B;" ng-if="albums.length > 0">Search Result For Albums</h3>
+    </div>
+    <br>
+    <hr ng-if="albums.length > 0">
+    <div class="row" id="playlist-loader">
+      <div class='cube-loader-active' style='-webkit-transform:scale(0.76)'></div>
+    </div>
+    <div class="row" ng-repeat="albumGroup in albums" style="margin-bottom: 20px">
+      <div ng-repeat="album in albumGroup" class="col-md-2">
+        <a ng-href="/albums/{{album.id}}" data-type="album" data-album-id="{{album.id}}" class="play-album">
+          <div class="musicSelect">
+            <h5>{{album.name}}</h5>
+
+            <div class="control">
+              <i class="fa fa-play-circle-o"></i>
+              <i class="fa fa-heart heart_icon {{album.favorite}}"  data-song-id="{{album.id}}" data-resources-type="albums"></i>
+            </div>
+          </div>
+          <img ng-src="{{album.cover_url ? (album.cover_url) : '/assets/images/placeholder.png'}}"
+               class="img-responsive" alt="" width="250" height="250"/>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

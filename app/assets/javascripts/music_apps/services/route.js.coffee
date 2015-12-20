@@ -7,7 +7,7 @@ window.MusicApp.config [
       templateUrl: '/assets/music_apps/templates/home/index.html'
       controller: 'ContentCtrl')
     .when(
-      '/search',
+      '/search/:query',
       templateUrl: '/assets/music_apps/templates/search/index.html'
       controller: 'SearchCtrl')
     .when(

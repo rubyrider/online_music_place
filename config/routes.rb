@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/songs/:id', to: 'music#index'
   get '/playlists/:id', to: 'music#index'
   get '/category/:id/songs', to: 'music#index'
-  get '/search', to: 'music#index'
+  get '/search/:q', to: 'music#index'
   get '/artists/:id', to: 'music#index'
   get '/profile/:id', to: 'music#index'
   get '/users/:id/finish_signup' => 'users#finish_signup', :as => :finish_signup

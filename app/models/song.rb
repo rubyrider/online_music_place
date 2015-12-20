@@ -71,6 +71,8 @@ class Song < ActiveRecord::Base
   end
 
   def belongs_to_playlist?(user = nil)
+    return false if user.nil?
+
     user.play_list_songs.include?(self)
   end
 

@@ -9,27 +9,42 @@ window.MusicApp.factory 'model.content', [ 'Restangular', 'utils.logging', 'Date
 
     initialDuration: 31
 
-    getLatestSongs: () ->
+    getLatestSongs: (query) ->
       _params = {page: @page}
+
+      if typeof(query) == "string"
+        _.extend _params, {q: query}
+
       Logging.info("Loading [Models::Content]")
 
       Restangular.all('songs').getList(_params)
 
-    getHomePageContents: () ->
+    getHomePageContents: (query) ->
       _params = {page: @page}
+
+      if typeof(query) == "string"
+        _.extend _params, {q: query}
+
       Logging.info("Loading [Models::Content]")
 
       Restangular.all('albums').getList(_params)
 
-    getMoodPlaylists: () ->
+    getMoodPlaylists: (query) ->
       _params = {page: @page, mood: true}
+
+      if typeof(query) == "string"
+        _.extend _params, {q: query}
+
       Logging.info("Loading [Models::Content]")
 
       Restangular.all('play_lists').getList(_params)
 
-    getUserPlaylists: () ->
+    getUserPlaylists: (query) ->
       _params = {page: @page}
       Logging.info("Loading [Models::Content]")
+
+      if typeof(query) == "string"
+        _.extend _params, {q: query}
 
       Restangular.all('play_lists').getList(_params)
   }

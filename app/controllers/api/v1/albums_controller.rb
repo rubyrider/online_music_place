@@ -7,7 +7,11 @@ module Api
       # GET /albums
       # GET /albums.json
       def index
-        @albums = Album.order('created_at DESC').page(params[:page]).per(20)
+        if params[:q].present?
+          @albums = Album.search(params[:q])
+        else
+          @albums = Album.order('created_at DESC').page(params[:page]).per(20)
+        end
 
         respond_to :json
       end
