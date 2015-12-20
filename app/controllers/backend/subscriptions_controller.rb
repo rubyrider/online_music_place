@@ -1,4 +1,4 @@
-class Backend
+module Backend
   class SubscriptionsController < BackendController
     before_action :set_backend_subscription, only: [:show, :edit, :update, :destroy]
 
