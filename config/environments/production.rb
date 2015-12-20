@@ -40,8 +40,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { host: '107.161.122.164', port: 3000 }
-  config.x.facebook_api_key = '896115117124227'
-  config.x.facebook_api_secret = '9105653709071483c114f00ba176d5f3'
+  config.x.facebook_api_key = '897236343678771'
+  config.x.facebook_api_secret = 'c958e3b4601682c83950717953e2c8d5'
 end
 
 ENV['SHOST'] = 'https://107.161.122.164:453'
