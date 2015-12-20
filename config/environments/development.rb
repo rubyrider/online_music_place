@@ -43,3 +43,5 @@ Rails.application.configure do
   config.x.facebook_api_key = '896115117124227'
   config.x.facebook_api_secret = '9105653709071483c114f00ba176d5f3'
 end
+
+ENV['SHOST'] = 'https://play.local.dev:453'

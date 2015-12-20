@@ -10,12 +10,12 @@ class Signature
 
   delegate :id, to: :song
 
-  def initialize(song, server= 'https://play.local.dev:453')
+  def initialize(song)
     @song            = song
     @password        = Rails.application.config.x.signature
     @filename        = song.read_attribute(:audio).gsub(/\.mp3/, '')
     @expiration_time = (Time.zone.now + 10.minutes).to_i
-    @server_name     = server
+    @server_name     = ENV['SHOST']
     generate_signature
   end
 
