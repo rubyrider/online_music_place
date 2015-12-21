@@ -329,6 +329,7 @@ ActiveRecord::Schema.define(version: 20151218084339) do
     t.string   "artist_name",   limit: 255
     t.string   "audio",         limit: 255
     t.float    "duration",      limit: 24
+    t.string   "cover",         limit: 255
     t.string   "picture",       limit: 255
     t.string   "slug",          limit: 255
   end
