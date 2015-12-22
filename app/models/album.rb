@@ -10,11 +10,11 @@ class Album < ActiveRecord::Base
   mount_uploader :cover, AlbumCoverUploader
 
   has_many :songs, dependent: :nullify
-  has_many :album_artists
+  has_many :album_artists, dependent: :delete_all
   has_many :artists, through: :album_artists
-  has_many :album_categories
+  has_many :album_categories, dependent: :delete_all
   has_many :categories, through: :album_categories
-  has_many :liked_albums
+  has_many :liked_albums, dependent: :delete_all
   has_many :users, through: :liked_albums
 
   before_validation :set_default_title
