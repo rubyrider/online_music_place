@@ -13,7 +13,7 @@ class Signature
   def initialize(song)
     @song            = song
     @password        = Rails.application.config.x.signature
-    @filename        = song.read_attribute(:audio).gsub(/\.mp3/, '')
+    @filename        = song.read_attribute(:audio).gsub(/\.mp3/, '') rescue ''
     @expiration_time = (Time.zone.now + 10.minutes).to_i
     @server_name     = ENV['SHOST']
     generate_signature

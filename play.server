@@ -2,6 +2,7 @@ server {
        ssl                     on;
        listen                  453 default ssl;
        access_log              /Users/irfanahmed/play/logs/access.log;
+       error_log              /Users/irfanahmed/play/logs/error.log;
 
        server_name play.local.dev;
        charset utf-8;
@@ -12,15 +13,21 @@ server {
          index index.html;
         }
 
-       location ~* ^.+\.(mp3|jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm)$
-       {
-         root   /usr/local/var/www/music;
-       }
-
        location /play/ {
         if ($http_range = '') { return 403; }
-        rewrite ^/download/(.*) /songs/$1.mp3  break;
-        return  403;
-    }
+        rewrite ^/play/([a-zA-Z0-9_\-]*)/([0-9]*)/([0-9]*)/(.*) /songs/$2/$4.mp3?e=$3&t=$1 break;
+
+        add_header            Cache-Control  'private, max-age=0, must-revalidate';
+        add_header            Strict-Transport-Security "max-age=16070400; includeSubdomains";
+        add_header            X-Frame-Options DENY;
+      }
+
+       location ~ \.(mp3|jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm)$ {
+         deny                  all;
+       }
 }
+
+nginx.crt  nginx.key
+root@srv:/etc/nginx/ssl# pwd
+/etc/nginx/ssl
 
