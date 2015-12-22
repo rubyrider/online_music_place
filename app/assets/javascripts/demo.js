@@ -24,7 +24,7 @@ $(document).ready(function () {
         }, sources, {
             playlistOptions: {
                 enableRemoveControls: true,
-                autoPlay: false
+                autoPlay: true
             },
             swfPath: "js/jPlayer",
             supplied: "webmv, ogv, m4v, oga, mp3, wav",

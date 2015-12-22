@@ -26,7 +26,7 @@ window.MusicApp.murgi =
       }, sources,
         playlistOptions:
           enableRemoveControls: true
-          autoPlay: false
+          autoPlay: true
         swfPath: 'js/jPlayer'
         supplied: 'webmv, ogv, m4v, oga, mp3, wav'
         smoothPlayBar: true
