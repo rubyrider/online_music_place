@@ -31,6 +31,8 @@ class Song < ActiveRecord::Base
   before_validation :assign_default_album
   before_validation :set_song_title!
 
+  validates_presence_of :audio
+
   after_save :update_duration
   before_save :find_or_create_artist
 
