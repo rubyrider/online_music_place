@@ -26,6 +26,6 @@ class Signature
   end
 
   def generate_uri
-    "#{server_name}/play/#{source}/#{song.id}/#{expiration_time}/#{filename}"
+    "#{server_name}/#{song.id}/#{filename}.mp3"
   end
 end

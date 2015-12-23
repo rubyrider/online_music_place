@@ -44,4 +44,5 @@ Rails.application.configure do
   config.x.facebook_api_secret = '9105653709071483c114f00ba176d5f3'
 end
 
-ENV['SHOST'] = 'https://play.local.dev:453'
+ENV['SHOST'] = 'http://localhost:8000/songs'
+ENV['SLOCATION'] = '/usr/share/icecast2/web/songs/'
