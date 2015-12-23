@@ -5,7 +5,7 @@ window.MusicApp.murgi =
 
       _.each(songs, (song)->(
         _song = {}
-        _song.mp3 = "#{song.song_url}/;stream/1"
+        _song.mp3 = "#{song.song_url}"
         _song.title = song.name
         _song_list.push(_song)
       ))
