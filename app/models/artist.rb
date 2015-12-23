@@ -39,11 +39,11 @@ class Artist < ActiveRecord::Base
       :other         => 3
   }
 
-  has_many :song_artists
+  has_many :song_artists, dependent: :delete_all
   has_many :songs, through: :song_artists
-  has_many :album_artists
-  has_many :albums
-  has_many :liked_artists
+  has_many :album_artists, dependent: :delete_all
+  has_many :albums, through: :album_artists
+  has_many :liked_artists, dependent: :delete_all
   has_many :users, through: :liked_artists
   has_many :band_artists, class_name: 'Artist', foreign_key: :band_id
   belongs_to :musical_band

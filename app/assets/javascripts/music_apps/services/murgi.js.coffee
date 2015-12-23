@@ -2,9 +2,10 @@ window.MusicApp.murgi =
   {
     sources: (songs) ->(
       _song_list = []
+
       _.each(songs, (song)->(
         _song = {}
-        _song.mp3 = song.song_url
+        _song.mp3 = "#{song.song_url}"
         _song.title = song.name
         _song_list.push(_song)
       ))
@@ -25,7 +26,7 @@ window.MusicApp.murgi =
       }, sources,
         playlistOptions:
           enableRemoveControls: true
-          autoPlay: false
+          autoPlay: true
         swfPath: 'js/jPlayer'
         supplied: 'webmv, ogv, m4v, oga, mp3, wav'
         smoothPlayBar: true

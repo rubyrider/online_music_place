@@ -22,9 +22,9 @@ class PlayList < ActiveRecord::Base
   mount_uploader :cover, PlayListCoverUploader
 
   belongs_to :user
-  has_many :liked_play_lists
+  has_many :liked_play_lists, dependent: :delete_all
   has_many :users, through: :liked_play_lists
-  has_many :play_list_songs
+  has_many :play_list_songs, dependent: :delete_all
   has_many :songs, through: :play_list_songs
 
   accepts_nested_attributes_for :play_list_songs,

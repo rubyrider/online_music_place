@@ -4,7 +4,6 @@ module UserRole
 
   ROLES = {
       :user => 0,
-      :admin => 1,
       :moderator => 2,
       :reporter => 3,
       :collection_manager => 4

@@ -16,13 +16,13 @@ class Song < ActiveRecord::Base
   has_many :languages, through: :song_languages
   has_many :song_artists, dependent: :delete_all
   has_many :artists, through: :song_artists
-  has_many :song_categories
+  has_many :song_categories , dependent: :delete_all
   has_many :categories, through: :song_categories
   has_many :liked_songs, dependent: :delete_all
   has_many :users, through: :liked_songs
   belongs_to :track
   belongs_to :demo_track, class_name: 'Track', foreign_key: :demo_track_id
-  has_many :play_list_songs
+  has_many :play_list_songs, dependent: :delete_all
   has_many :play_lists, through: :play_list_songs
 
   accepts_nested_attributes_for :track
@@ -30,6 +30,8 @@ class Song < ActiveRecord::Base
 
   before_validation :assign_default_album
   before_validation :set_song_title!
+
+  validates_presence_of :audio
 
   after_save :update_duration
   before_save :find_or_create_artist

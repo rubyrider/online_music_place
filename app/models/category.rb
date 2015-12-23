@@ -12,9 +12,9 @@ class Category < ActiveRecord::Base
 
   include SlugConcern
 
-  has_many :song_categories
+  has_many :song_categories, dependent: :delete_all
   has_many :songs, through: :song_categories
-  has_many :album_categories
+  has_many :album_categories, dependent: :delete_all
   has_many :albums, through: :album_categories
   has_many :genres, class_name: 'Category', foreign_key: :parent_id
 
