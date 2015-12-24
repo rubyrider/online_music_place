@@ -18,13 +18,14 @@ $(document).ready(function () {
 
     function initialize_jplayer(sources) {
         console.log(sources);
+
         window.myPlaylist = new jPlayerPlaylist({
             jPlayer: "#jplayer_N",
             cssSelectorAncestor: "#jp_container_N"
         }, sources, {
             playlistOptions: {
                 enableRemoveControls: true,
-                autoPlay: true
+                autoPlay: false
             },
             swfPath: "js/jPlayer",
             supplied: "webmv, ogv, m4v, oga, mp3, wav",
@@ -32,6 +33,8 @@ $(document).ready(function () {
             keyEnabled: true,
             audioFullScreen: false
         });
+
+        $("#jplayer_N").jPlayer( "play",  0);
 
         $(document).on($.jPlayer.event.pause, window.myPlaylist.cssSelector.jPlayer, function () {
             $('.musicbar').removeClass('animate');
