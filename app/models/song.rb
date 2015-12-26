@@ -1,7 +1,11 @@
 require 'taglib'
 require 'audioinfo'
+require 'pty'
+require 'expect'
 
 class Song < ActiveRecord::Base
+
+  AUDIO_FORMATS = [:m4a, :ogg]
 
   include SlugConcern
 
@@ -35,6 +39,7 @@ class Song < ActiveRecord::Base
 
   after_save :update_duration
   before_save :find_or_create_artist
+  after_save :generate_audio_versions
 
   def as_json(options = nil)
     {
@@ -46,6 +51,7 @@ class Song < ActiveRecord::Base
         created_at: self.created_at,
         updated_at: self.updated_at,
         song_url:   self.audio_url,
+        # song_url:   'http://107.161.122.164:8000/songs/3/Track_1.mp3',
         duration:   self.duration,
         picture:    self.picture.as_json[:picture],
         favorite: false,
@@ -174,6 +180,8 @@ class Song < ActiveRecord::Base
   end
 
   def update_duration
+    return true if duration.present?
+
     __length = (raw_length / 60.00).round(2)
     update_column(:duration, __length)
   end
@@ -189,8 +197,48 @@ class Song < ActiveRecord::Base
     if __artist_name.present?
       @artist = Artist.where(name: __artist_name).first_or_create!
 
-      self.artists << @artist if @artist.present?
+      self.artists << @artist if ! self.artists.exists?(id: @artist.id) && @artist.present?
     end
+  end
+
+  def collect_formats
+
+  end
+
+  private
+
+  def generate_audio_versions
+    AUDIO_FORMATS.each do |format|
+      convert_to_given_format format
+    end
+  end
+
+  def convert_to_given_format(format = 'm4a', forced = false)
+    puts "encoding to #{format}"
+
+    if format_already_exists(format) && !forced
+      return true # silently avoid, force command is there to avoid this steps!
+    end
+
+    orig_file_name = self.read_attribute(:audio)
+    orig_file_with_new_ext = "#{ENV['SLOCATION']}/#{self.id}/#{orig_file_name.gsub(/\.mp3/, ".#{format}")}"
+
+    puts orig_file_with_new_ext
+
+    PTY.spawn("ffmpeg -i #{self.audio.path} -vn #{orig_file_with_new_ext}") do |reader, writer|
+      if reader.expect(/Overwrite/, 10).present? # cont. in 5s if input doesn't match
+        puts "Current format already exists"
+        writer.puts('y')
+      end
+    end
+
+    format_already_exists(format)
+  end
+
+  public
+
+  def format_already_exists(format)
+    File.exist? self.audio.path.gsub(/\.mp3/, ".#{format}")
   end
 
 end

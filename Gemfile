@@ -122,3 +122,5 @@ gem 'omniauth-linkedin'
 
 gem "koala", "~> 2.2"
 gem 'rails-jquery-tokeninput'
+gem 'rstreamor', '~> 0.2.4'
+gem 'carrierwave_audio', git: 'git@github.com:doodzik/carrierwave_audio.git'

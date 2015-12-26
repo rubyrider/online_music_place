@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require popcorn.min
 //= require twitter/bootstrap
 //= require dropdown-filter
 //= require jquery-ui
@@ -20,14 +21,11 @@
 //= require underscore
 //= require music
 //= require lodash
-//= require popcorn/popcorn.jplayer
 //= require demo
-//= require jquery.jplayer.min
-//= require jplayer.playlist.min
-//= require jquery.jplayer.inspector.min
 //= require jquery.bxslider
 //= require_tree ./backend
 //= require_tree ./facebooks
+//= require_tree ./jPlayer
 //= require ckeditor-jquery
 
 $(document).ready(function () {

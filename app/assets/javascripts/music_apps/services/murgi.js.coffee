@@ -5,8 +5,12 @@ window.MusicApp.murgi =
 
       _.each(songs, (song)->(
         _song = {}
-        _song.mp3 = "#{song.song_url}"
         _song.title = song.name
+        _formats = _.keys(song.song_url)
+        _.each(_formats, (format)->
+           _song[format] = song.song_url[format]
+           console.log(_song)
+        )
         _song_list.push(_song)
       ))
 
@@ -27,8 +31,7 @@ window.MusicApp.murgi =
         playlistOptions:
           enableRemoveControls: true
           autoPlay: true
-        swfPath: 'js/jPlayer'
-        supplied: 'webmv, ogv, m4v, oga, mp3, wav'
+        supplied: "mp3, ogg, m4a",
         smoothPlayBar: true
         keyEnabled: true
         audioFullScreen: false)

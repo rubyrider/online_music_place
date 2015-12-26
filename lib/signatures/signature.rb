@@ -11,9 +11,9 @@ class Signature
   delegate :id, to: :song
 
   def initialize(song)
-    @song            = song
-    @password        = Rails.application.config.x.signature
-    @filename        = song.read_attribute(:audio).gsub(/\.mp3/, '') rescue ''
+    @song     = song
+    @password = Rails.application.config.x.signature
+    @filename = song.read_attribute(:audio).gsub(/\.mp3/, '') rescue ''
     @expiration_time = (Time.zone.now + 10.minutes).to_i
     @server_name     = ENV['SHOST']
     generate_signature
@@ -26,6 +26,12 @@ class Signature
   end
 
   def generate_uri
-    "#{server_name}/#{song.id}/#{filename}.mp3"
+    urls = {}
+    Song::AUDIO_FORMATS.each do |audio_format|
+      # urls[audio_format] = "#{server_name}/#{song.id}/#{filename}.#{audio_format}" if song.format_already_exists(audio_format)
+      urls[audio_format] = "#{server_name}/play/#{source}/#{song.id}/#{expiration_time}/#{filename}/#{audio_format}" if song.format_already_exists(audio_format)
+    end
+
+    urls
   end
 end

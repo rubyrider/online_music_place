@@ -1,5 +1,6 @@
 module Backend
   class SongsController < BackendController
+    include Rstreamor
     before_action :set_backend_song, only: [:show, :edit, :update, :destroy]
 
     autocomplete :category, :name, :full => true
@@ -21,6 +22,7 @@ module Backend
     # GET /backend/songs/1
     # GET /backend/songs/1.json
     def show
+      stream @song.audio.url
     end
 
     # GET /backend/songs/new

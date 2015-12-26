@@ -132,7 +132,6 @@ class Artist < ActiveRecord::Base
       return nil if age < 0
     end
 
-
     age
   end
 
