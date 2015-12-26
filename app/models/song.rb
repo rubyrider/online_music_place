@@ -20,7 +20,7 @@ class Song < ActiveRecord::Base
   has_many :languages, through: :song_languages
   has_many :song_artists, dependent: :delete_all
   has_many :artists, through: :song_artists
-  has_many :song_categories , dependent: :delete_all
+  has_many :song_categories, dependent: :delete_all
   has_many :categories, through: :song_categories
   has_many :liked_songs, dependent: :delete_all
   has_many :users, through: :liked_songs
@@ -54,17 +54,17 @@ class Song < ActiveRecord::Base
         # song_url:   'http://107.161.122.164:8000/songs/3/Track_1.mp3',
         duration:   self.duration,
         picture:    self.picture.as_json[:picture],
-        favorite: false,
-        playlist: false
+        favorite:   false,
+        playlist:   false
     }
   end
 
   def song_with_user_preference(current_user = nil)
-      self.as_json.merge({
-                             favorite: self.favorite_by?(current_user),
-                             playlist: self.belongs_to_playlist?(current_user)
+    self.as_json.merge({
+                           favorite: self.favorite_by?(current_user),
+                           playlist: self.belongs_to_playlist?(current_user)
 
-                         })
+                       })
 
   end
 
@@ -197,7 +197,7 @@ class Song < ActiveRecord::Base
     if __artist_name.present?
       @artist = Artist.where(name: __artist_name).first_or_create!
 
-      self.artists << @artist if ! self.artists.exists?(id: @artist.id) && @artist.present?
+      self.artists << @artist if !self.artists.exists?(id: @artist.id) && @artist.present?
     end
   end
 
@@ -216,19 +216,24 @@ class Song < ActiveRecord::Base
   def convert_to_given_format(format = 'm4a', forced = false)
     puts "encoding to #{format}"
 
-    if format_already_exists(format) && !forced
-      return true # silently avoid, force command is there to avoid this steps!
-    end
+    # if format_already_exists(format) && !forced
+    #   return true # silently avoid, force command is there to avoid this steps!
+    # end
 
-    orig_file_name = self.read_attribute(:audio)
+    orig_file_name         = self.read_attribute(:audio)
     orig_file_with_new_ext = "#{ENV['SLOCATION']}/#{self.id}/#{orig_file_name.gsub(/\.mp3/, ".#{format}")}"
 
     puts orig_file_with_new_ext
 
-    PTY.spawn("ffmpeg -i #{self.audio.path} -vn #{orig_file_with_new_ext}") do |reader, writer|
-      if reader.expect(/Overwrite/, 10).present? # cont. in 5s if input doesn't match
-        puts "Current format already exists"
-        writer.puts('y')
+    PTY.spawn("ffmpeg -i #{self.audio.path} -vn #{orig_file_with_new_ext}") do |reader, writer, p|
+      begin
+        if reader.expect(/Overwrite/, 10).present? # cont. in 5s if input doesn't match
+          puts "Current format already exists"
+          writer.puts('y')
+        end
+      rescue Errno::EIO
+      ensure
+        Process.wait p
       end
     end
 
