@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225210143) do
+ActiveRecord::Schema.define(version: 20151226051922) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -332,6 +332,7 @@ ActiveRecord::Schema.define(version: 20151225210143) do
     t.string   "cover",         limit: 255
     t.string   "picture",       limit: 255
     t.string   "slug",          limit: 255
+    t.integer  "track",         limit: 4
   end
 
   add_index "songs", ["slug"], name: "index_songs_on_slug", unique: true, using: :btree

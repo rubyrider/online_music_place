@@ -205,6 +205,10 @@ class Song < ActiveRecord::Base
 
   end
 
+  def set_track_number
+    self.track = self.info.info.tag['tracknum'] if !self.track.present? && !self.track_changed?
+  end
+
   private
 
   def generate_audio_versions
@@ -216,9 +220,9 @@ class Song < ActiveRecord::Base
   def convert_to_given_format(format = 'm4a', forced = false)
     puts "encoding to #{format}"
 
-    # if format_already_exists(format) && !forced
-    #   return true # silently avoid, force command is there to avoid this steps!
-    # end
+    if format_already_exists(format) && !forced
+      return true # silently avoid, force command is there to avoid this steps!
+    end
 
     orig_file_name         = self.read_attribute(:audio)
     orig_file_with_new_ext = "#{ENV['SLOCATION']}/#{self.id}/#{orig_file_name.gsub(/\.mp3/, ".#{format}")}"
